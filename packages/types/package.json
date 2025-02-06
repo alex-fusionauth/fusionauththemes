@@ -1,0 +1,15 @@
+{
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@cloudflare/workers-types": "^4.20250129.0",
+    "@repo/tsconfig": "workspace:*",
+    "hono": "^4.6.19"
+  },
+  "main": "./index.ts",
+  "name": "@repo/types",
+  "scripts": {
+    "type-check": "tsc --noEmit"
+  },
+  "types": "./**/.tsx",
+  "version": "0.0.0"
+}

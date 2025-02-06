@@ -1,0 +1,15 @@
+{
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@repo/tsconfig": "workspace:*",
+    "@types/node": "^22.10.7",
+    "nanoid": "^5.0.9",
+    "tsx": "^4.19.2"
+  },
+  "name": "@repo/scripts",
+  "private": true,
+  "scripts": {
+    "type-check": "tsc --noEmit"
+  },
+  "version": "0.0.0"
+}

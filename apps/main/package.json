@@ -1,17 +1,21 @@
 {
-  "name": "main",
-  "type": "module",
-  "version": "0.0.1",
+  "name": "example-docs",
+  "license": "MIT",
+  "private": true,
   "scripts": {
-    "dev": "astro dev --port 4321",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "build": "next build",
+    "dev": "next --turbopack --port 3000",
+    "postbuild": "pagefind --site .next/server/app --output-path public/_pagefind",
+    "start": "next start"
   },
   "dependencies": {
-    "@astrojs/starlight": "^0.31.1",
-    "astro": "^5.1.5",
-    "sharp": "^0.32.5"
+    "next": "^15.0.2",
+    "nextra": "latest",
+    "nextra-theme-docs": "latest",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "pagefind": "^1.3.0"
   }
 }

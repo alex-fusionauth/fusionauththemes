@@ -1,8 +1,7 @@
+import { NavigationMenu } from '@/components/navigation-menu';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
-
-import { AuthWrapper } from '@/app/auth-wrapper';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -29,7 +28,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <AuthWrapper>{children}</AuthWrapper>
+        <div className="min-h-screen">
+          <NavigationMenu />
+          {children}
+        </div>
       </body>
     </html>
   );

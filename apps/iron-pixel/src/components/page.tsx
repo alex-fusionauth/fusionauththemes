@@ -8,7 +8,7 @@ export default function Page() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative h-[80vh] -mx-2 overflow-hidden mt-[81px]">
+      <section className="relative h-[80vh] -mx-2 overflow-hidden mt-[98px]">
         <div className="absolute inset-0 bg-gradient-radial  opacity-40" />
         <img
           src="/images/GameImage_01.png"
@@ -26,16 +26,7 @@ export default function Page() {
               immersive gaming experiences.
             </p>
             <div className="flex gap-4">
-              <button
-                type="button"
-                className="btn bg-brand-teal hover:bg-brand-teal/90 text-brand-darker"
-              >
-                <a href="/login">Play Now</a>
-              </button>
-              <button
-                type="button"
-                className="btn border-brand-teal text-brand-teal hover:bg-brand-teal/10"
-              >
+              <button type="button" className="btn btn-primary">
                 <a href="/login">Sign Up</a>
               </button>
             </div>
@@ -78,10 +69,7 @@ export default function Page() {
           <p className="text-xl mb-8 text-gray-300">
             Join thousands of players in the Iron Pixel community
           </p>
-          <button
-            className="btn lg bg-brand-teal hover:bg-brand-teal/90 text-brand-darker"
-            type="button"
-          >
+          <button className="btn btn-primary" type="button">
             <a href="/login">Get Started</a>
           </button>
         </div>

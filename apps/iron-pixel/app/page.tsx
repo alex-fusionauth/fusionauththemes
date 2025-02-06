@@ -1,18 +1,16 @@
+import { FeaturedGames } from '@/components/featured-games';
+import { Footer } from '@/components/footer';
+import { NavigationMenu } from '@/components/navigation-menu';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
-import { FeaturedGames } from './components/featured-games';
-import { Footer } from './components/footer';
-import { NavigationMenu } from './components/navigation-menu';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-black">
-      <NavigationMenu />
-
+    <>
       {/* Hero Section */}
       <section className="relative h-[80vh] overflow-hidden">
         <Image
-          src="/GameImage_01.png"
+          src="/images/GameImage_01.png"
           alt="Hero background"
           fill
           className="object-cover"
@@ -64,6 +62,6 @@ export default function Home() {
       </section>
 
       <Footer />
-    </div>
+    </>
   );
 }

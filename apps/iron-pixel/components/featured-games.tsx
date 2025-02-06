@@ -5,17 +5,17 @@ const games = [
   {
     title: 'Mystic Valley',
     description: 'Explore a vibrant world full of mystery and adventure',
-    image: '/GameImage_01.png',
+    image: '/images/GameImage_01.png',
   },
   {
     title: 'Castle Siege',
     description: 'Epic medieval battles await in this strategic conquest',
-    image: '/GameImage_02.png',
+    image: '/images/GameImage_02.png',
   },
   {
     title: "Merchant's Tale",
     description: 'Build your trading empire in a rich fantasy world',
-    image: '/GameImage_03.png',
+    image: '/images/GameImage_03.png',
   },
 ];
 
@@ -30,7 +30,7 @@ export function FeaturedGames() {
         >
           <div className="aspect-[16/9] relative">
             <Image
-              src={game.image || '/GameImage_01.png'}
+              src={game.image || '/images/GameImage_01.png'}
               alt={game.title}
               fill
               className="object-cover transition-transform group-hover:scale-105"

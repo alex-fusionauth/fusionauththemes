@@ -1,17 +1,10 @@
-'use client';
 import { Button } from '@/components/ui/button';
-import { useFusionAuth } from '@fusionauth/react-sdk';
 import Image from 'next/image';
 import Link from 'next/link';
+import { auth, signIn, signOut } from '../auth';
 
-export function NavigationMenu() {
-  const {
-    isLoggedIn,
-    isFetchingUserInfo,
-    startLogin,
-    startRegister,
-    userInfo,
-  } = useFusionAuth();
+export async function NavigationMenu() {
+  const session = await auth();
 
   return (
     <header className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-sm">
@@ -20,7 +13,7 @@ export function NavigationMenu() {
           <Link href="/" className="flex items-center space-x-2">
             <div className="relative w-8 h-8">
               <Image
-                src="/LogoIcon_Gradient.svg"
+                src="/images/LogoIcon_Gradient.svg"
                 alt="Iron Pixel Studios Logo"
                 fill
                 className="object-contain"
@@ -45,22 +38,35 @@ export function NavigationMenu() {
           </nav>
 
           <div className="flex items-center space-x-4">
-            {!isLoggedIn && (
-              <>
-                <Button
-                  variant="ghost"
-                  className="text-white"
-                  onClick={() => startLogin()}
-                >
+            {!session?.user ? (
+              <form
+                className="flex gap-2"
+                action={async () => {
+                  'use server';
+                  await signIn('fusionauth');
+                }}
+              >
+                <Button variant="ghost" className="text-white" type="submit">
                   Sign In
                 </Button>
                 <Button
                   className="bg-emerald-500 hover:bg-emerald-600"
-                  onClick={() => startRegister()}
+                  type="submit"
                 >
                   Register
                 </Button>
-              </>
+              </form>
+            ) : (
+              <form
+                action={async () => {
+                  'use server';
+                  await signOut({ redirectTo: '/' });
+                }}
+              >
+                <Button variant="default" className="text-white" type="submit">
+                  Sign Out
+                </Button>
+              </form>
             )}
           </div>
         </div>

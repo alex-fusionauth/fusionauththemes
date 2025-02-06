@@ -1,23 +1,22 @@
 import { Footer } from '@/components/footer';
 import { GameCard } from '@/components/game-card';
 import { Header } from '@/components/header';
-// import { Button } from '@/components/ui/button';
 
 export default function Page() {
   return (
-    <div className="min-h-screen bg-brand-darker text-white">
+    <div className="min-h-screen">
       <Header />
 
       {/* Hero Section */}
-      <section className="relative h-[80vh] overflow-hidden">
+      <section className="relative h-[80vh] -mx-2 overflow-hidden mt-[81px]">
         <div className="absolute inset-0 bg-gradient-radial  opacity-40" />
         <img
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-oCJeHWGe0amS9idMTX53QLOSMIcqeV.png"
+          src="/images/GameImage_01.png"
           alt="Game screenshot"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
-        <div className="relative z-10 container mx-auto px-4 h-full flex items-center">
-          <div className="max-w-2xl">
+        <div className="relative z-10 container mx-auto px-4 h-full flex items-center flex-row-reverse">
+          <div className="max-w-2xl bg-black p-8 rounded-2xl">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
               Create Worlds, <br />
               Forge Adventures
@@ -27,21 +26,18 @@ export default function Page() {
               immersive gaming experiences.
             </p>
             <div className="flex gap-4">
-              {/* <Button
-                size="lg"
-                className="bg-brand-teal hover:bg-brand-teal/90 text-brand-darker"
-                asChild
+              <button
+                type="button"
+                className="btn bg-brand-teal hover:bg-brand-teal/90 text-brand-darker"
               >
                 <a href="/login">Play Now</a>
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-brand-teal text-brand-teal hover:bg-brand-teal/10"
-                asChild
+              </button>
+              <button
+                type="button"
+                className="btn border-brand-teal text-brand-teal hover:bg-brand-teal/10"
               >
                 <a href="/login">Sign Up</a>
-              </Button> */}
+              </button>
             </div>
           </div>
         </div>
@@ -57,17 +53,17 @@ export default function Page() {
             <GameCard
               title="Mystic Valley"
               description="Explore a vibrant world full of mystery and adventure"
-              imageUrl="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-oCJeHWGe0amS9idMTX53QLOSMIcqeV.png"
+              imageUrl="/images/GameImage_01.png"
             />
             <GameCard
               title="Castle Siege"
               description="Epic medieval battles await in this strategic conquest"
-              imageUrl="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-oCJeHWGe0amS9idMTX53QLOSMIcqeV.png"
+              imageUrl="/images/GameImage_02.png"
             />
             <GameCard
               title="Merchant's Tale"
               description="Build your trading empire in a rich fantasy world"
-              imageUrl="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-oCJeHWGe0amS9idMTX53QLOSMIcqeV.png"
+              imageUrl="/images/GameImage_03.png"
             />
           </div>
         </div>
@@ -82,13 +78,12 @@ export default function Page() {
           <p className="text-xl mb-8 text-gray-300">
             Join thousands of players in the Iron Pixel community
           </p>
-          <Button
-            size="lg"
-            className="bg-brand-teal hover:bg-brand-teal/90 text-brand-darker"
-            asChild
+          <button
+            className="btn lg bg-brand-teal hover:bg-brand-teal/90 text-brand-darker"
+            type="button"
           >
             <a href="/login">Get Started</a>
-          </Button>
+          </button>
         </div>
       </section>
 

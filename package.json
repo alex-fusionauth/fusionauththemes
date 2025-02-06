@@ -1,0 +1,16 @@
+{
+  "name": "astro-turborepo",
+  "private": true,
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "format": "turbo format",
+    "clean": "turbo clean && rm -rf node_modules"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.5.3",
+    "turbo": "^1.12.4"
+  },
+  "packageManager": "pnpm@8.15.4"
+}

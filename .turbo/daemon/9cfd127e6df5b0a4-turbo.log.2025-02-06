@@ -1,0 +1,349 @@
+2025-02-06T00:09:42.664626Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/main/astro.config.mjs")}
+2025-02-06T00:09:42.664641Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("main"), path: AnchoredSystemPathBuf("apps/main") }}))
+2025-02-06T00:09:42.765208Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo/daemon/9cfd127e6df5b0a4-turbo.log.2025-02-05"), AnchoredSystemPathBuf(".turbo/daemon/9cfd127e6df5b0a4-turbo.log.2025-02-06")}
+2025-02-06T00:09:42.765215Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:10:01.864394Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo/cookies/3.cookie"), AnchoredSystemPathBuf(".turbo/cookies/2.cookie"), AnchoredSystemPathBuf("apps/main/.turbo/turbo-build.log"), AnchoredSystemPathBuf("apps/main/.turbo")}
+2025-02-06T00:10:01.864408Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("main"), path: AnchoredSystemPathBuf("apps/main") }, WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:10:04.764384Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/main/dist")}
+2025-02-06T00:10:04.764394Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("main"), path: AnchoredSystemPathBuf("apps/main") }}))
+2025-02-06T00:10:04.764412Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-02-06T00:10:07.164871Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/main/.turbo/turbo-build.log"), AnchoredSystemPathBuf(".turbo/cookies/4.cookie")}
+2025-02-06T00:10:07.164884Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("main"), path: AnchoredSystemPathBuf("apps/main") }, WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:11:54.965611Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/main/src/content/docs/index.mdx")}
+2025-02-06T00:11:54.965619Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("main"), path: AnchoredSystemPathBuf("apps/main") }}))
+2025-02-06T00:17:05.467489Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("components.json")}
+2025-02-06T00:17:05.467498Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:18:37.267193Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/components"), AnchoredSystemPathBuf("apps/iron-pixel/public/favicon.svg"), AnchoredSystemPathBuf("apps/iron-pixel/src/pages"), AnchoredSystemPathBuf("apps/iron-pixel/src/pages/index.astro"), AnchoredSystemPathBuf("apps/iron-pixel/.vscode"), AnchoredSystemPathBuf("apps/iron-pixel/.vscode/launch.json"), AnchoredSystemPathBuf("apps/iron-pixel/.codesandbox"), AnchoredSystemPathBuf("apps/iron-pixel/public"), AnchoredSystemPathBuf("apps/iron-pixel/src/assets"), AnchoredSystemPathBuf("apps/iron-pixel"), AnchoredSystemPathBuf("apps/iron-pixel/.vscode/extensions.json"), AnchoredSystemPathBuf("apps/iron-pixel/src/layouts"), AnchoredSystemPathBuf("apps/iron-pixel/src/layouts/Layout.astro"), AnchoredSystemPathBuf("apps/iron-pixel/astro.config.mjs"), AnchoredSystemPathBuf("apps/iron-pixel/tsconfig.json"), AnchoredSystemPathBuf("apps/iron-pixel/src/assets/background.svg"), AnchoredSystemPathBuf("apps/iron-pixel/src"), AnchoredSystemPathBuf("apps/iron-pixel/README.md"), AnchoredSystemPathBuf("apps/iron-pixel/src/components/Welcome.astro"), AnchoredSystemPathBuf("apps/iron-pixel/src/assets/astro.svg"), AnchoredSystemPathBuf("apps/iron-pixel/.codesandbox/Dockerfile"), AnchoredSystemPathBuf("apps/iron-pixel/package.json"), AnchoredSystemPathBuf("apps/iron-pixel/.gitignore")}
+2025-02-06T00:18:37.267202Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:18:37.567525Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(""), AnchoredSystemPathBuf("_tmp_60581_1ceb15df1586e9b7488391d97da4c563")}
+2025-02-06T00:18:37.567547Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:18:38.468077Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/node_modules"), AnchoredSystemPathBuf("pnpm-lock.yaml.2342494407")}
+2025-02-06T00:18:38.468090Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:18:38.568043Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("pnpm-lock.yaml"), AnchoredSystemPathBuf("pnpm-lock.yaml.2342494407")}
+2025-02-06T00:18:38.568051Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:18:48.067895Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo/cookies/5.cookie")}
+2025-02-06T00:18:48.067902Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:18:49.167021Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/.astro")}
+2025-02-06T00:18:49.167032Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:19:01.867266Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo/cookies/6.cookie")}
+2025-02-06T00:19:01.867274Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:19:54.067176Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/package.json")}
+2025-02-06T00:19:54.067183Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:19:55.767690Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/main/package.json")}
+2025-02-06T00:19:55.767698Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("main"), path: AnchoredSystemPathBuf("apps/main") }}))
+2025-02-06T00:19:59.068405Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo/cookies/7.cookie")}
+2025-02-06T00:19:59.068414Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:20:14.667651Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/package.json")}
+2025-02-06T00:20:14.667658Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:20:18.568211Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo/cookies/8.cookie")}
+2025-02-06T00:20:18.568219Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:36:37.872001Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("_tmp_61939_ff894ece2df5523df0e38bf0690d1f7a"), AnchoredSystemPathBuf("")}
+2025-02-06T00:36:37.872034Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:36:38.972484Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("pnpm-lock.yaml.697928533"), AnchoredSystemPathBuf("pnpm-lock.yaml")}
+2025-02-06T00:36:38.972494Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:36:39.572702Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/package.json"), AnchoredSystemPathBuf("apps/iron-pixel/package.json.1765667498")}
+2025-02-06T00:36:39.572711Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:36:43.872957Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/astro.config.mjs")}
+2025-02-06T00:36:43.872965Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:36:45.072651Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/tsconfig.json")}
+2025-02-06T00:36:45.072659Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:37:08.873172Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(""), AnchoredSystemPathBuf("_tmp_62229_6b8b7e5dee9afede828613be17611b02")}
+2025-02-06T00:37:08.873180Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:37:10.575182Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("pnpm-lock.yaml"), AnchoredSystemPathBuf("pnpm-lock.yaml.596373670")}
+2025-02-06T00:37:10.575191Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:37:11.074380Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/package.json.866460025"), AnchoredSystemPathBuf("apps/iron-pixel/package.json")}
+2025-02-06T00:37:11.074387Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:37:14.574514Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/styles/global.css"), AnchoredSystemPathBuf("apps/iron-pixel/src/styles")}
+2025-02-06T00:37:14.574523Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:37:15.073795Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/astro.config.mjs")}
+2025-02-06T00:37:15.073804Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:37:38.575050Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/styles/global.css")}
+2025-02-06T00:37:38.575058Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:38:03.274512Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/pages/index.astro")}
+2025-02-06T00:38:03.274520Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:38:18.574516Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/assets/astro.svg"), AnchoredSystemPathBuf("apps/iron-pixel/src/assets/background.svg")}
+2025-02-06T00:38:18.574525Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:39:08.575060Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/astro.config.mjs")}
+2025-02-06T00:39:08.575070Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:39:28.275124Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/tsconfig.json")}
+2025-02-06T00:39:28.275131Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:41:08.575593Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("packages")}
+2025-02-06T00:41:08.575601Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@repo/ui"), path: AnchoredSystemPathBuf("packages/ui") }}))
+2025-02-06T00:42:56.478668Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("_tmp_63315_86e3dc533ea2d9ef61dffdb8f458b1bd"), AnchoredSystemPathBuf("")}
+2025-02-06T00:42:56.478686Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:42:57.176341Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("pnpm-lock.yaml.2611524123"), AnchoredSystemPathBuf("pnpm-lock.yaml")}
+2025-02-06T00:42:57.176350Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:43:19.976075Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/astro.config.mjs")}
+2025-02-06T00:43:19.976083Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:43:26.176705Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(""), AnchoredSystemPathBuf("_tmp_63406_12461f1711e056d4f58551225d59ad88")}
+2025-02-06T00:43:26.176714Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:44:28.176579Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/astro.config.mjs")}
+2025-02-06T00:44:28.176587Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:44:36.377199Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("_tmp_63665_a2df5de21b66a06d4042c1375da1ddbe"), AnchoredSystemPathBuf("")}
+2025-02-06T00:44:36.377208Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:44:36.976903Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("pnpm-lock.yaml"), AnchoredSystemPathBuf("pnpm-lock.yaml.4278936148")}
+2025-02-06T00:44:36.976911Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:44:58.976911Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/styles/global.css")}
+2025-02-06T00:44:58.976918Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:45:16.877388Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/pages/index.astro")}
+2025-02-06T00:45:16.877396Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:45:33.777410Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("_tmp_63823_e575573feffc9052d69459bee7a17b2a"), AnchoredSystemPathBuf("")}
+2025-02-06T00:45:33.777419Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:46:26.977574Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(""), AnchoredSystemPathBuf("_tmp_64408_3c20a3fbdc6d066d71d467cc43d237c4")}
+2025-02-06T00:46:26.977582Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:46:28.076343Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("pnpm-lock.yaml.3706428754"), AnchoredSystemPathBuf("pnpm-lock.yaml")}
+2025-02-06T00:46:28.076350Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:47:07.877801Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/layouts/Layout.astro")}
+2025-02-06T00:47:07.877809Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:47:36.177712Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("_tmp_64516_46b32c7aeeb09b777380c08a0308a223"), AnchoredSystemPathBuf("")}
+2025-02-06T00:47:36.177721Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:47:36.677299Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("pnpm-lock.yaml"), AnchoredSystemPathBuf("pnpm-lock.yaml.1482747987")}
+2025-02-06T00:47:36.677307Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:48:42.177483Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/pages/index.astro")}
+2025-02-06T00:48:42.177490Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:48:47.477590Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/pages/index.astro")}
+2025-02-06T00:48:47.477598Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:48:58.378351Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/pages/index.astro")}
+2025-02-06T00:48:58.378358Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:49:00.978024Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/pages/index.astro")}
+2025-02-06T00:49:00.978032Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:50:12.979011Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/tailwind.config.ts")}
+2025-02-06T00:50:12.979022Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:50:13.978880Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/tailwind.config.ts")}
+2025-02-06T00:50:13.978889Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:50:49.778102Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/alex.ts"), AnchoredSystemPathBuf("apps/iron-pixel/src/tailwind.config.ts")}
+2025-02-06T00:50:49.778112Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:51:03.879118Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/pages/page.tsx")}
+2025-02-06T00:51:03.879152Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:51:06.379077Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/pages/index.astro")}
+2025-02-06T00:51:06.379086Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:51:23.478926Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/components/header.tsx"), AnchoredSystemPathBuf("apps/iron-pixel/src/components/footer.tsx"), AnchoredSystemPathBuf("apps/iron-pixel/src/components/game-card.tsx")}
+2025-02-06T00:51:23.478940Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:52:15.079247Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/pages/page.tsx"), AnchoredSystemPathBuf("apps/iron-pixel/src/pages/page.astro")}
+2025-02-06T00:52:15.079256Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:53:23.178983Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/pages/page.astro"), AnchoredSystemPathBuf("apps/iron-pixel/src/pages/page.tsx")}
+2025-02-06T00:53:23.178995Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:53:27.479696Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/pages/page.tsx"), AnchoredSystemPathBuf("apps/iron-pixel/src/components/page.tsx")}
+2025-02-06T00:53:27.479721Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:53:40.479603Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/components/Welcome.astro")}
+2025-02-06T00:53:40.479611Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:54:05.379576Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/pages/index.astro")}
+2025-02-06T00:54:05.379585Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:54:27.980215Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/pages/index.astro")}
+2025-02-06T00:54:27.980222Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:54:34.279591Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/pages/index.astro")}
+2025-02-06T00:54:34.279599Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:57:57.181206Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/components/ui")}
+2025-02-06T00:57:57.181213Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:58:01.580614Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/components/ui/button.tsx")}
+2025-02-06T00:58:01.580622Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:58:02.280451Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/components/ui/button.tsx")}
+2025-02-06T00:58:02.280458Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:58:20.281143Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/lib")}
+2025-02-06T00:58:20.281150Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:58:25.781580Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/lib/utils.ts")}
+2025-02-06T00:58:25.781589Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:58:26.480568Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/lib/utils.ts")}
+2025-02-06T00:58:26.480575Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:58:36.481370Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/lib/utils.ts")}
+2025-02-06T00:58:36.481378Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:59:25.182162Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(""), AnchoredSystemPathBuf("_tmp_65189_b19a9f12f950205fcd8eee1daeeaea20")}
+2025-02-06T00:59:25.182170Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:59:25.680702Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("pnpm-lock.yaml"), AnchoredSystemPathBuf("pnpm-lock.yaml.1198220038")}
+2025-02-06T00:59:25.680709Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:59:25.980772Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/package.json"), AnchoredSystemPathBuf("apps/iron-pixel/package.json.2558614138")}
+2025-02-06T00:59:25.980780Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T00:59:35.881420Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/biome.json")}
+2025-02-06T00:59:35.881432Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:00:31.582390Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/package.json")}
+2025-02-06T01:00:31.582397Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:00:35.981740Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/package.json")}
+2025-02-06T01:00:35.981747Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:01:27.482677Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/lib/utils.ts")}
+2025-02-06T01:01:27.482685Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:02:11.882867Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/lib")}
+2025-02-06T01:02:11.883030Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:02:14.681597Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/components/ui/button.tsx")}
+2025-02-06T01:02:14.681608Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:03:37.983444Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/lib"), AnchoredSystemPathBuf("apps/iron-pixel/src/lib/utils.ts")}
+2025-02-06T01:03:37.983451Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:03:40.183322Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/lib/utils.ts")}
+2025-02-06T01:03:40.183330Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:04:16.982579Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/components/ui/button.tsx")}
+2025-02-06T01:04:16.982588Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:05:47.382678Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/components/page.tsx")}
+2025-02-06T01:05:47.382687Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:06:29.683152Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/components/page.tsx")}
+2025-02-06T01:06:29.683161Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:06:51.884388Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(""), AnchoredSystemPathBuf("_tmp_65920_de3950035ced9d33c491f19709cc4320")}
+2025-02-06T01:06:51.884396Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:06:52.783448Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("pnpm-lock.yaml"), AnchoredSystemPathBuf("pnpm-lock.yaml.3080363498")}
+2025-02-06T01:06:52.783457Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:06:53.183896Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/package.json"), AnchoredSystemPathBuf("apps/iron-pixel/package.json.2463793878")}
+2025-02-06T01:06:53.183905Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:07:07.183822Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("_tmp_66176_956ef5d79a81a4c900ed8571d19f5511"), AnchoredSystemPathBuf("")}
+2025-02-06T01:07:07.183837Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:07:07.883740Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("pnpm-lock.yaml"), AnchoredSystemPathBuf("pnpm-lock.yaml.190911361")}
+2025-02-06T01:07:07.883748Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:07:09.483395Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/package.json.3074593549"), AnchoredSystemPathBuf("apps/iron-pixel/package.json")}
+2025-02-06T01:07:09.483403Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:07:35.484549Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/alex.ts")}
+2025-02-06T01:07:35.484559Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:07:52.584966Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/tailwind.config.mjs")}
+2025-02-06T01:07:52.584974Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:07:53.284153Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/tailwind.config.mjs")}
+2025-02-06T01:07:53.284161Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:09:45.684663Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/tailwind.config.mjs")}
+2025-02-06T01:09:45.684671Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:10:40.849382Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(""), AnchoredSystemPathBuf("_tmp_66479_776d5e095461f991289cf48d8b416f12")}
+2025-02-06T01:10:40.849391Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:10:41.549029Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("pnpm-lock.yaml.2855625219"), AnchoredSystemPathBuf("pnpm-lock.yaml")}
+2025-02-06T01:10:41.549038Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:10:41.948882Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/package.json"), AnchoredSystemPathBuf("apps/iron-pixel/package.json.4157151230")}
+2025-02-06T01:10:41.948893Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:10:59.746395Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/tailwind.config.mjs")}
+2025-02-06T01:10:59.746402Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:11:13.044516Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/tailwind.config.mjs")}
+2025-02-06T01:11:13.044523Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:11:25.445233Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(""), AnchoredSystemPathBuf("_tmp_66544_33baf3e8874ddde5bb839d19c0e61362")}
+2025-02-06T01:11:25.445242Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:11:26.144903Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("pnpm-lock.yaml.2363881636"), AnchoredSystemPathBuf("pnpm-lock.yaml")}
+2025-02-06T01:11:26.144912Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:11:26.445288Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/package.json"), AnchoredSystemPathBuf("apps/iron-pixel/package.json.1022273166")}
+2025-02-06T01:11:26.445296Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:12:03.244421Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("_tmp_66689_4e4fa8c498addc8d786deb4cf903655d"), AnchoredSystemPathBuf("")}
+2025-02-06T01:12:03.244429Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:12:03.944561Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("pnpm-lock.yaml.105967646"), AnchoredSystemPathBuf("pnpm-lock.yaml")}
+2025-02-06T01:12:03.944570Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:12:14.844374Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/tailwind.config.mjs")}
+2025-02-06T01:12:14.844384Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:14:11.742703Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/pages/index.astro")}
+2025-02-06T01:14:11.742717Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:14:31.642592Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/pages/index.astro")}
+2025-02-06T01:14:31.642601Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:15:14.942734Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("astro.config.mjs")}
+2025-02-06T01:15:14.942742Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:15:19.442410Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("tailwind.config.mjs")}
+2025-02-06T01:15:19.442418Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:15:48.142264Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("tsconfig.json")}
+2025-02-06T01:15:48.142272Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:16:25.741517Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/astro.config.mjs")}
+2025-02-06T01:16:25.741524Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:16:33.741862Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/styles/global.css")}
+2025-02-06T01:16:33.741871Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:16:52.641351Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/layouts/Layout.astro")}
+2025-02-06T01:16:52.641359Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:16:53.441147Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/layouts/Layout.astro")}
+2025-02-06T01:16:53.441159Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:17:03.840971Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/layouts/Layout.astro")}
+2025-02-06T01:17:03.840979Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:17:21.940145Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/pages/index.astro")}
+2025-02-06T01:17:21.940152Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:18:15.840766Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/pages/index.astro")}
+2025-02-06T01:18:15.840773Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:18:29.240235Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/pages/index.astro")}
+2025-02-06T01:18:29.240242Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:20:32.338933Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/astro.config.mjs")}
+2025-02-06T01:20:32.338942Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:20:34.339541Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/astro.config.mjs")}
+2025-02-06T01:20:34.339553Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:20:40.638530Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/astro.config.mjs")}
+2025-02-06T01:20:40.638538Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:21:25.738564Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("_tmp_67332_5da835f04773b2a75278953c05e2834a"), AnchoredSystemPathBuf("")}
+2025-02-06T01:21:25.738572Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:21:26.840010Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("pnpm-lock.yaml"), AnchoredSystemPathBuf("pnpm-lock.yaml.3098860008")}
+2025-02-06T01:21:26.840020Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:21:27.738083Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/package.json.3096899465"), AnchoredSystemPathBuf("apps/iron-pixel/package.json")}
+2025-02-06T01:21:27.738092Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:21:30.538602Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/astro.config.mjs")}
+2025-02-06T01:21:30.538610Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:22:20.737524Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/components/page.tsx")}
+2025-02-06T01:22:20.737531Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:25:24.537361Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(""), AnchoredSystemPathBuf("_tmp_67861_3a012d68d115882810ca07902930751e")}
+2025-02-06T01:25:24.537371Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:25:30.136438Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(""), AnchoredSystemPathBuf("_tmp_67867_5d16d568a35abda376aa0f03224f0edd")}
+2025-02-06T01:25:30.136445Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:25:31.035826Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("pnpm-lock.yaml.1502640718"), AnchoredSystemPathBuf("pnpm-lock.yaml")}
+2025-02-06T01:25:31.035835Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:25:31.336745Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/package.json"), AnchoredSystemPathBuf("apps/iron-pixel/package.json.4053853254")}
+2025-02-06T01:25:31.336754Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:25:42.636191Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/astro.config.mjs")}
+2025-02-06T01:25:42.636199Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:26:32.436144Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/astro.config.mjs")}
+2025-02-06T01:26:32.436152Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:26:37.236093Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/astro.config.mjs")}
+2025-02-06T01:26:37.236102Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:27:05.435452Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/astro.config.mjs")}
+2025-02-06T01:27:05.435460Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:27:19.835135Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/astro.config.mjs")}
+2025-02-06T01:27:19.835143Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:34:41.031606Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/astro.config.mjs")}
+2025-02-06T01:34:41.031616Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:35:09.431458Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("_tmp_68568_3ed0858ba37bf904d5c9d560925f7e94"), AnchoredSystemPathBuf("")}
+2025-02-06T01:35:09.431467Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:35:54.130702Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(""), AnchoredSystemPathBuf("_tmp_68604_327789da573c1e2149a28452c1d46a91")}
+2025-02-06T01:35:54.130711Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:35:54.931209Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("pnpm-lock.yaml"), AnchoredSystemPathBuf("pnpm-lock.yaml.3936971751")}
+2025-02-06T01:35:54.931218Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:36:02.830382Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/astro.config.mjs")}
+2025-02-06T01:36:02.830390Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:36:08.230242Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(""), AnchoredSystemPathBuf("_tmp_68701_1de1b6745942049bdc874e915868bd00")}
+2025-02-06T01:36:08.230251Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:36:09.030783Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("pnpm-lock.yaml"), AnchoredSystemPathBuf("pnpm-lock.yaml.2618215334")}
+2025-02-06T01:36:09.030792Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:38:32.529310Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/astro.config.mjs")}
+2025-02-06T01:38:32.529317Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:38:40.928223Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/package.json")}
+2025-02-06T01:38:40.928231Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:38:45.229634Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(""), AnchoredSystemPathBuf("_tmp_68820_df4bde66001f60c9f7717238383b098d")}
+2025-02-06T01:38:45.229642Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:38:46.129324Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("pnpm-lock.yaml.2430439118")}
+2025-02-06T01:38:46.129331Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:38:46.229033Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("pnpm-lock.yaml"), AnchoredSystemPathBuf("pnpm-lock.yaml.2430439118")}
+2025-02-06T01:38:46.229042Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:39:13.229051Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("_tmp_68907_bc5e57d0ce18ea8d92c4f5218c053440"), AnchoredSystemPathBuf("")}
+2025-02-06T01:39:13.229059Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:39:14.029117Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("pnpm-lock.yaml"), AnchoredSystemPathBuf("pnpm-lock.yaml.1483686650")}
+2025-02-06T01:39:14.029125Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:39:23.229202Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(""), AnchoredSystemPathBuf("_tmp_68927_bfb54f3208721d89eb27b072ac6b700c")}
+2025-02-06T01:39:23.229213Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:39:24.128530Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("pnpm-lock.yaml.3718329569"), AnchoredSystemPathBuf("pnpm-lock.yaml")}
+2025-02-06T01:39:24.128539Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:39:24.528823Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/package.json"), AnchoredSystemPathBuf("apps/iron-pixel/package.json.84224306")}
+2025-02-06T01:39:24.528830Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:41:00.427880Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/astro.config.mjs")}
+2025-02-06T01:41:00.427889Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:41:53.627178Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/package.json")}
+2025-02-06T01:41:53.627185Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:41:56.627935Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(""), AnchoredSystemPathBuf("_tmp_69002_30d6022484cf591ab9711abf6afbf1cd")}
+2025-02-06T01:41:56.627981Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:41:57.227558Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("pnpm-lock.yaml"), AnchoredSystemPathBuf("pnpm-lock.yaml.2563518135")}
+2025-02-06T01:41:57.227567Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:42:44.626950Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/package.json")}
+2025-02-06T01:42:44.626960Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:43:17.526580Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/astro.config.mjs")}
+2025-02-06T01:43:17.526587Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:43:31.726051Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/astro.config.mjs")}
+2025-02-06T01:43:31.726062Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:43:39.925714Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/astro.config.mjs")}
+2025-02-06T01:43:39.925722Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:43:53.725921Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/astro.config.mjs")}
+2025-02-06T01:43:53.725930Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:50:04.850291Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/package.json")}
+2025-02-06T01:50:04.850339Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:50:20.550354Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/package.json")}
+2025-02-06T01:50:20.550383Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:50:53.049722Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("_tmp_74479_fd4e6cccb8e936d70ac5fcb9e6a758c6"), AnchoredSystemPathBuf("")}
+2025-02-06T01:50:53.049739Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:50:54.750044Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("pnpm-lock.yaml.1935465590"), AnchoredSystemPathBuf("pnpm-lock.yaml")}
+2025-02-06T01:50:54.750058Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:51:30.349650Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/components/ui/button.tsx")}
+2025-02-06T01:51:30.349688Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:52:06.549672Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("_tmp_74726_fcb9ba27c800fcbbe0b6961999fbfcb8"), AnchoredSystemPathBuf("")}
+2025-02-06T01:52:06.549686Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:52:07.450720Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("pnpm-lock.yaml.3121517585"), AnchoredSystemPathBuf("pnpm-lock.yaml")}
+2025-02-06T01:52:07.450902Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:52:07.749742Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/package.json"), AnchoredSystemPathBuf("apps/iron-pixel/package.json.2347992343")}
+2025-02-06T01:52:07.749768Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-02-06T01:52:43.450090Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/iron-pixel/src/components/page.tsx")}
+2025-02-06T01:52:43.450111Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))

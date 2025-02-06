@@ -12,15 +12,11 @@ export default defineConfig({
       },
       sidebar: [
         {
-          label: 'Guides',
+          label: 'Themes',
           items: [
             // Each item here is one entry in the navigation menu.
-            { label: 'Example Guide', slug: 'guides/example' },
+            { label: 'Iron Pixel Studios', slug: 'iron-pixel/walkthrough' },
           ],
-        },
-        {
-          label: 'Reference',
-          autogenerate: { directory: 'reference' },
         },
       ],
     }),

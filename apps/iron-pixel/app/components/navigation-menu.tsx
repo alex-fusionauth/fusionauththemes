@@ -1,9 +1,18 @@
-import { signIn } from '@/auth';
+'use client';
 import { Button } from '@/components/ui/button';
+import { useFusionAuth } from '@fusionauth/react-sdk';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export function NavigationMenu() {
+  const {
+    isLoggedIn,
+    isFetchingUserInfo,
+    startLogin,
+    startRegister,
+    userInfo,
+  } = useFusionAuth();
+
   return (
     <header className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-sm">
       <div className="container mx-auto px-4">
@@ -36,22 +45,23 @@ export function NavigationMenu() {
           </nav>
 
           <div className="flex items-center space-x-4">
-            <form
-              action={async () => {
-                'use server';
-                await signIn();
-              }}
-            >
-              <Button variant="ghost" className="text-white" type="submit">
-                Sign In
-              </Button>
-              <Button
-                className="bg-emerald-500 hover:bg-emerald-600"
-                type="submit"
-              >
-                Play Now
-              </Button>
-            </form>
+            {!isLoggedIn && (
+              <>
+                <Button
+                  variant="ghost"
+                  className="text-white"
+                  onClick={() => startLogin()}
+                >
+                  Sign In
+                </Button>
+                <Button
+                  className="bg-emerald-500 hover:bg-emerald-600"
+                  onClick={() => startRegister()}
+                >
+                  Register
+                </Button>
+              </>
+            )}
           </div>
         </div>
       </div>

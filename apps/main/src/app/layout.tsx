@@ -1,3 +1,4 @@
+import { Slack } from 'lucide-react';
 /* eslint-env node */
 import { Footer, Layout, Navbar } from 'nextra-theme-docs';
 import 'nextra-theme-docs/style.css';
@@ -5,6 +6,7 @@ import 'nextra-theme-docs/style.css';
 import { Banner, Head } from 'nextra/components';
 //@ts-ignore
 import { getPageMap } from 'nextra/page-map';
+import './globals.css';
 
 export const metadata = {
   metadataBase: new URL('https://fusionauththemes.io'),
@@ -23,7 +25,7 @@ export const metadata = {
     'msapplication-TileColor': '#fff',
   },
   twitter: {
-    site: 'https://nextra.site',
+    site: 'https://fusionauth.io',
   },
 };
 
@@ -37,21 +39,22 @@ export default async function RootLayout({ children }) {
       }
       // Next.js discord server
       chatLink="https://join.slack.com/t/fusionauth/shared_invite/zt-6ykfov9u-MTwA1A6ptv0Gr6KcFBVG4w"
+      chatIcon={<Slack />}
     />
   );
   const pageMap = await getPageMap();
   return (
     <html lang="en" dir="ltr" suppressHydrationWarning>
-      <Head faviconGlyph="✦" />
+      <Head />
       <body>
         <Layout
-          banner={<Banner storageKey="Nextra 2">Nextra 2 Alpha</Banner>}
           navbar={navbar}
-          footer={<Footer>MIT {new Date().getFullYear()} © Nextra.</Footer>}
+          footer={<Footer>{new Date().getFullYear()} © FusionAuth.</Footer>}
           editLink="Edit this page on GitHub"
-          docsRepositoryBase="https://github.com/alex-fusionauth/fusionauththemes/blob/main"
+          docsRepositoryBase="https://github.com/alex-fusionauth/fusionauththemes/blob/main/docs"
           sidebar={{ defaultMenuCollapseLevel: 1 }}
           pageMap={pageMap}
+          darkMode={true}
         >
           {children}
         </Layout>

@@ -42,35 +42,7 @@ class ApiRunner {
     private config: ApiConfig,
     private output: Output
   ) {
-    if (!this.config.name) {
-      console.error(
-        chalk.red(
-          'APP_NAME is required, please set it in .env or pass in as a parameter'
-        )
-      );
-      process.exit(1);
-    }
-    this.config.name = this.config.name;
-
-    if (!this.config.apiKey) {
-      this.config.apiKey =
-        'this_really_should_be_a_long_random_alphanumeric_value_but_this_still_works';
-    }
-
-    if (!this.config.endpoint) {
-      this.config.endpoint = 'http://localhost:9011';
-    }
     this.output.AUTH_FUSIONAUTH_ISSUER = this.config.endpoint;
-
-    if (!this.config.adminEmail) {
-      this.config.adminEmail = `admin@${this.config.name}.com`;
-    }
-
-    if (!this.config.adminPassword) {
-      this.config.adminPassword = 'password';
-    }
-
-    this.config.tenantId = '';
   }
   public getConfig(): ApiConfig {
     return this.config;
@@ -166,6 +138,7 @@ class ApiRunner {
       body: JSON.stringify({
         tenant: {
           name: `${this.config.name}-tenant`,
+          issuer: this.config.endpoint,
         },
       }),
     });
@@ -467,28 +440,47 @@ async function main() {
     new Promise((resolve) => rl.question(query, resolve));
 
   // Get API configuration
-  const name = await question(`App Name (.env: ${process.env.APP_NAME}): `);
-  const apiKey = await question(
+  let name = await question(`App Name (.env: ${process.env.APP_NAME}): `);
+
+  let apiKey = await question(
     'API key(this_really_should_be_a_long_random_alphanumeric_value_but_this_still_works): '
   );
-  const endpoint = await question('API endpoint (http://localhost:9011): ');
-  const adminEmail = await question('Admin Email (admin@example.com): ');
-  const adminPassword = await question('Admin Password (password): ');
-  const redirectUri = await question(
+  let endpoint = await question('API endpoint (http://localhost:9011): ');
+  let adminEmail = await question('Admin Email (admin@example.com): ');
+  let adminPassword = await question('Admin Password (password): ');
+  let redirectUri = await question(
     'Redirect URI (http://localhost:3001/api/auth/callback/fusionauth): '
   );
+
+  name = name || process.env.APP_NAME || '';
+  apiKey =
+    apiKey ||
+    process.env.API_KEY ||
+    'this_really_should_be_a_long_random_alphanumeric_value_but_this_still_works';
+  endpoint = endpoint || 'http://localhost:9011';
+  adminEmail = adminEmail || process.env.ADMIN_EMAIL || 'admin@example.com';
+  adminPassword = adminPassword || process.env.ADMIN_PASSWORD || 'password';
+  redirectUri = redirectUri || process.env.REDIRECT_URI || '';
+
+  if (!name) {
+    console.error(
+      chalk.red(
+        'APP_NAME is required, please set them in .env or pass in as parameters'
+      )
+    );
+    process.exit(1);
+  }
 
   console.log(chalk.blue('Starting creation'));
 
   const runner = new ApiRunner(
     {
-      name: name || process.env.APP_NAME,
+      name,
       apiKey,
       endpoint,
       adminEmail,
-      adminPassword: adminPassword || randomString(),
-      redirectUri:
-        redirectUri || 'http://localhost:3001/api/auth/callback/fusionauth',
+      adminPassword,
+      redirectUri,
     },
     {
       AUTH_FUSIONAUTH_CLIENT_ID: '',

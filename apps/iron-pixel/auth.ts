@@ -14,7 +14,6 @@ console.log(':tokenUrl:', `${process.env.AUTH_FUSIONAUTH_ISSUER}/oauth2/token`);
 console.log(':jwksUrl:', `${process.env.AUTH_FUSIONAUTH_ISSUER}/oauth2/jwks`);
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
-  debug: true,
   providers: [
     {
       id: 'fusionauth',

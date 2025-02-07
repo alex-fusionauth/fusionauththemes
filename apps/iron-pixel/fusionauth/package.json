@@ -1,0 +1,18 @@
+{
+  "name": "fusionauth",
+  "version": "1.0.0",
+  "main": "index.js",
+  "keywords": [],
+  "author": "Alex Patterson",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@fusionauth/cli": "^1.2.3",
+    "daisyui": "^4.12.23",
+    "tailwindcss": "^3.4.17"
+  },
+  "scripts": {
+    "watch:tailwind": "tailwindcss -i ./input.css -o ./tpl/stylesheet.css --watch",
+    "watch:theme": "fusionauth theme:watch fafcbe6e-f34e-402a-93ce-0e3fcf30cb58 -k czOiF9DRGCAIBMSWLMNDwo4vOySnHJECKmHMavV5Q0X5cnpa8y4iOfR_ -h https://auth.cashcat.dev"
+  }
+}

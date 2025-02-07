@@ -1,9 +1,11 @@
 // biome-ignore lint/style/useNodejsImportProtocol: <explanation>
 import * as readline from 'readline';
 import chalk from 'chalk';
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 interface ApiConfig {
-  key: string;
+  apiKey: string;
   endpoint: string;
   adminEmail: string;
   adminPassword: string;
@@ -15,21 +17,41 @@ interface ApiConfig {
   themeId?: string;
 }
 
-class ApiRunner {
-  constructor(private config: ApiConfig) {
-    this.config.name = 'iron-pixel';
+interface Output {
+  AUTH_FUSIONAUTH_CLIENT_ID: string;
+  AUTH_FUSIONAUTH_CLIENT_SECRET: string;
+  AUTH_FUSIONAUTH_TENANT_ID: string;
+  AUTH_FUSIONAUTH_ISSUER: string;
+  AUTH_SECRET: string;
+}
 
-    if (!this.config.key) {
-      this.config.key =
+class ApiRunner {
+  constructor(
+    private config: ApiConfig,
+    private output: Output
+  ) {
+    if (!this.config.name) {
+      console.error(
+        chalk.red(
+          'APP_NAME is required, please set it in .env or pass in as a parameter'
+        )
+      );
+      process.exit(1);
+    }
+    this.config.name = this.config.name;
+
+    if (!this.config.apiKey) {
+      this.config.apiKey =
         'this_really_should_be_a_long_random_alphanumeric_value_but_this_still_works';
     }
 
     if (!this.config.endpoint) {
       this.config.endpoint = 'http://localhost:9011';
     }
+    this.output.AUTH_FUSIONAUTH_ISSUER = this.config.endpoint;
 
     if (!this.config.adminEmail) {
-      this.config.adminEmail = 'admin@example.com';
+      this.config.adminEmail = `admin@${this.config.name}.com`;
     }
 
     if (!this.config.adminPassword) {
@@ -37,6 +59,9 @@ class ApiRunner {
     }
 
     this.config.tenantId = '';
+  }
+  public getEnv(): Output {
+    return this.output;
   }
   private async singleApi(
     apiPath: string,
@@ -47,10 +72,16 @@ class ApiRunner {
       console.log(chalk.blue(`Calling API: ${apiPath}`));
       const defaultOptions: RequestInit = {
         headers: {
-          Authorization: `${this.config.key}`,
+          Authorization: `${this.config.apiKey}`,
           'Content-Type': 'application/json',
         },
       };
+
+      if (!apiPath.startsWith('/api/tenant/')) {
+        //@ts-ignore
+        defaultOptions.headers!['X-FusionAuth-TenantId'] =
+          `${this.config.tenantId}`;
+      }
 
       const allOptions = {
         ...options,
@@ -110,6 +141,7 @@ class ApiRunner {
       );
 
       this.config.tenantId = search.data.tenants[0]?.id;
+      this.output.AUTH_FUSIONAUTH_TENANT_ID = search.data.tenants[0]?.id;
       return;
     }
 
@@ -130,6 +162,7 @@ class ApiRunner {
     }
     console.log(chalk.green('Tenant created:', resp?.data?.tenant?.id));
     this.config.tenantId = resp?.data?.tenant?.id;
+    this.output.AUTH_FUSIONAUTH_TENANT_ID = resp?.data?.tenant?.id;
   }
 
   async createSigningKey() {
@@ -198,6 +231,81 @@ class ApiRunner {
     );
   }
 
+  async createApp() {
+    console.log(chalk.blue('Checking if app exists'));
+    const search = await this.singleApi('/api/application/search', {
+      method: 'POST',
+      body: JSON.stringify({
+        search: {
+          name: `${this.config.name}-app`,
+        },
+      }),
+    });
+    if (search?.data?.applications[0]?.id) {
+      console.log(
+        chalk.green(
+          'App exists, id:',
+          JSON.stringify(search.data.applications[0].id)
+        )
+      );
+      this.config.appId = search?.data?.applications[0]?.id;
+      this.output.AUTH_FUSIONAUTH_CLIENT_ID =
+        search?.data?.applications[0]?.oauthConfiguration?.clientId;
+      this.output.AUTH_FUSIONAUTH_CLIENT_SECRET =
+        search?.data?.applications[0]?.oauthConfiguration?.clientSecret;
+      return;
+    }
+    console.log(chalk.blue('App not found, creating app'));
+    const resp = await this.singleApi('/api/application', {
+      method: 'POST',
+      headers: {
+        'X-FusionAuth-TenantId': this.config.tenantId!,
+      },
+      body: JSON.stringify({
+        application: {
+          name: `${this.config.name}-app`,
+          oauthConfiguration: {
+            authorizedRedirectURLs: [
+              `${this.config.endpoint}/api/auth/callback/fusionauth`,
+            ],
+            authorizedOriginURLs: [this.config.endpoint],
+            logoutURL: this.config.endpoint,
+            enabledGrants: ['authorization_code', 'refresh_token'],
+            debug: true,
+            generateRefreshTokens: true,
+            requireRegistration: true,
+          },
+          jwtConfiguration: {
+            enabled: true,
+            accessTokenKeyId: this.config.signingKeyId,
+            idTokenKeyId: this.config.signingKeyId,
+          },
+          registrationConfiguration: {
+            enabled: true,
+          },
+          roles: [
+            {
+              name: 'admin',
+            },
+          ],
+        },
+      }),
+    });
+    if (!resp?.data?.application?.id) {
+      console.log(
+        chalk.red('Failed to create app:', JSON.stringify(resp.data))
+      );
+      return;
+    }
+    console.log(chalk.green('App created:', resp?.data?.application?.id));
+    this.config.appId = resp?.data?.application?.id;
+    console.log(resp?.data?.application);
+    this.output.AUTH_FUSIONAUTH_CLIENT_ID =
+      resp?.data?.application?.oauthConfiguration?.clientId;
+    this.output.AUTH_FUSIONAUTH_CLIENT_SECRET =
+      resp?.data?.application?.oauthConfiguration?.clientSecret;
+  }
+
   async createAdminUser() {
     console.log(chalk.blue('Checking if admin user exists'));
     const search = await this.singleApi('/api/user/search', {
@@ -228,83 +336,19 @@ class ApiRunner {
           password: this.config.adminPassword,
         },
         registration: {
-          // Hate this but it's what the docs say is default
-          // TODO: maybe search, but that seems expensive
-          applicationId: '3c219e58-ed0e-4b18-ad48-f4f92793ae32',
+          applicationId: this.config.appId,
           roles: ['admin'],
         },
       }),
     });
-    if (!resp?.data?.key?.id) {
+    if (!resp?.data?.user?.id) {
       console.log(
         chalk.red('Failed to create admin user:', JSON.stringify(resp.data))
       );
       return;
     }
-    console.log(chalk.green('Admin user created:', resp?.data?.key?.id));
-    this.config.adminUserId = resp?.data?.key?.id;
-  }
-
-  async createApp() {
-    console.log(chalk.blue('Checking if app exists'));
-    const search = await this.singleApi('/api/application/search', {
-      method: 'POST',
-      body: JSON.stringify({
-        search: {
-          name: `${this.config.name}-app`,
-        },
-      }),
-    });
-    if (search?.data?.applications[0]?.id) {
-      console.log(
-        chalk.green(
-          'App exists, id:',
-          JSON.stringify(search.data.applications[0].id)
-        )
-      );
-      this.config.appId = search?.data?.applications[0]?.id;
-      return;
-    }
-    console.log(chalk.blue('App not found, creating app'));
-    const resp = await this.singleApi('/api/application', {
-      method: 'POST',
-      headers: {
-        'X-FusionAuth-TenantId': this.config.tenantId!,
-      },
-      body: JSON.stringify({
-        application: {
-          name: `${this.config.name}-app`,
-          oauthConfiguration: {
-            authorizedRedirectURLs: [
-              `${this.config.endpoint}/api/auth/callback/fusionauth`,
-            ],
-            authorizedOriginURLs: [this.config.endpoint],
-            clientSecret: this.config.key,
-            logoutURL: this.config.endpoint,
-            enabledGrants: ['authorization_code', 'refresh_token'],
-            debug: true,
-            generateRefreshTokens: true,
-            requireRegistration: true,
-          },
-          jwtConfiguration: {
-            enabled: true,
-            accessTokenKeyId: this.config.signingKeyId,
-            idTokenKeyId: this.config.signingKeyId,
-          },
-          registrationConfiguration: {
-            enabled: true,
-          },
-        },
-      }),
-    });
-    if (!resp?.data?.application?.id) {
-      console.log(
-        chalk.red('Failed to create app:', JSON.stringify(resp.data))
-      );
-      return;
-    }
-    console.log(chalk.green('App created:', resp?.data?.application?.id));
-    this.config.appId = resp?.data?.application?.id;
+    console.log(chalk.green('Admin user created:', resp?.data?.user?.id));
+    this.config.adminUserId = resp?.data?.user?.id;
   }
 
   async copyDefaultTheme() {
@@ -389,8 +433,8 @@ class ApiRunner {
     await this.tenantCreate();
     await this.createSigningKey();
     await this.addKeyToTenant();
-    await this.createAdminUser();
     await this.createApp();
+    await this.createAdminUser();
     await this.copyDefaultTheme();
   }
 
@@ -411,6 +455,7 @@ async function main() {
     new Promise((resolve) => rl.question(query, resolve));
 
   // Get API configuration
+  const name = await question(`App Name (.env: ${process.env.APP_NAME}): `);
   const apiKey = await question(
     'API key(this_really_should_be_a_long_random_alphanumeric_value_but_this_still_works): '
   );
@@ -420,16 +465,40 @@ async function main() {
 
   console.log(chalk.blue('Starting creation'));
 
-  const runner = new ApiRunner({
-    key: apiKey,
-    endpoint,
-    adminEmail,
-    adminPassword,
-  });
+  const runner = new ApiRunner(
+    {
+      name: name || process.env.APP_NAME,
+      apiKey,
+      endpoint,
+      adminEmail,
+      adminPassword,
+    },
+    {
+      AUTH_FUSIONAUTH_CLIENT_ID: '',
+      AUTH_FUSIONAUTH_CLIENT_SECRET: '',
+      AUTH_FUSIONAUTH_TENANT_ID: '',
+      AUTH_FUSIONAUTH_ISSUER: '',
+      AUTH_SECRET: '',
+    }
+  );
 
   await runner.runAll();
 
+  console.log(
+    chalk.bgBlack.white(
+      JSON.stringify(
+        {
+          ...runner.getEnv(),
+          AUTH_SECRET: randomString(),
+        },
+        null,
+        2
+      )
+    )
+  );
+
   const runDelete = await question('Delete Everything? (y/N) ');
+
   if (runDelete.toLowerCase().startsWith('y')) {
     await runner.deleteAll();
   }
@@ -438,3 +507,10 @@ async function main() {
 }
 
 main().catch(console.error);
+
+/** Web compatible method to create a random string of a given length */
+function randomString(size = 32) {
+  const bytes = crypto.getRandomValues(new Uint8Array(size));
+  // @ts-expect-error
+  return Buffer.from(bytes, 'base64').toString('base64');
+}

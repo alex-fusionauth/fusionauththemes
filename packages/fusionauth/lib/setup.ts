@@ -9,6 +9,7 @@ interface ApiConfig {
   endpoint: string;
   adminEmail: string;
   adminPassword: string;
+  redirectUri: string;
   adminUserId?: string;
   name?: string;
   tenantId?: string;
@@ -30,6 +31,10 @@ function randomString(size = 32) {
   const bytes = crypto.getRandomValues(new Uint8Array(size));
   // @ts-expect-error
   return Buffer.from(bytes, 'base64').toString('base64');
+}
+function getOrigin(url: string) {
+  const { protocol, host } = new URL(url);
+  return `${protocol}//${host}`;
 }
 
 class ApiRunner {
@@ -66,6 +71,9 @@ class ApiRunner {
     }
 
     this.config.tenantId = '';
+  }
+  public getConfig(): ApiConfig {
+    return this.config;
   }
   public getEnv(): Output {
     return this.output;
@@ -272,11 +280,9 @@ class ApiRunner {
         application: {
           name: `${this.config.name}-app`,
           oauthConfiguration: {
-            authorizedRedirectURLs: [
-              `${this.config.endpoint}/api/auth/callback/fusionauth`,
-            ],
-            authorizedOriginURLs: [this.config.endpoint],
-            logoutURL: this.config.endpoint,
+            authorizedRedirectURLs: [`${this.config.redirectUri}`],
+            authorizedOriginURLs: [getOrigin(this.config.redirectUri)],
+            logoutURL: getOrigin(this.config.redirectUri),
             enabledGrants: ['authorization_code', 'refresh_token'],
             debug: true,
             generateRefreshTokens: true,
@@ -468,6 +474,9 @@ async function main() {
   const endpoint = await question('API endpoint (http://localhost:9011): ');
   const adminEmail = await question('Admin Email (admin@example.com): ');
   const adminPassword = await question('Admin Password (password): ');
+  const redirectUri = await question(
+    'Redirect URI (http://localhost:3001/api/auth/callback/fusionauth): '
+  );
 
   console.log(chalk.blue('Starting creation'));
 
@@ -477,7 +486,9 @@ async function main() {
       apiKey,
       endpoint,
       adminEmail,
-      adminPassword,
+      adminPassword: adminPassword || randomString(),
+      redirectUri:
+        redirectUri || 'http://localhost:3001/api/auth/callback/fusionauth',
     },
     {
       AUTH_FUSIONAUTH_CLIENT_ID: '',
@@ -504,6 +515,18 @@ AUTH_FUSIONAUTH_CLIENT_SECRET=${env.AUTH_FUSIONAUTH_CLIENT_SECRET}
 AUTH_FUSIONAUTH_TENANT_ID=${env.AUTH_FUSIONAUTH_TENANT_ID}
 AUTH_FUSIONAUTH_ISSUER=${env.AUTH_FUSIONAUTH_ISSUER}
 AUTH_SECRET=${randomString()}
+`)
+  );
+
+  const config = runner.getConfig();
+  console.log(
+    chalk.bgYellow.black(`Accessing FusionAuth at ${config.endpoint}`)
+  );
+  console.log(
+    chalk.bgBlack.white(`
+Admin Email: ${config.adminEmail}
+Admin Password: ${config.adminPassword}
+Redirect URI: ${config.redirectUri}
 `)
   );
 

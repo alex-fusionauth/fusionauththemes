@@ -65,6 +65,13 @@ class ApiRunner {
         allOptions
       );
 
+      if (options?.method === 'DELETE') {
+        return {
+          ok: true,
+          data: null,
+        };
+      }
+
       if (response.ok) {
         return {
           ok: true,
@@ -81,8 +88,32 @@ class ApiRunner {
     }
   }
 
-  private async tenantCreate() {
-    console.log(chalk.blue('Creating tenant'));
+  async tenantCreate() {
+    console.log(chalk.blue('Checking if tenant exists'));
+    const search = await this.singleApi('/api/tenant/search', {
+      method: 'POST',
+      body: JSON.stringify({
+        search: {
+          name: `${this.config.name}-tenant`,
+          numberOfResults: 1,
+          orderBy: 'name',
+          startRow: 0,
+        },
+      }),
+    });
+    if (search?.data?.tenants[0]?.id) {
+      console.log(
+        chalk.green(
+          'Tenant exists, id:',
+          JSON.stringify(search.data.tenants[0].id)
+        )
+      );
+
+      this.config.tenantId = search.data.tenants[0]?.id;
+      return;
+    }
+
+    console.log(chalk.blue('Tenant not found, creating tenant'));
     const resp = await this.singleApi('/api/tenant', {
       method: 'POST',
       body: JSON.stringify({
@@ -93,39 +124,36 @@ class ApiRunner {
     });
     if (!resp?.data?.tenant?.id) {
       console.log(
-        chalk.yellow('Failed to create tenant:', JSON.stringify(resp.data))
+        chalk.red('Failed to create tenant:', JSON.stringify(resp.data))
       );
-      console.log(chalk.blue('Checking if tenant exists'));
-      const tenantExistsResp = await this.singleApi('/api/tenant/search', {
-        method: 'POST',
-        body: JSON.stringify({
-          search: {
-            name: `${this.config.name}-tenant`,
-            numberOfResults: 1,
-            orderBy: 'name',
-            startRow: 0,
-          },
-        }),
-      });
-      if (!tenantExistsResp.ok) {
-        console.log(chalk.red('Tenant does not exist'));
-        return;
-      }
-      console.log(
-        chalk.green(
-          'Tenant exists, id:',
-          JSON.stringify(tenantExistsResp.data.tenants[0].id)
-        )
-      );
-      this.config.tenantId = tenantExistsResp?.data?.tenants[0]?.id;
       return;
     }
     console.log(chalk.green('Tenant created:', resp?.data?.tenant?.id));
     this.config.tenantId = resp?.data?.tenant?.id;
   }
 
-  private async createKey() {
-    console.log(chalk.blue('Creating key'));
+  async createSigningKey() {
+    console.log(chalk.blue('Checking if key exists'));
+    const search = await this.singleApi('/api/key/search', {
+      method: 'POST',
+      body: JSON.stringify({
+        search: {
+          name: `${this.config.name}-signing-key`,
+          numberOfResults: 1,
+          orderBy: 'name',
+          startRow: 0,
+        },
+      }),
+    });
+    if (search?.data?.keys[0]?.id) {
+      console.log(
+        chalk.green('Key exists, id:', JSON.stringify(search.data.keys[0].id))
+      );
+      this.config.signingKeyId = search?.data?.keys[0]?.id;
+      return;
+    }
+
+    console.log(chalk.blue('Key not found, Creating key'));
     const resp = await this.singleApi('/api/key/generate', {
       method: 'POST',
       body: JSON.stringify({
@@ -138,66 +166,49 @@ class ApiRunner {
     });
     if (!resp?.data?.key?.id) {
       console.log(
-        chalk.yellow('Failed to create key:', JSON.stringify(resp.data))
+        chalk.red('Failed to create key:', JSON.stringify(resp.data))
       );
-      console.log(chalk.blue('Checking if key exists'));
-      const search = await this.singleApi('/api/key/search', {
-        method: 'POST',
-        body: JSON.stringify({
-          search: {
-            name: `${this.config.name}-signing-key`,
-            numberOfResults: 1,
-            orderBy: 'name',
-            startRow: 0,
-          },
-        }),
-      });
-      if (!search.ok) {
-        console.log(chalk.red('Key does not exist'));
-        return;
-      }
-      console.log(
-        chalk.green('Key exists, id:', JSON.stringify(search.data.keys[0].id))
-      );
-      this.config.signingKeyId = search?.data?.keys[0]?.id;
       return;
     }
     console.log(chalk.green('Key created:', resp?.data?.key?.id));
     this.config.signingKeyId = resp?.data?.key?.id;
   }
 
-  private async createAdminUser() {
-    console.log(chalk.blue('Creating admin user'));
-    const resp = await this.singleApi('/api/user/registration', {
-      method: 'POST',
+  async addKeyToTenant() {
+    console.log(chalk.blue('Adding key to tenant'));
+    const resp = await this.singleApi(`/api/tenant/${this.config.tenantId}`, {
+      method: 'PATCH',
       body: JSON.stringify({
-        user: {
-          email: this.config.adminEmail,
-          password: this.config.adminPassword,
-        },
-        registration: {
-          applicationId: '3c219e58-ed0e-4b18-ad48-f4f92793ae32', // Hate this but it's what the docs say
-          roles: ['admin'],
+        tenant: {
+          jwtConfiguration: {
+            accessTokenKeyId: this.config.signingKeyId,
+            idTokenKeyId: this.config.signingKeyId,
+          },
         },
       }),
     });
-    if (!resp?.data?.key?.id) {
+    if (!resp?.data?.tenant?.id) {
       console.log(
-        chalk.yellow('Failed to create admin user:', JSON.stringify(resp.data))
+        chalk.red('Failed to patch tenant:', JSON.stringify(resp.data))
       );
-      console.log(chalk.blue('Checking if admin user exists'));
-      const search = await this.singleApi('/api/user/search', {
-        method: 'POST',
-        body: JSON.stringify({
-          search: {
-            queryString: this.config.adminEmail,
-          },
-        }),
-      });
-      if (!search.ok) {
-        console.log(chalk.red('Admin user does not exist'));
-        return;
-      }
+      return;
+    }
+    console.log(
+      chalk.green('Tenant patched:', resp?.data?.tenant?.jwtConfiguration)
+    );
+  }
+
+  async createAdminUser() {
+    console.log(chalk.blue('Checking if admin user exists'));
+    const search = await this.singleApi('/api/user/search', {
+      method: 'POST',
+      body: JSON.stringify({
+        search: {
+          queryString: this.config.adminEmail,
+        },
+      }),
+    });
+    if (search.data?.users[0]?.id) {
       console.log(
         chalk.green(
           'Admin user exists, id:',
@@ -207,12 +218,54 @@ class ApiRunner {
       this.config.adminUserId = search?.data?.users[0]?.id;
       return;
     }
+
+    console.log(chalk.blue('Admin User not found, creating admin user.'));
+    const resp = await this.singleApi('/api/user/registration', {
+      method: 'POST',
+      body: JSON.stringify({
+        user: {
+          email: this.config.adminEmail,
+          password: this.config.adminPassword,
+        },
+        registration: {
+          // Hate this but it's what the docs say is default
+          // TODO: maybe search, but that seems expensive
+          applicationId: '3c219e58-ed0e-4b18-ad48-f4f92793ae32',
+          roles: ['admin'],
+        },
+      }),
+    });
+    if (!resp?.data?.key?.id) {
+      console.log(
+        chalk.red('Failed to create admin user:', JSON.stringify(resp.data))
+      );
+      return;
+    }
     console.log(chalk.green('Admin user created:', resp?.data?.key?.id));
     this.config.adminUserId = resp?.data?.key?.id;
   }
 
-  private async createApp() {
-    console.log(chalk.blue('Creating app'));
+  async createApp() {
+    console.log(chalk.blue('Checking if app exists'));
+    const search = await this.singleApi('/api/application/search', {
+      method: 'POST',
+      body: JSON.stringify({
+        search: {
+          name: `${this.config.name}-app`,
+        },
+      }),
+    });
+    if (search?.data?.applications[0]?.id) {
+      console.log(
+        chalk.green(
+          'App exists, id:',
+          JSON.stringify(search.data.applications[0].id)
+        )
+      );
+      this.config.appId = search?.data?.applications[0]?.id;
+      return;
+    }
+    console.log(chalk.blue('App not found, creating app'));
     const resp = await this.singleApi('/api/application', {
       method: 'POST',
       headers: {
@@ -246,36 +299,35 @@ class ApiRunner {
     });
     if (!resp?.data?.application?.id) {
       console.log(
-        chalk.yellow('Failed to create app:', JSON.stringify(resp.data))
+        chalk.red('Failed to create app:', JSON.stringify(resp.data))
       );
-      console.log(chalk.blue('Checking if app exists'));
-      const search = await this.singleApi('/api/application/search', {
-        method: 'POST',
-        body: JSON.stringify({
-          search: {
-            name: `${this.config.name}-app`,
-          },
-        }),
-      });
-      if (!search.ok) {
-        console.log(chalk.red('App does not exist'));
-        return;
-      }
-      console.log(
-        chalk.green(
-          'App exists, id:',
-          JSON.stringify(search.data.applications[0].id)
-        )
-      );
-      this.config.appId = search?.data?.applications[0]?.id;
       return;
     }
     console.log(chalk.green('App created:', resp?.data?.application?.id));
     this.config.appId = resp?.data?.application?.id;
   }
 
-  private async copyDefaultTheme() {
-    console.log(chalk.blue('Copying default theme'));
+  async copyDefaultTheme() {
+    console.log(chalk.blue('Checking if theme exists'));
+    const search = await this.singleApi('/api/theme/search', {
+      method: 'POST',
+      body: JSON.stringify({
+        search: {
+          name: `${this.config.name}-theme`,
+        },
+      }),
+    });
+    if (search?.data?.themes[0]?.id) {
+      console.log(
+        chalk.green(
+          'Theme exists, id:',
+          JSON.stringify(search.data.themes[0].id)
+        )
+      );
+      this.config.themeId = search?.data?.themes[0]?.id;
+      return;
+    }
+    console.log(chalk.blue('Theme not found, copying default theme'));
     const resp = await this.singleApi('/api/theme', {
       method: 'POST',
       body: JSON.stringify({
@@ -287,41 +339,65 @@ class ApiRunner {
     });
     if (!resp?.data?.theme?.id) {
       console.log(
-        chalk.yellow('Failed to create theme:', JSON.stringify(resp.data))
+        chalk.red('Failed to create theme:', JSON.stringify(resp.data))
       );
-      console.log(chalk.blue('Checking if theme exists'));
-      const search = await this.singleApi('/api/theme/search', {
-        method: 'POST',
-        body: JSON.stringify({
-          search: {
-            name: `${this.config.name}-theme`,
-          },
-        }),
-      });
-      if (!search.ok) {
-        console.log(chalk.red('Theme does not exist'));
-        return;
-      }
-      console.log(
-        chalk.green(
-          'Theme exists, id:',
-          JSON.stringify(search.data.themes[0].id)
-        )
-      );
-      this.config.themeId = search?.data?.themes[0]?.id;
-      return;
     }
     console.log(chalk.green('Theme created:', resp?.data?.theme?.id));
     this.config.themeId = resp?.data?.theme?.id;
   }
 
-  public async runAll() {
-    console.log(chalk.green('Starting setup'));
+  async tenantDelete() {
+    console.log(chalk.blue('Deleting tenant'));
+    const del = await this.singleApi(`/api/tenant/${this.config.tenantId}`, {
+      method: 'DELETE',
+      body: JSON.stringify({
+        async: false,
+      }),
+    });
+    if (del.ok) {
+      console.log(chalk.green('Tenant deleted'));
+    } else {
+      console.log(chalk.red('Failed to delete tenant'));
+    }
+  }
+
+  async signingKeyDelete() {
+    console.log(chalk.blue('Deleting key'));
+    const del = await this.singleApi(`/api/key/${this.config.signingKeyId}`, {
+      method: 'DELETE',
+    });
+    if (del.ok) {
+      console.log(chalk.green('Key deleted'));
+    } else {
+      console.log(chalk.red('Failed to delete key'));
+    }
+  }
+
+  async deleteAdminUser() {
+    console.log(chalk.blue('Deleting admin user'));
+    const del = await this.singleApi(`/api/user/${this.config.adminUserId}`, {
+      method: 'DELETE',
+    });
+    if (del.ok) {
+      console.log(chalk.green('Admin user deleted'));
+    } else {
+      console.log(chalk.red('Failed to delete admin user'));
+    }
+  }
+
+  async runAll() {
     await this.tenantCreate();
-    await this.createKey();
+    await this.createSigningKey();
+    await this.addKeyToTenant();
     await this.createAdminUser();
     await this.createApp();
     await this.copyDefaultTheme();
+  }
+
+  async deleteAll() {
+    await this.tenantDelete();
+    await this.signingKeyDelete();
+    await this.deleteAdminUser();
   }
 }
 
@@ -342,6 +418,8 @@ async function main() {
   const adminEmail = await question('Admin Email (admin@example.com): ');
   const adminPassword = await question('Admin Password (password): ');
 
+  console.log(chalk.blue('Starting creation'));
+
   const runner = new ApiRunner({
     key: apiKey,
     endpoint,
@@ -350,6 +428,11 @@ async function main() {
   });
 
   await runner.runAll();
+
+  const runDelete = await question('Delete Everything? (y/N) ');
+  if (runDelete.toLowerCase().startsWith('y')) {
+    await runner.deleteAll();
+  }
 
   rl.close();
 }

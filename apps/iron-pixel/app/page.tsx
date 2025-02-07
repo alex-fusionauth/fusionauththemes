@@ -1,3 +1,4 @@
+import { signIn } from '@/auth';
 import { FeaturedGames } from '@/components/featured-games';
 import { Footer } from '@/components/footer';
 import { NavigationMenu } from '@/components/navigation-menu';
@@ -28,9 +29,20 @@ export default function Home() {
                 Join Iron Pixel Studios in crafting the next generation of
                 immersive gaming experiences.
               </p>
-              <Button size="lg" className="bg-emerald-500 hover:bg-emerald-600">
-                Sign Up
-              </Button>
+              <form
+                className="flex gap-2"
+                action={async () => {
+                  'use server';
+                  await signIn('fusionauth');
+                }}
+              >
+                <Button
+                  size="lg"
+                  className="bg-emerald-500 hover:bg-emerald-600"
+                >
+                  Sign In
+                </Button>
+              </form>
             </div>
           </div>
         </div>
@@ -55,9 +67,17 @@ export default function Home() {
           <p className="text-gray-400 mb-8">
             Join thousands of players in the Iron Pixel community
           </p>
-          <Button size="lg" className="bg-emerald-500 hover:bg-emerald-600">
-            Get Started
-          </Button>
+
+          <form
+            action={async () => {
+              'use server';
+              await signIn('fusionauth');
+            }}
+          >
+            <Button className="bg-emerald-500 hover:bg-emerald-600">
+              Get Started
+            </Button>
+          </form>
         </div>
       </section>
 

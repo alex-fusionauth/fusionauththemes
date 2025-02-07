@@ -1,3 +1,4 @@
+// biome-ignore lint/style/useNodejsImportProtocol: <explanation>
 import * as readline from 'readline';
 import chalk from 'chalk';
 
@@ -10,6 +11,8 @@ interface ApiConfig {
   name?: string;
   tenantId?: string;
   signingKeyId?: string;
+  appId?: string;
+  themeId?: string;
 }
 
 class ApiRunner {
@@ -34,6 +37,48 @@ class ApiRunner {
     }
 
     this.config.tenantId = '';
+  }
+  private async singleApi(
+    apiPath: string,
+    options?: RequestInit
+    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+  ): Promise<{ ok: boolean; data: any }> {
+    try {
+      console.log(chalk.blue(`Calling API: ${apiPath}`));
+      const defaultOptions: RequestInit = {
+        headers: {
+          Authorization: `${this.config.key}`,
+          'Content-Type': 'application/json',
+        },
+      };
+
+      const allOptions = {
+        ...options,
+        headers: {
+          ...defaultOptions.headers,
+          ...options?.headers,
+        },
+      };
+
+      const response = await fetch(
+        `${this.config.endpoint}${apiPath}`,
+        allOptions
+      );
+
+      if (response.ok) {
+        return {
+          ok: true,
+          data: await response.json(),
+        };
+      }
+      return {
+        ok: false,
+        data: await response.json(),
+      };
+    } catch (error) {
+      console.error(chalk.red(`Error calling ${apiPath}:`), error);
+      throw error;
+    }
   }
 
   private async tenantCreate() {
@@ -166,41 +211,108 @@ class ApiRunner {
     this.config.adminUserId = resp?.data?.key?.id;
   }
 
-  private async singleApi(
-    apiPath: string,
-    options?: RequestInit
-    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-  ): Promise<{ ok: boolean; data: any }> {
-    try {
-      console.log(chalk.blue(`Calling API: ${apiPath}`));
-      const defaultOptions: RequestInit = {
-        headers: {
-          Authorization: `${this.config.key}`,
-          'Content-Type': 'application/json',
+  private async createApp() {
+    console.log(chalk.blue('Creating app'));
+    const resp = await this.singleApi('/api/application', {
+      method: 'POST',
+      headers: {
+        'X-FusionAuth-TenantId': this.config.tenantId!,
+      },
+      body: JSON.stringify({
+        application: {
+          name: `${this.config.name}-app`,
+          oauthConfiguration: {
+            authorizedRedirectURLs: [
+              `${this.config.endpoint}/api/auth/callback/fusionauth`,
+            ],
+            authorizedOriginURLs: [this.config.endpoint],
+            clientSecret: this.config.key,
+            logoutURL: this.config.endpoint,
+            enabledGrants: ['authorization_code', 'refresh_token'],
+            debug: true,
+            generateRefreshTokens: true,
+            requireRegistration: true,
+          },
+          jwtConfiguration: {
+            enabled: true,
+            accessTokenKeyId: this.config.signingKeyId,
+            idTokenKeyId: this.config.signingKeyId,
+          },
+          registrationConfiguration: {
+            enabled: true,
+          },
         },
-      };
-
-      const allOptions = { ...defaultOptions, ...options };
-
-      const response = await fetch(
-        `${this.config.endpoint}${apiPath}`,
-        allOptions
+      }),
+    });
+    if (!resp?.data?.application?.id) {
+      console.log(
+        chalk.yellow('Failed to create app:', JSON.stringify(resp.data))
       );
-
-      if (response.ok) {
-        return {
-          ok: true,
-          data: await response.json(),
-        };
+      console.log(chalk.blue('Checking if app exists'));
+      const search = await this.singleApi('/api/application/search', {
+        method: 'POST',
+        body: JSON.stringify({
+          search: {
+            name: `${this.config.name}-app`,
+          },
+        }),
+      });
+      if (!search.ok) {
+        console.log(chalk.red('App does not exist'));
+        return;
       }
-      return {
-        ok: false,
-        data: await response.json(),
-      };
-    } catch (error) {
-      console.error(chalk.red(`Error calling ${apiPath}:`), error);
-      throw error;
+      console.log(
+        chalk.green(
+          'App exists, id:',
+          JSON.stringify(search.data.applications[0].id)
+        )
+      );
+      this.config.appId = search?.data?.applications[0]?.id;
+      return;
     }
+    console.log(chalk.green('App created:', resp?.data?.application?.id));
+    this.config.appId = resp?.data?.application?.id;
+  }
+
+  private async copyDefaultTheme() {
+    console.log(chalk.blue('Copying default theme'));
+    const resp = await this.singleApi('/api/theme', {
+      method: 'POST',
+      body: JSON.stringify({
+        sourceThemeId: '75a068fd-e94b-451a-9aeb-3ddb9a3b5987',
+        theme: {
+          name: `${this.config.name}-theme`,
+        },
+      }),
+    });
+    if (!resp?.data?.theme?.id) {
+      console.log(
+        chalk.yellow('Failed to create theme:', JSON.stringify(resp.data))
+      );
+      console.log(chalk.blue('Checking if theme exists'));
+      const search = await this.singleApi('/api/theme/search', {
+        method: 'POST',
+        body: JSON.stringify({
+          search: {
+            name: `${this.config.name}-theme`,
+          },
+        }),
+      });
+      if (!search.ok) {
+        console.log(chalk.red('Theme does not exist'));
+        return;
+      }
+      console.log(
+        chalk.green(
+          'Theme exists, id:',
+          JSON.stringify(search.data.themes[0].id)
+        )
+      );
+      this.config.themeId = search?.data?.themes[0]?.id;
+      return;
+    }
+    console.log(chalk.green('Theme created:', resp?.data?.theme?.id));
+    this.config.themeId = resp?.data?.theme?.id;
   }
 
   public async runAll() {
@@ -208,6 +320,8 @@ class ApiRunner {
     await this.tenantCreate();
     await this.createKey();
     await this.createAdminUser();
+    await this.createApp();
+    await this.copyDefaultTheme();
   }
 }
 

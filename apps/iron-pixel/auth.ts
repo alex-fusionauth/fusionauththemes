@@ -1,6 +1,7 @@
 /// <reference types="next-auth" />
 import NextAuth from 'next-auth';
 export const { handlers, auth, signIn, signOut } = NextAuth({
+  debug: true,
   providers: [
     {
       id: 'fusionauth',

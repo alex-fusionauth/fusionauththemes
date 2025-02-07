@@ -46,14 +46,8 @@ export async function NavigationMenu() {
                   await signIn('fusionauth');
                 }}
               >
-                <Button variant="ghost" className="text-white" type="submit">
+                <Button className="bg-emerald-500 hover:bg-emerald-600">
                   Sign In
-                </Button>
-                <Button
-                  className="bg-emerald-500 hover:bg-emerald-600"
-                  type="submit"
-                >
-                  Register
                 </Button>
               </form>
             ) : (

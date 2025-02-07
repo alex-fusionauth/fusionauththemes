@@ -15,16 +15,6 @@ console.log(':jwksUrl:', `${process.env.AUTH_FUSIONAUTH_ISSUER}/oauth2/jwks`);
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   debug: true,
-  logger: {
-    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-    error: (message: any) => console.error(message),
-    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-    warn: (message: any) => console.warn(message),
-    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-    info: (message: any) => console.info(message),
-    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-    debug: (message: any) => console.debug(message),
-  },
   providers: [
     {
       id: 'fusionauth',

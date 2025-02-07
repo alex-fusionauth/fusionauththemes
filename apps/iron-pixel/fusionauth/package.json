@@ -16,9 +16,11 @@
     "typescript": "^5.7.3"
   },
   "scripts": {
-    "watch:tailwind": "tailwindcss -i ./input.css -o ./tpl/stylesheet.css --watch",
-    "watch:theme": "fusionauth theme:watch fafcbe6e-f34e-402a-93ce-0e3fcf30cb58 -k czOiF9DRGCAIBMSWLMNDwo4vOySnHJECKmHMavV5Q0X5cnpa8y4iOfR_ -h https://auth.cashcat.dev",
-    "fa:setup": "node --loader ts-node/esm ./setup.ts"
+    "fa:setup": "node --loader ts-node/esm ./setup.ts",
+    "fa:theme:download": "fusionauth theme:download <theme_id> -k <apiKey> -h http://localhost:9011",
+    "fa:theme:upload": "fusionauth theme:upload <theme_id> -k <apiKey> -h http://localhost:9011",
+    "fa:watch:tailwind": "tailwindcss -i ./input.css -o ./tpl/stylesheet.css --watch",
+    "fa:watch:theme": "fusionauth theme:watch <theme_id> -k <apiKey> -h http://localhost:9011"
   },
   "devDependencies": {
     "readline": "^1.3.0",

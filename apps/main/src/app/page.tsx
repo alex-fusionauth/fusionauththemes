@@ -7,7 +7,7 @@ const games = [
   {
     id: 1,
     title: 'Forest Adventure',
-    image: '/images/iron-pixel-login.png',
+    image: '/images/iron-pixel/login.png',
     link: 'https://iron-pixel.fusionauththemes.com/',
     thumbnails: [
       '/images/iron-pixel/GameImage_01.png?height=200&width=300',
@@ -60,11 +60,11 @@ export default function HomePage() {
           <p className="text-lg text-center text-gray-300 mb-12">
             Explore our collection of fully themed sites and logins.
           </p>
-          <div className="grid gap-8">
+          <div className="grid gap-8 items-center justify-center">
             {games.map((game) => (
               <Card
                 key={game.id}
-                className="overflow-hidden bg-black backdrop-blur-sm border-0 shadow-[0_0_15px_rgba(0,255,200,0.1)]"
+                className="overflow-hidden bg-black backdrop-blur-sm border-0 shadow-[0_0_15px_rgba(0,255,200,0.1)] md:max-w-xl lg:max-w-3xl"
               >
                 <CardContent className="p-0">
                   <Link

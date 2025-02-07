@@ -16,6 +16,9 @@
     },
     "clean": {
       "cache": false
+    },
+    "fa:setup": {
+      "cache": false
     }
   }
 }

@@ -25,6 +25,13 @@ interface Output {
   AUTH_SECRET: string;
 }
 
+/** Web compatible method to create a random string of a given length */
+function randomString(size = 32) {
+  const bytes = crypto.getRandomValues(new Uint8Array(size));
+  // @ts-expect-error
+  return Buffer.from(bytes, 'base64').toString('base64');
+}
+
 class ApiRunner {
   constructor(
     private config: ApiConfig,
@@ -299,7 +306,6 @@ class ApiRunner {
     }
     console.log(chalk.green('App created:', resp?.data?.application?.id));
     this.config.appId = resp?.data?.application?.id;
-    console.log(resp?.data?.application);
     this.output.AUTH_FUSIONAUTH_CLIENT_ID =
       resp?.data?.application?.oauthConfiguration?.clientId;
     this.output.AUTH_FUSIONAUTH_CLIENT_SECRET =
@@ -484,17 +490,21 @@ async function main() {
 
   await runner.runAll();
 
+  const env = runner.getEnv();
+
   console.log(
-    chalk.bgBlack.white(
-      JSON.stringify(
-        {
-          ...runner.getEnv(),
-          AUTH_SECRET: randomString(),
-        },
-        null,
-        2
-      )
+    chalk.bgYellow.black(
+      'Put the below values into your Next.js local.env file:'
     )
+  );
+  console.log(
+    chalk.bgBlack.white(`
+AUTH_FUSIONAUTH_CLIENT_ID=${env.AUTH_FUSIONAUTH_CLIENT_ID}
+AUTH_FUSIONAUTH_CLIENT_SECRET=${env.AUTH_FUSIONAUTH_CLIENT_SECRET}
+AUTH_FUSIONAUTH_TENANT_ID=${env.AUTH_FUSIONAUTH_TENANT_ID}
+AUTH_FUSIONAUTH_ISSUER=${env.AUTH_FUSIONAUTH_ISSUER}
+AUTH_SECRET=${randomString()}
+`)
   );
 
   const runDelete = await question('Delete Everything? (y/N) ');
@@ -507,10 +517,3 @@ async function main() {
 }
 
 main().catch(console.error);
-
-/** Web compatible method to create a random string of a given length */
-function randomString(size = 32) {
-  const bytes = crypto.getRandomValues(new Uint8Array(size));
-  // @ts-expect-error
-  return Buffer.from(bytes, 'base64').toString('base64');
-}

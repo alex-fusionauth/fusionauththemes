@@ -1,7 +1,30 @@
 /// <reference types="next-auth" />
 import NextAuth from 'next-auth';
+
+console.log(':issuer:', process.env.AUTH_FUSIONAUTH_ISSUER);
+console.log(':clientId:', process.env.AUTH_FUSIONAUTH_CLIENT_ID);
+console.log(':clientSecret:', process.env.AUTH_FUSIONAUTH_CLIENT_SECRET);
+console.log(':tenantId:', process.env.AUTH_FUSIONAUTH_TENANT_ID);
+console.log(
+  ':userinfo:',
+  `${process.env.AUTH_FUSIONAUTH_ISSUER}/oauth2/userinfo`
+);
+
+console.log(':tokenUrl:', `${process.env.AUTH_FUSIONAUTH_ISSUER}/oauth2/token`);
+console.log(':jwksUrl:', `${process.env.AUTH_FUSIONAUTH_ISSUER}/oauth2/jwks`);
+
 export const { handlers, auth, signIn, signOut } = NextAuth({
   debug: true,
+  logger: {
+    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+    error: (message: any) => console.error(message),
+    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+    warn: (message: any) => console.warn(message),
+    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+    info: (message: any) => console.info(message),
+    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+    debug: (message: any) => console.debug(message),
+  },
   providers: [
     {
       id: 'fusionauth',

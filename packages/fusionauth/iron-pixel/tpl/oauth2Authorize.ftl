@@ -270,10 +270,27 @@
 
 
             <div class="flex gap-10 justify-between items-start py-5 mt-6 w-full text-sm tracking-normal leading-loose text-white border-t border-b border-white border-opacity-10 max-md:max-w-full">
-            [@helpers.link url="${request.contextPath}/password/forgot"]${theme.message("forgot-your-password")}[/@helpers.link]
-          [#else]
-            [@helpers.button icon="arrow-right" text=theme.message("next")/]
-          [/#if]
+            <div class="flex justify-between w-full">
+            
+            <div>
+                [@helpers.link url="${request.contextPath}/password/forgot"]${theme.message("forgot-your-password")}[/@helpers.link]
+              [#else]
+                [@helpers.button icon="arrow-right" text=theme.message("next")/]
+              [/#if]
+              </div>
+
+              <div>
+                [#if showPasswordField && hasDomainBasedIdentityProviders]
+                  [@helpers.link url="" extraParameters="&showPasswordField=false"]${theme.message("sign-in-as-different-user")}[/@helpers.link]
+                [/#if]
+              [#if application.registrationConfiguration.enabled]
+                <div class="flex flex-col text-right">
+                  ${theme.message("dont-have-an-account")}
+                  [@helpers.link url="${request.contextPath}/oauth2/register"]${theme.message("create-an-account")}[/@helpers.link]
+                </div>
+              [/#if]
+              </div>
+
           </div>
               </div>
             </div>
@@ -330,18 +347,6 @@
                 </button>
               </div>
             </div>
-
-              <div>
-                [#if showPasswordField && hasDomainBasedIdentityProviders]
-                  [@helpers.link url="" extraParameters="&showPasswordField=false"]${theme.message("sign-in-as-different-user")}[/@helpers.link]
-                [/#if]
-              </div>
-              [#if application.registrationConfiguration.enabled]
-                <div class="form-row push-top">
-                  ${theme.message("dont-have-an-account")}
-                  [@helpers.link url="${request.contextPath}/oauth2/register"]${theme.message("create-an-account")}[/@helpers.link]
-                </div>
-              [/#if]
 
             [#if showWebAuthnReauthLink]
               [@helpers.link url="${request.contextPath}/oauth2/webauthn-reauth"] ${theme.message("return-to-webauthn-reauth")} [/@helpers.link]

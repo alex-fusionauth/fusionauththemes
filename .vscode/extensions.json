@@ -1,8 +1,4 @@
 {
-  "recommendations": [
-    "bradlc.vscode-tailwindcss",
-    "biomejs.biome",
-    "astro-build.astro-vscode"
-  ],
+  "recommendations": ["bradlc.vscode-tailwindcss", "biomejs.biome"],
   "unwantedRecommendations": []
 }

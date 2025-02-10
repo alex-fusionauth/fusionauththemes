@@ -26,10 +26,10 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
           const newHeaders = Array.from(response.headers.entries())
             .filter(([key]) => key.toLowerCase() !== 'www-authenticate')
-            .reduce(
-              (headers, [key, value]) => (headers.append(key, value), headers),
-              new Headers()
-            );
+            .reduce((headers, [key, value]) => {
+              headers.append(key, value);
+              return headers;
+            }, new Headers());
 
           return new Response(response.body, {
             status: response.status,
@@ -54,62 +54,62 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           ...token,
           ...account,
         };
-      } else if (
+      }
+      if (
         token.expires_at &&
         Date.now() < (token.expires_at as number) * 1000
       ) {
         // Subsequent logins, but the `access_token` is still valid
         return token;
-      } else {
-        // Subsequent logins, but the `access_token` has expired, try to refresh it
-        if (!token.refresh_token) throw new TypeError('Missing refresh_token');
+      }
+      // Subsequent logins, but the `access_token` has expired, try to refresh it
+      if (!token.refresh_token) throw new TypeError('Missing refresh_token');
 
-        try {
-          const refreshResponse = await fetch(
-            `${process.env.AUTH_FUSIONAUTH_ISSUER}/oauth2/token`,
-            {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-              },
-              body: new URLSearchParams({
-                client_id: process.env.AUTH_FUSIONAUTH_CLIENT_ID!,
-                client_secret: process.env.AUTH_FUSIONAUTH_CLIENT_SECRET!,
-                grant_type: 'refresh_token',
-                refresh_token: token.refresh_token as string,
-              }),
-            }
-          );
-
-          if (!refreshResponse.ok) {
-            throw new Error('Failed to refresh token');
+      try {
+        const refreshResponse = await fetch(
+          `${process.env.AUTH_FUSIONAUTH_ISSUER}/oauth2/token`,
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+              client_id: process.env.AUTH_FUSIONAUTH_CLIENT_ID!,
+              client_secret: process.env.AUTH_FUSIONAUTH_CLIENT_SECRET!,
+              grant_type: 'refresh_token',
+              refresh_token: token.refresh_token as string,
+            }),
           }
+        );
 
-          const tokensOrError = await refreshResponse.json();
-
-          if (!refreshResponse.ok) throw tokensOrError;
-
-          const newTokens = tokensOrError as {
-            access_token: string;
-            expires_in: number;
-            refresh_token?: string;
-          };
-
-          return {
-            ...token,
-            access_token: newTokens.access_token,
-            expires_at: Math.floor(Date.now() / 1000 + newTokens.expires_in),
-            // Some providers only issue refresh tokens once, so preserve if we did not get a new one
-            refresh_token: newTokens.refresh_token
-              ? newTokens.refresh_token
-              : token.refresh_token,
-          };
-        } catch (error) {
-          console.error('Error refreshing access_token', error);
-          // If we fail to refresh the token, return an error so we can handle it on the page
-          token.error = 'RefreshTokenError';
-          return token;
+        if (!refreshResponse.ok) {
+          throw new Error('Failed to refresh token');
         }
+
+        const tokensOrError = await refreshResponse.json();
+
+        if (!refreshResponse.ok) throw tokensOrError;
+
+        const newTokens = tokensOrError as {
+          access_token: string;
+          expires_in: number;
+          refresh_token?: string;
+        };
+
+        return {
+          ...token,
+          access_token: newTokens.access_token,
+          expires_at: Math.floor(Date.now() / 1000 + newTokens.expires_in),
+          // Some providers only issue refresh tokens once, so preserve if we did not get a new one
+          refresh_token: newTokens.refresh_token
+            ? newTokens.refresh_token
+            : token.refresh_token,
+        };
+      } catch (error) {
+        console.error('Error refreshing access_token', error);
+        // If we fail to refresh the token, return an error so we can handle it on the page
+        token.error = 'RefreshTokenError';
+        return token;
       }
     },
     async session(params) {

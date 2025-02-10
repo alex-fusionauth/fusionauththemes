@@ -98,12 +98,42 @@ class ApiRunner {
       }
       return {
         ok: false,
-        data: await response.json(),
+        data: null,
       };
     } catch (error) {
       console.error(chalk.red(`Error calling ${apiPath}:`), error);
       throw error;
     }
+  }
+
+  async updateDefaultTenantIssuer() {
+    console.log(chalk.blue('Updating default tenant issuer'));
+    const resp = await this.singleApi(
+      '/api/tenant/0385e66c-90b3-9fa4-5e2c-fdab50684195',
+      {
+        method: 'PATCH',
+        body: JSON.stringify({
+          tenant: {
+            issuer: this.config.endpoint,
+          },
+        }),
+      }
+    );
+    if (!resp?.data?.tenant?.id) {
+      console.log(
+        chalk.red(
+          'Failed to patch default tenant issuer:',
+          JSON.stringify(resp.data)
+        )
+      );
+      return;
+    }
+    console.log(
+      chalk.green(
+        'Default tenant patched with issuer:',
+        resp?.data?.tenant?.issuer
+      )
+    );
   }
 
   async tenantCreate() {
@@ -375,6 +405,32 @@ class ApiRunner {
     this.config.themeId = resp?.data?.theme?.id;
   }
 
+  async addThemeToTenant() {
+    console.log(chalk.blue('Adding theme to tenant'));
+    const resp = await this.singleApi(`/api/tenant/${this.config.tenantId}`, {
+      method: 'PATCH',
+      body: JSON.stringify({
+        tenant: {
+          themeId: this.config.themeId,
+        },
+      }),
+    });
+    if (!resp?.data?.tenant?.id) {
+      console.log(
+        chalk.red(
+          'Failed to patch tenant with theme:',
+          JSON.stringify(resp.data)
+        )
+      );
+      return;
+    }
+    console.log(
+      chalk.green('Tenant patched with theme:', resp?.data?.tenant?.themeId)
+    );
+  }
+
+  // Delete the things, note deleting a tenant deletes all apps and users.
+
   async tenantDelete() {
     console.log(chalk.blue('Deleting tenant'));
     const del = await this.singleApi(`/api/tenant/${this.config.tenantId}`, {
@@ -390,19 +446,31 @@ class ApiRunner {
     }
   }
 
+  async themeDelete() {
+    console.log(chalk.blue('Deleting theme'));
+    const del = await this.singleApi(`/api/theme/${this.config.themeId}`, {
+      method: 'DELETE',
+    });
+    if (del.ok) {
+      console.log(chalk.green('Theme deleted'));
+    } else {
+      console.log(chalk.red('Failed to delete theme'));
+    }
+  }
+
   async signingKeyDelete() {
-    console.log(chalk.blue('Deleting key'));
+    console.log(chalk.blue('Deleting signing key'));
     const del = await this.singleApi(`/api/key/${this.config.signingKeyId}`, {
       method: 'DELETE',
     });
     if (del.ok) {
       console.log(chalk.green('Key deleted'));
     } else {
-      console.log(chalk.red('Failed to delete key'));
+      console.log(chalk.red('Failed to delete signing key'));
     }
   }
 
-  async deleteAdminUser() {
+  async adminUserDelete() {
     console.log(chalk.blue('Deleting admin user'));
     const del = await this.singleApi(`/api/user/${this.config.adminUserId}`, {
       method: 'DELETE',
@@ -415,18 +483,20 @@ class ApiRunner {
   }
 
   async runAll() {
+    await this.updateDefaultTenantIssuer(); //TODO: This feels like a bug.
     await this.tenantCreate();
     await this.createSigningKey();
     await this.addKeyToTenant();
     await this.createApp();
     await this.createAdminUser();
     await this.copyDefaultTheme();
+    await this.addThemeToTenant();
   }
 
   async deleteAll() {
     await this.tenantDelete();
     await this.signingKeyDelete();
-    await this.deleteAdminUser();
+    await this.adminUserDelete();
   }
 }
 

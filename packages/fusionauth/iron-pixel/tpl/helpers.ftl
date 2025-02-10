@@ -27,7 +27,7 @@
 
 [#macro html]
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="fusionauththeme">
   [#nested/]
 </html>
 [/#macro]
@@ -82,6 +82,9 @@
   [#-- End Favicon Madness --]
 
   <link rel="stylesheet" href="/css/font-awesome-4.7.0.min.css"/>
+  [#--
+  <link rel="stylesheet" href="/css/fusionauth-style.css?version=${version}"/>
+  --]
   [#if theme.type == "simple"]
     <link rel="stylesheet" href="/css/simple-theme.css?version=${version}"/>
   [/#if]
@@ -134,7 +137,7 @@
 [/#macro]
 
 [#macro body]
-<body class="app-sidebar-closed bg-black">
+<body class="app-sidebar-closed" fusionauththeme>
 <main>
   [#nested/]
 </main>
@@ -348,6 +351,14 @@
 [#macro footer]
   [#nested/]
 
+  [#-- Powered by FusionAuth branding. This backlink helps FusionAuth web ranking so more
+       people can find us! However, we always want to give the developer choice, remove this if you like. --]
+  <div id="fa-footer" style="position: fixed; bottom: 5px; right: 0; padding-bottom: 5px; padding-right: 10px; align-items: center">
+    <span style="padding-right: 5px;">Powered by </span>
+    <a href="https://fusionauth.io" title="The best developer IAM in the universe!">
+      <img src="/images/footer-logo.svg" alt="FusionAuth" height="24" style="margin-bottom: -7px;">
+    </a>
+  </div>
 [/#macro]
 
 [#-- Below are the social login buttons and helpers --]

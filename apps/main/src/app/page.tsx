@@ -8,7 +8,7 @@ const games = [
     id: 1,
     title: 'Forest Adventure',
     image: '/images/iron-pixel/login.png',
-    link: 'https://iron-pixel.fusionauththemes.com/',
+    link: process.env.NEXT_PUBLIC_IRON_PIXEL_URL!,
     thumbnails: [
       '/images/iron-pixel/GameImage_01.png?height=200&width=300',
       '/images/iron-pixel/GameImage_02.png?height=200&width=300',

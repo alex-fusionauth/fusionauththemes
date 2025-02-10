@@ -7,7 +7,7 @@
     "lint": "biome lint .",
     "clean": "turbo clean",
     "format": "biome format . --write",
-    "fa:setup": "turbo fa:setup"
+    "fa:setup": "pnpm run -C packages/fusionauth fa:setup"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",

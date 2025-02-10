@@ -3,6 +3,148 @@ import * as readline from 'readline';
 import chalk from 'chalk';
 import * as dotenv from 'dotenv';
 dotenv.config();
+main();
+
+async function main() {
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
+
+  function showMenu(options: string | string[], selectedIndex = 0) {
+    console.clear();
+    for (let i = 0; i < options.length; i++) {
+      const prefix = i === selectedIndex ? '> ' : '  ';
+      console.log(prefix + options[i]);
+    }
+  }
+
+  function selectOption(options: string | string[]) {
+    return new Promise((resolve) => {
+      let selectedIndex = 0;
+      showMenu(options, selectedIndex);
+
+      process.stdin.on('keypress', (_, key) => {
+        if (key.name === 'up') {
+          selectedIndex = (selectedIndex - 1 + options.length) % options.length;
+          showMenu(options, selectedIndex);
+        } else if (key.name === 'down') {
+          selectedIndex = (selectedIndex + 1) % options.length;
+          showMenu(options, selectedIndex);
+        } else if (key.name === 'return') {
+          console.clear();
+          resolve(options[selectedIndex]);
+        }
+      });
+
+      process.stdin.setRawMode(true);
+      process.stdin.resume();
+    });
+  }
+
+  const question = (query: string): Promise<string> =>
+    new Promise((resolve) => rl.question(query, resolve));
+
+  const options = ['Upload', 'Download', 'Watch', 'Setup'];
+  const selected = await selectOption(options);
+  if (selected === 'Upload') {
+    console.log(`You selected: ${selected}`);
+  } else if (selected === 'Download') {
+    console.log(`You selected: ${selected}`);
+  } else if (selected === 'Watch') {
+    fusionauth.watch();
+  } else {
+    // Get API configuration
+    let name = await question(`App Name (.env: ${process.env.APP_NAME}): `);
+
+    let apiKey = await question(
+      'API key(this_really_should_be_a_long_random_alphanumeric_value_but_this_still_works): '
+    );
+    let endpoint = await question('API endpoint (http://localhost:9011): ');
+    let adminEmail = await question('Admin Email (admin@example.com): ');
+    let adminPassword = await question('Admin Password (password): ');
+    let redirectUri = await question(
+      'Redirect URI (http://localhost:3001/api/auth/callback/fusionauth): '
+    );
+
+    name = name || process.env.APP_NAME || '';
+    apiKey =
+      apiKey ||
+      process.env.API_KEY ||
+      'this_really_should_be_a_long_random_alphanumeric_value_but_this_still_works';
+    endpoint = endpoint || 'http://localhost:9011';
+    adminEmail = adminEmail || process.env.ADMIN_EMAIL || 'admin@example.com';
+    adminPassword = adminPassword || process.env.ADMIN_PASSWORD || 'password';
+    redirectUri = redirectUri || process.env.REDIRECT_URI || '';
+
+    if (!name) {
+      console.error(
+        chalk.red(
+          'APP_NAME is required, please set them in .env or pass in as parameters'
+        )
+      );
+      process.exit(1);
+    }
+
+    console.log(chalk.blue('Starting creation'));
+
+    const runner = new ApiRunner(
+      {
+        name,
+        apiKey,
+        endpoint,
+        adminEmail,
+        adminPassword,
+        redirectUri,
+      },
+      {
+        AUTH_FUSIONAUTH_CLIENT_ID: '',
+        AUTH_FUSIONAUTH_CLIENT_SECRET: '',
+        AUTH_FUSIONAUTH_TENANT_ID: '',
+        AUTH_FUSIONAUTH_ISSUER: '',
+        AUTH_SECRET: '',
+      }
+    );
+
+    await runner.runAll();
+
+    const env = runner.getEnv();
+
+    console.log(
+      chalk.bgYellow.black(
+        'Put the below values into your Next.js local.env file:'
+      )
+    );
+    console.log(
+      chalk.bgBlack.white(`
+AUTH_FUSIONAUTH_CLIENT_ID=${env.AUTH_FUSIONAUTH_CLIENT_ID}
+AUTH_FUSIONAUTH_CLIENT_SECRET=${env.AUTH_FUSIONAUTH_CLIENT_SECRET}
+AUTH_FUSIONAUTH_TENANT_ID=${env.AUTH_FUSIONAUTH_TENANT_ID}
+AUTH_FUSIONAUTH_ISSUER=${env.AUTH_FUSIONAUTH_ISSUER}
+AUTH_SECRET=${randomString()}
+`)
+    );
+
+    const config = runner.getConfig();
+    console.log(
+      chalk.bgYellow.black(`Accessing FusionAuth at ${config.endpoint}`)
+    );
+    console.log(
+      chalk.bgBlack.white(`
+Admin Email: ${config.adminEmail}
+Admin Password: ${config.adminPassword}
+Redirect URI: ${config.redirectUri}
+`)
+    );
+
+    const runDelete = await question('Delete Everything? (y/N) ');
+
+    if (runDelete.toLowerCase().startsWith('y')) {
+      await runner.deleteAll();
+    }
+  }
+  rl.close();
+}
 
 interface ApiConfig {
   apiKey: string;
@@ -499,106 +641,3 @@ class ApiRunner {
     await this.adminUserDelete();
   }
 }
-
-async function main() {
-  const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-  });
-
-  const question = (query: string): Promise<string> =>
-    new Promise((resolve) => rl.question(query, resolve));
-
-  // Get API configuration
-  let name = await question(`App Name (.env: ${process.env.APP_NAME}): `);
-
-  let apiKey = await question(
-    'API key(this_really_should_be_a_long_random_alphanumeric_value_but_this_still_works): '
-  );
-  let endpoint = await question('API endpoint (http://localhost:9011): ');
-  let adminEmail = await question('Admin Email (admin@example.com): ');
-  let adminPassword = await question('Admin Password (password): ');
-  let redirectUri = await question(
-    'Redirect URI (http://localhost:3001/api/auth/callback/fusionauth): '
-  );
-
-  name = name || process.env.APP_NAME || '';
-  apiKey =
-    apiKey ||
-    process.env.API_KEY ||
-    'this_really_should_be_a_long_random_alphanumeric_value_but_this_still_works';
-  endpoint = endpoint || 'http://localhost:9011';
-  adminEmail = adminEmail || process.env.ADMIN_EMAIL || 'admin@example.com';
-  adminPassword = adminPassword || process.env.ADMIN_PASSWORD || 'password';
-  redirectUri = redirectUri || process.env.REDIRECT_URI || '';
-
-  if (!name) {
-    console.error(
-      chalk.red(
-        'APP_NAME is required, please set them in .env or pass in as parameters'
-      )
-    );
-    process.exit(1);
-  }
-
-  console.log(chalk.blue('Starting creation'));
-
-  const runner = new ApiRunner(
-    {
-      name,
-      apiKey,
-      endpoint,
-      adminEmail,
-      adminPassword,
-      redirectUri,
-    },
-    {
-      AUTH_FUSIONAUTH_CLIENT_ID: '',
-      AUTH_FUSIONAUTH_CLIENT_SECRET: '',
-      AUTH_FUSIONAUTH_TENANT_ID: '',
-      AUTH_FUSIONAUTH_ISSUER: '',
-      AUTH_SECRET: '',
-    }
-  );
-
-  await runner.runAll();
-
-  const env = runner.getEnv();
-
-  console.log(
-    chalk.bgYellow.black(
-      'Put the below values into your Next.js local.env file:'
-    )
-  );
-  console.log(
-    chalk.bgBlack.white(`
-AUTH_FUSIONAUTH_CLIENT_ID=${env.AUTH_FUSIONAUTH_CLIENT_ID}
-AUTH_FUSIONAUTH_CLIENT_SECRET=${env.AUTH_FUSIONAUTH_CLIENT_SECRET}
-AUTH_FUSIONAUTH_TENANT_ID=${env.AUTH_FUSIONAUTH_TENANT_ID}
-AUTH_FUSIONAUTH_ISSUER=${env.AUTH_FUSIONAUTH_ISSUER}
-AUTH_SECRET=${randomString()}
-`)
-  );
-
-  const config = runner.getConfig();
-  console.log(
-    chalk.bgYellow.black(`Accessing FusionAuth at ${config.endpoint}`)
-  );
-  console.log(
-    chalk.bgBlack.white(`
-Admin Email: ${config.adminEmail}
-Admin Password: ${config.adminPassword}
-Redirect URI: ${config.redirectUri}
-`)
-  );
-
-  const runDelete = await question('Delete Everything? (y/N) ');
-
-  if (runDelete.toLowerCase().startsWith('y')) {
-    await runner.deleteAll();
-  }
-
-  rl.close();
-}
-
-main().catch(console.error);

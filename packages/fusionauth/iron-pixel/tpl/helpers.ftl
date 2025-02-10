@@ -146,7 +146,7 @@
 
 [#macro header]
   [#if theme.type != 'simple' || request.requestURI == "/" || request.requestURI?starts_with("/account")]
-    <header class="absolute bottom-0 right-0 mb-4 mr-4 z-10">
+    <header>
       <div class="right-menu" [#if request.requestURI == "/"]style="display: block !important;" [/#if]>
         <nav>
           <ul>
@@ -154,8 +154,6 @@
               <li><a href="${request.contextPath}/admin/" title="Administrative login"><i class="fa fa-lock" style="font-size: 18px;"></i></a></li>
             [#elseif request.requestURI?starts_with("/account")]
               <li><a href="${request.contextPath}/account/logout?client_id=${client_id!''}" title="Logout"><i class="fa fa-sign-out"></i></a></li>
-            [#else]
-              <li class="help"><a target="_blank" href="https://fusionauth.io/docs/"><i class="fa fa-question-circle-o"></i> ${theme.message("help")}</a></li>
             [/#if]
           </ul>
         </nav>
@@ -200,25 +198,53 @@
 [/#macro]
 
 [#macro main title="Login" rowClass="row center-xs" colClass="col-xs col-sm-8 col-md-6 col-lg-5 col-xl-4"]
-<main class="page-body container">
+<main class="z-10">
   [@printErrorAlerts rowClass colClass/]
   [@printInfoAlerts rowClass colClass/]
   <div class="${rowClass}">
     <div class="${colClass}">
       <div class="panel" data-in-progress>
         <div class="logo-container">
-          <img id="imgThemeLogo" alt="logo"/>
-        </div>
+        <div class="flex gap-2 items-center">
+          <svg width="41" height="33" viewBox="0 0 41 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4.76287 6.80489L20.0739 13.6098V32.3232L-0.000549316 22.1159L4.76287 6.80489Z" fill="url(#paint0_radial_2243_771)"/>
+            <path d="M35.3849 6.80489L20.0739 13.6098V32.3232L40.1483 22.1159L35.3849 6.80489Z" fill="url(#paint1_radial_2243_771)"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M20.0739 2.97868L32.6629 8.57381V14.9707H7.48483V8.57381L20.0739 2.97868ZM4.76287 6.80489L20.0739 0L35.3849 6.80489V17.6927H4.76287V6.80489Z" fill="url(#paint2_radial_2243_771)"/>
+            <defs>
+            <radialGradient id="paint0_radial_2243_771" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(37.2846 6.13697) rotate(156.176) scale(42.0862 42.0862)">
+            <stop stop-color="#1AB7FF"/>
+            <stop offset="0.246584" stop-color="#0DC7E3"/>
+            <stop offset="0.444146" stop-color="#08C4B6"/>
+            <stop offset="0.662916" stop-color="#00C288"/>
+            <stop offset="1" stop-color="#00C750"/>
+            </radialGradient>
+            <radialGradient id="paint1_radial_2243_771" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(37.2846 6.13697) rotate(156.176) scale(42.0862 42.0862)">
+            <stop stop-color="#1AB7FF"/>
+            <stop offset="0.246584" stop-color="#0DC7E3"/>
+            <stop offset="0.444146" stop-color="#08C4B6"/>
+            <stop offset="0.662916" stop-color="#00C288"/>
+            <stop offset="1" stop-color="#00C750"/>
+            </radialGradient>
+            <radialGradient id="paint2_radial_2243_771" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(37.2846 6.13697) rotate(156.176) scale(42.0862 42.0862)">
+            <stop stop-color="#1AB7FF"/>
+            <stop offset="0.246584" stop-color="#0DC7E3"/>
+            <stop offset="0.444146" stop-color="#08C4B6"/>
+            <stop offset="0.662916" stop-color="#00C288"/>
+            <stop offset="1" stop-color="#00C750"/>
+            </radialGradient>
+            </defs>
+        </svg>
         [#if title?has_content]
-          <h2>${title}</h2>
+          <h2 class="uppercase text-6xl font-bold">${title}</h2>
         [/#if]
+        </div>
         <main>
           [#nested/]
         </main>
       </div>
     </div>
   </div>
-  <div class="${rowClass}">
+  <div class="${rowClass} mt-8">
     <div class="${colClass}">
       [@localSelector/]
     </div>
@@ -349,6 +375,9 @@
 [/#macro]
 
 [#macro footer]
+  <div class="fixed bottom-0 right-0 mb-4 mr-4 z-10">
+    <a target="_blank" href="https://fusionauth.io/docs/"><i class="fa fa-question-circle-o"></i> ${theme.message("help")}</a>
+  </div>
   [#nested/]
 [/#macro]
 

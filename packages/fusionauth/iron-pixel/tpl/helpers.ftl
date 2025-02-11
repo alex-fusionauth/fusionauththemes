@@ -52,32 +52,11 @@
        You can check if this is working using this site https://realfavicongenerator.net/
        Questions about icon names and sizes? https://realfavicongenerator.net/faq#.XrBnPJNKg3g --]
 
-  [#-- Apple & iOS --]
-  <link rel="apple-touch-icon" sizes="57x57" href="/images/apple-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="/images/apple-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="/images/apple-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="/images/apple-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="/images/apple-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="/images/apple-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-icon-180x180.png">
-
-  [#--  Android Icons --]
-  <link rel="manifest" href="/images/manifest.json">
-
-  [#-- IE 11+ configuration --]
-  <meta name="msapplication-config" content="/images/browserconfig.xml" />
-
-  [#-- Windows 8 Compatible --]
-  <meta name="msapplication-TileColor" content="#ffffff">
-  <meta name="msapplication-TileImage" content="/images/ms-icon-144x144.png">
-
   [#--  Standard Favicon Fare --]
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="128" href="/images/favicon-128.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://res.cloudinary.com/djox1exln/image/upload/w_16,h_16,c_fill/v1739291929/web-app-manifest-512x512_v756tz.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/djox1exln/image/upload/w_32,h_32,c_fill/v1739291929/web-app-manifest-512x512_v756tz.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="https://res.cloudinary.com/djox1exln/image/upload/w_96,h_96,c_fill/v1739291929/web-app-manifest-512x512_v756tz.png">
+  <link rel="icon" type="image/png" sizes="128" href="https://res.cloudinary.com/djox1exln/image/upload/w_128,h_128,c_fill/v1739291929/web-app-manifest-512x512_v756tz.png">
 
   [#-- End Favicon Madness --]
 

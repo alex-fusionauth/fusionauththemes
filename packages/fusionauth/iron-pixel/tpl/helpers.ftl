@@ -117,7 +117,7 @@
 
 [#macro body]
 <body>
-  <main class="h-screen flex flex-col items-center justify-center relative">
+  <main class="">
     [#nested/]
   </main>
 </body>

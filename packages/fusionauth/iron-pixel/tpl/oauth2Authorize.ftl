@@ -50,14 +50,15 @@
       [#-- Custom header code goes here --]
     [/@helpers.header]
 
+      <section class="h-screen w-screen flex items-center justify-center p-12">
+        <div class="grid grid-cols-1 lg:grid-cols-2 max-h-full max-w-full aspect-[2/1]">
 
-      <section class="grid grid-cols-1 lg:grid-cols-2 m-8">
         [#-- Photo --]
-        <div class="hidden lg:flex overflow-hidden relative flex-col justify-center px-8 py-44 max-md:px-5 max-md:max-w-full">
+        <div class="hidden lg:flex relative flex-col items-center justify-center px-8 py-8 w-full">
           <img
             loading="lazy"
             src="https://res.cloudinary.com/djox1exln/image/upload/v1739206563/background-left_hbtcsz.jpg"
-            class="object-cover absolute inset-0 size-full"
+            class="object-cover absolute inset-0 size-full object-center"
             alt="Background"
           />
           <div class="flex overflow-hidden relative flex-col pb-3 pl-2.5 w-full shadow-sm min-h-[400px] max-md:max-w-full">
@@ -121,9 +122,8 @@
             />
           </div>
         </div>
-        
         [#-- LOGIN --]
-        <div class="flex overflow-hidden relative flex-col justify-center px-28 py-8 max-md:px-5 max-md:max-w-full">
+        <div class="flex relative flex-col px-8 py-8 w-full">
 
               [#if devicePendingIdPLink?? || pendingIdPLink??]
                 <p class="mt-0">
@@ -198,10 +198,9 @@
                 
                 --]
               </div>
-<div class="flex flex-col gap-2">
-                              [#if showPasswordField]
-<div class="flex gap-2">
-
+              <div class="flex flex-col gap-2">
+              [#if showPasswordField]
+              <div class="flex gap-2">
                 <div class="flex flex-1 gap-2 items-center self-stretch my-auto leading-loose text-slate-50">
                   <label htmlFor="remember-me" class="self-stretch my-auto">
                   [@helpers.input id="rememberDevice" type="checkbox" name="rememberDevice" label=theme.message("remember-device") value="true" uncheckedValue="false" class="checkbox checkbox-primary"]
@@ -305,9 +304,10 @@
           </div>
         </div>
       </section>
-
     [@helpers.footer]
       [#-- Custom footer code goes here --]
+        </div>
+      </section>
     [/@helpers.footer]
 
   [/@helpers.body]

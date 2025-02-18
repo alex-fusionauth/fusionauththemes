@@ -32,7 +32,7 @@
 </html>
 [/#macro]
 
-[#macro head title="Login | FusionAuth" author="FusionAuth" description="User Management Redefined. A Single Sign-On solution for your entire enterprise."]
+[#macro head title="Iron Pixel" author="FusionAuth" description="User Management Redefined. A Single Sign-On solution for your entire enterprise."]
 <head>
   <title>${title}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -176,7 +176,7 @@
   [/#if]
 [/#macro]
 
-[#macro main title="Login" rowClass="row center-xs" colClass="col-xs col-sm-8 col-md-6 col-lg-5 col-xl-4"]
+[#macro main title="Iron Pixel" rowClass="row center-xs" colClass="col-xs col-sm-8 col-md-6 col-lg-5 col-xl-4"]
 <main class="z-10">
   [@printErrorAlerts rowClass colClass/]
   [@printInfoAlerts rowClass colClass/]
@@ -214,7 +214,7 @@
             </defs>
         </svg>
         [#if title?has_content]
-          <h2 class="uppercase text-6xl font-bold">${title}</h2>
+          <h2 class="uppercase text-6xl font-bold font-DINCondensed">${title}</h2>
         [/#if]
         </div>
         <main>

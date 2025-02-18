@@ -35,3 +35,15 @@
   --depth: 0;
   --noise: 0;
 }
+
+@font-face {
+  font-family: DINCondensed;
+  font-style: normal;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 36px;
+  font-display: swap;
+  text-transform: uppercase;
+  src: url("https://res.cloudinary.com/djox1exln/raw/upload/v1739894904/DINCondensed_cyaj6n.ttf")
+    format("ttf");
+}

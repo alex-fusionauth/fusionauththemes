@@ -147,7 +147,7 @@
             class="object-cover absolute inset-0 size-full"
             alt="Background"
           />
-              [@helpers.main title=theme.message("login")]        
+              [@helpers.main title=theme.message("Iron Pixel")]        
           <div class="relative flex-1 mt-14 w-full max-md:mt-10 max-md:max-w-full">
             <div class="flex items-start w-full text-xl tracking-wide leading-snug border-b border-white border-opacity-30 max-md:max-w-full">
               <div class="flex-1 shrink px-4 pb-4 font-semibold text-white border-b-4 border-teal-500 min-h-11">

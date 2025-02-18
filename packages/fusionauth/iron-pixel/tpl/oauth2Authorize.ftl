@@ -50,7 +50,7 @@
       [#-- Custom header code goes here --]
     [/@helpers.header]
 
-      <section class="h-screen w-screen flex items-center justify-center p-12">
+      <section class="h-screen w-screen flex items-center justify-center p-0 sm:p-12">
         <div class="grid grid-cols-1 lg:grid-cols-2 max-h-full max-w-full aspect-[2/1]">
 
         [#-- Photo --]
@@ -174,29 +174,25 @@
             <div class="mt-6 w-full text-sm tracking-normal max-md:max-w-full">
               <div class="w-full leading-loose text-gray-400 max-md:max-w-full">
                 <div class="flex flex-col justify-center w-full rounded max-md:max-w-full">
-                  <fieldset>
-                    [@helpers.input type="text" name="loginId" id="loginId" autocomplete="username" autocapitalize="none" autocomplete="on" autocorrect="off" spellcheck="false" autofocus=(!loginId?has_content) placeholder=theme.message("loginId") leftAddon="user" disabled=(showPasswordField && hasDomainBasedIdentityProviders) class="flex-1 shrink gap-2 self-stretch px-3.5 py-3 w-full rounded bg-cyan-950 max-md:max-w-full" /]
+                  <fieldset class="flex flex-col gap-2 md:gap-4">
+                    <div>
+                    <label for="loginId">Email Address</label>
+                    [@helpers.input type="text" name="loginId" id="loginId" autocomplete="username" autocapitalize="none" autocomplete="on" autocorrect="off" spellcheck="false" autofocus=(!loginId?has_content) placeholder=theme.message("loginId") disabled=(showPasswordField && hasDomainBasedIdentityProviders) class="flex-1 shrink gap-2 self-stretch px-3.5 py-3 w-full rounded bg-cyan-950 max-md:max-w-full p-2" /]
+                    </div>
                     [#if showPasswordField]
-                      [@helpers.input type="password" name="password" id="password" autocomplete="current-password" autofocus=loginId?has_content placeholder=theme.message("password") leftAddon="lock" class="flex-1 shrink gap-2 self-stretch px-3.5 py-3 w-full rounded bg-cyan-950 max-md:max-w-full" /]
+                    <div>
+                      <label for="password">Password</label>
+                      [@helpers.input type="password" name="password" id="password" autocomplete="current-password" autofocus=loginId?has_content placeholder=theme.message("password") class="flex-1 shrink gap-2 self-stretch px-3.5 py-3 w-full rounded bg-cyan-950 max-md:max-w-full p-2${(errorMessages?size > 0)?then(' outline-red-500 outline-2', '')}" /]
                       [@helpers.captchaBadge showCaptcha=showCaptcha captchaMethod=tenant.captchaConfiguration.captchaMethod siteKey=tenant.captchaConfiguration.siteKey/]
+                      [#if errorMessages?size > 0]
+                        [#list errorMessages as m]
+                          <div class="text-red-500">${m}</div>
+                        [/#list]
+                      [/#if]
+                    </div>
                     [/#if]
                   </fieldset>
                 </div>
-                [#--                
-                  <input
-                    type="email"
-                    placeholder="Email Address"
-                    class="flex-1 shrink gap-2 self-stretch px-3.5 py-3 w-full rounded bg-cyan-950 max-md:max-w-full"
-                  />
-                </div>
-                <div class="flex flex-col justify-center mt-4 w-full whitespace-nowrap rounded bg-cyan-950 max-md:max-w-full">
-                  <input
-                    type="password"
-                    placeholder="Password"
-                    class="flex-1 shrink gap-2 self-stretch px-3.5 py-3 w-full rounded bg-cyan-950 max-md:max-w-full"
-                  />
-                
-                --]
               </div>
               <div class="flex flex-col gap-2">
               [#if showPasswordField]

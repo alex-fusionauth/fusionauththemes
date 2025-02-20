@@ -154,7 +154,9 @@
                 Log In
               </div>
               <div class="flex-1 shrink px-4 pb-4 min-h-11 text-white text-opacity-60">
+              [@helpers.link url="${request.contextPath}/oauth2/register"]
                 Sign Up
+                [/@helpers.link]
               </div>
             </div>
             <div class="flex flex-col justify-center mt-6 w-full max-md:max-w-full">
@@ -245,51 +247,6 @@
                 [/#if]
               </form>
 
-
-
-          <div class="flex flex-col mt-6 w-full text-white max-md:max-w-full">
-              <div class="self-start text-base tracking-wide text-center max-md:max-w-full text-center w-full">
-                <p>Or, log in with a game account</p>
-              </div>
-              <div class="grid grid-cols-2 gap-2 mt-6 w-full text-sm font-semibold leading-none max-md:px-5 max-md:max-w-full">
-                <button class="flex flex-1 shrink gap-2 items-center self-stretch p-2 my-auto rounded basis-0 bg-cyan-950 hover:bg-opacity-80">
-                <img
-                  loading="lazy"
-                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/8e0e2e25c2d789b1d208ba125c2e30ace387721db9f3cf139caaa4927d080c03?placeholderIfAbsent=true"
-                  class="object-contain shrink-0 self-stretch my-auto w-8 rounded-sm aspect-square"
-                  alt="Steam"
-                />
-                  <span>Steam</span>
-                </button>
-                <button class="flex flex-1 shrink gap-2 items-center self-stretch p-2 my-auto rounded basis-0 bg-cyan-950 hover:bg-opacity-80">
-                  <img
-                    loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/560644be9c6a1529f87fa0f087880de2c080a55aa9f3a284f99b9bdf3f36a825?placeholderIfAbsent=true"
-                    class="object-contain shrink-0 self-stretch my-auto w-8 rounded-sm aspect-square"
-                    alt="Xbox"
-                  />
-                  <span>Xbox</span>
-                </button>
-                <button class="flex flex-1 shrink gap-2 items-center self-stretch p-2 my-auto text-center whitespace-nowrap rounded basis-0 bg-cyan-950 hover:bg-opacity-80">
-                  <img
-                    loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/edd6ca3a42adf5079b4780496246dfc4364138569baf436ac3d24330d1491b27?placeholderIfAbsent=true"
-                    class="object-contain shrink-0 self-stretch my-auto w-8 rounded-sm aspect-square"
-                    alt="Twitch"
-                  />
-                  <span>Twitch</span>
-                </button>
-                <button class="flex flex-1 shrink gap-2 items-center self-stretch p-2 my-auto rounded basis-0 bg-cyan-950 hover:bg-opacity-80">
-                  <img
-                    loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/825488faa339f626c58e1abe3f7645e34980e8ac1de4ba9c421132efd819a175?placeholderIfAbsent=true"
-                    class="object-contain shrink-0 self-stretch my-auto w-8 rounded-sm aspect-square"
-                    alt="Epic Games"
-                  />
-                  <span>Epic Games</span>
-                </button>
-              </div>
-            </div>
 
             [#if showWebAuthnReauthLink]
               [@helpers.link url="${request.contextPath}/oauth2/webauthn-reauth"] ${theme.message("return-to-webauthn-reauth")} [/@helpers.link]

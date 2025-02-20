@@ -360,12 +360,49 @@
   [#nested/]
 [/#macro]
 
+                <#--  <button class="flex flex-1 shrink gap-2 items-center self-stretch p-2 my-auto rounded basis-0 bg-cyan-950 hover:bg-opacity-80">
+                <img
+                  loading="lazy"
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/8e0e2e25c2d789b1d208ba125c2e30ace387721db9f3cf139caaa4927d080c03?placeholderIfAbsent=true"
+                  class="object-contain shrink-0 self-stretch my-auto w-8 rounded-sm aspect-square"
+                  alt="Steam"
+                />
+                  <span>Steam</span>
+                </button>
+                <button class="flex flex-1 shrink gap-2 items-center self-stretch p-2 my-auto rounded basis-0 bg-cyan-950 hover:bg-opacity-80">
+                  <img
+                    loading="lazy"
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/560644be9c6a1529f87fa0f087880de2c080a55aa9f3a284f99b9bdf3f36a825?placeholderIfAbsent=true"
+                    class="object-contain shrink-0 self-stretch my-auto w-8 rounded-sm aspect-square"
+                    alt="Xbox"
+                  />
+                  <span>Xbox</span>
+                </button>
+                <button class="flex flex-1 shrink gap-2 items-center self-stretch p-2 my-auto text-center whitespace-nowrap rounded basis-0 bg-cyan-950 hover:bg-opacity-80">
+                  <img
+                    loading="lazy"
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/edd6ca3a42adf5079b4780496246dfc4364138569baf436ac3d24330d1491b27?placeholderIfAbsent=true"
+                    class="object-contain shrink-0 self-stretch my-auto w-8 rounded-sm aspect-square"
+                    alt="Twitch"
+                  />
+                  <span>Twitch</span>
+                </button>
+                <button class="flex flex-1 shrink gap-2 items-center self-stretch p-2 my-auto rounded basis-0 bg-cyan-950 hover:bg-opacity-80">
+                  <img
+                    loading="lazy"
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/825488faa339f626c58e1abe3f7645e34980e8ac1de4ba9c421132efd819a175?placeholderIfAbsent=true"
+                    class="object-contain shrink-0 self-stretch my-auto w-8 rounded-sm aspect-square"
+                    alt="Epic Games"
+                  />
+                  <span>Epic Games</span>
+                </button>  -->
+
 [#-- Below are the social login buttons and helpers --]
 [#macro appleButton identityProvider clientId]
  [#-- https://developer.apple.com/design/human-interface-guidelines/sign-in-with-apple/overview/buttons/ --]
- <button id="apple-login-button" class="apple login-button" data-scope="${identityProvider.lookupScope(clientId)!''}" data-services-id="${identityProvider.lookupServicesId(clientId)}">
+ <button id="apple-login-button" class="apple login-button flex flex-1 shrink gap-2 items-center self-stretch p-2 my-auto rounded basis-0 bg-cyan-950 hover:bg-opacity-80" data-scope="${identityProvider.lookupScope(clientId)!''}" data-services-id="${identityProvider.lookupServicesId(clientId)}">
    <div>
-     <div class="icon">
+     <div class="icon object-contain shrink-0 self-stretch my-auto w-8 rounded-sm aspect-square">
       <svg version="1.1" viewBox="4 6 30 30" xmlns="http://www.w3.org/2000/svg">
         <g id="Left-Black-Logo-Large" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
           <path class="cls-1" d="M19.8196726,13.1384615 C20.902953,13.1384615 22.2608678,12.406103 23.0695137,11.4296249 C23.8018722,10.5446917 24.3358837,9.30883662 24.3358837,8.07298156 C24.3358837,7.9051494 24.3206262,7.73731723 24.2901113,7.6 C23.0847711,7.64577241 21.6353115,8.4086459 20.7656357,9.43089638 C20.0790496,10.2090273 19.4534933,11.4296249 19.4534933,12.6807374 C19.4534933,12.8638271 19.4840083,13.0469167 19.4992657,13.1079466 C19.5755531,13.1232041 19.6976128,13.1384615 19.8196726,13.1384615 Z M16.0053051,31.6 C17.4852797,31.6 18.1413509,30.6082645 19.9875048,30.6082645 C21.8641736,30.6082645 22.2761252,31.5694851 23.923932,31.5694851 C25.5412238,31.5694851 26.6245041,30.074253 27.6467546,28.6095359 C28.7910648,26.9312142 29.2640464,25.2834075 29.2945613,25.2071202 C29.1877591,25.1766052 26.0904927,23.9102352 26.0904927,20.3552448 C26.0904927,17.2732359 28.5316879,15.8848061 28.6690051,15.7780038 C27.0517133,13.4588684 24.5952606,13.3978385 23.923932,13.3978385 C22.1082931,13.3978385 20.6283185,14.4963764 19.6976128,14.4963764 C18.6906198,14.4963764 17.36322,13.4588684 15.7917006,13.4588684 C12.8012365,13.4588684 9.765,15.9305785 9.765,20.5993643 C9.765,23.4982835 10.8940528,26.565035 12.2824825,28.548506 C13.4725652,30.2268277 14.5100731,31.6 16.0053051,31.6 Z" id=""  fill-rule="nonzero"></path>
@@ -378,9 +415,9 @@
 [/#macro]
 
 [#macro epicButton identityProvider clientId]
-<button id="epicgames-login-button" class="epicgames login-button" data-login-method="UseRedirect" data-scope="${identityProvider.lookupScope(clientId)!''}" data-identity-provider-id="${identityProvider.id}">
+<button id="epicgames-login-button" class="epicgames login-button flex flex-1 shrink gap-2 items-center self-stretch p-2 my-auto rounded basis-0 bg-cyan-950 hover:bg-opacity-80" data-login-method="UseRedirect" data-scope="${identityProvider.lookupScope(clientId)!''}" data-identity-provider-id="${identityProvider.id}">
   <div>
-    <div class="icon">
+    <div class="icon object-contain shrink-0 self-stretch my-auto w-8 rounded-sm aspect-square">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="-97.07505 -187.74425 841.3171 1126.4655">
         <g transform="matrix(1.33333 0 0 -1.33333 -278.052 902.584)">
           <path d="M649.836 676.938h-397.22c-32.195 0-44.077-11.882-44.077-44.093V244.169c0-3.645.147-7.031.469-10.168.733-7.031.87-13.844 7.41-21.601.639-.76 7.315-5.728 7.315-5.728 3.59-1.761 6.043-3.058 10.093-4.688l195.596-81.948c10.154-4.655 14.4-6.47 21.775-6.323v-.001h.058c7.375-.145 11.62 1.669 21.776 6.324l195.595 81.948c4.05 1.63 6.502 2.927 10.094 4.688 0 0 6.676 4.968 7.314 5.728 6.539 7.757 6.677 14.57 7.41 21.6.322 3.138.47 6.524.47 10.169v388.676c0 32.21-11.883 44.093-44.078 44.093" fill="#2f2d2e" fill-rule="evenodd"/>
@@ -395,9 +432,9 @@
 [/#macro]
 
 [#macro facebookButton identityProvider clientId]
- <button id="facebook-login-button" class="facebook login-button" data-login-method="${identityProvider.lookupLoginMethod(clientId)!''}" data-permissions="${identityProvider.lookupPermissions(clientId)!''}" data-identity-provider-id="${identityProvider.id}">
+ <button id="facebook-login-button" class="facebook login-button flex flex-1 shrink gap-2 items-center self-stretch p-2 my-auto rounded basis-0 bg-cyan-950 hover:bg-opacity-80" data-login-method="${identityProvider.lookupLoginMethod(clientId)!''}" data-permissions="${identityProvider.lookupPermissions(clientId)!''}" data-identity-provider-id="${identityProvider.id}">
    <div>
-     <div class="icon">
+     <div class="icon object-contain shrink-0 self-stretch my-auto w-8 rounded-sm aspect-square">
        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 216 216">
          <path class="cls-1" d="M204.1 0H11.9C5.3 0 0 5.3 0 11.9v192.2c0 6.6 5.3 11.9 11.9 11.9h103.5v-83.6H87.2V99.8h28.1v-24c0-27.9 17-43.1 41.9-43.1 11.9 0 22.2.9 25.2 1.3v29.2h-17.3c-13.5 0-16.2 6.4-16.2 15.9v20.8h32.3l-4.2 32.6h-28V216h55c6.6 0 11.9-5.3 11.9-11.9V11.9C216 5.3 210.7 0 204.1 0z"></path>
        </svg>
@@ -410,9 +447,9 @@
 [#macro googleButton identityProvider clientId idpRedirectState=""]
   [#-- When using this loginMethod - the Google JavaScript API is not used at all. --]
   [#if identityProvider.lookupLoginMethod(clientId) == "UseRedirect"]
-    <button id="google-login-button" class="google login-button" data-login-method="UseRedirect" data-scope="${identityProvider.lookupScope(clientId)!''}" data-identity-provider-id="${identityProvider.id}">
+    <button id="google-login-button" class="google login-button flex flex-1 shrink gap-2 items-center self-stretch p-2 my-auto rounded basis-0 bg-cyan-950 hover:bg-opacity-80" data-login-method="UseRedirect" data-scope="${identityProvider.lookupScope(clientId)!''}" data-identity-provider-id="${identityProvider.id}">
       <div>
-       <div class="icon">
+       <div class="icon object-contain shrink-0 self-stretch my-auto w-8 rounded-sm aspect-square">
          <svg version="1.1" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
            <g>
              <path class="cls-1" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path>
@@ -444,9 +481,9 @@
 [/#macro]
 
 [#macro linkedInBottom identityProvider clientId]
- <button id="linkedin-login-button" class="linkedin login-button" data-login-method="UseRedirect" data-identity-provider-id="${identityProvider.id}">
+ <button id="linkedin-login-button" class="linkedin login-button flex flex-1 shrink gap-2 items-center self-stretch p-2 my-auto rounded basis-0 bg-cyan-950 hover:bg-opacity-80" data-login-method="UseRedirect" data-identity-provider-id="${identityProvider.id}">
    <div>
-     <div class="icon">
+     <div class="icon object-contain shrink-0 self-stretch my-auto w-8 rounded-sm aspect-square">
        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
             viewBox="0 0 382 382" style="enable-background:new 0 0 382 382;" xml:space="preserve">
        <path style="fill:#0077B7;" d="M347.445,0H34.555C15.471,0,0,15.471,0,34.555v312.889C0,366.529,15.471,382,34.555,382h312.889
@@ -466,9 +503,9 @@
 [/#macro]
 
 [#macro nintendoButton identityProvider clientId]
-<button id="nintendo-login-button" class="nintendo login-button" data-login-method="UseRedirect" data-scope="${identityProvider.lookupScope(clientId)!''}" data-identity-provider-id="${identityProvider.id}">
+<button id="nintendo-login-button" class="nintendo login-button flex flex-1 shrink gap-2 items-center self-stretch p-2 my-auto rounded basis-0 bg-cyan-950 hover:bg-opacity-80" data-login-method="UseRedirect" data-scope="${identityProvider.lookupScope(clientId)!''}" data-identity-provider-id="${identityProvider.id}">
   <div>
-    <div class="icon">
+    <div class="icon object-contain shrink-0 self-stretch my-auto w-8 rounded-sm aspect-square">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192.756 192.756">
         <g>
           <path fill="#cc2131" d="M27.305 119.422c-14.669-.004-24.47-10.398-24.47-23.002 0-12.605 9.826-23.119 24.449-23.086h138.189c14.623-.033 24.449 10.481 24.449 23.086 0 12.604-9.803 22.998-24.473 23.002H27.305z"/>
@@ -484,9 +521,9 @@
 [/#macro]
 
 [#macro twitterButton identityProvider clientId]
- <button id="twitter-login-button" class="twitter login-button">
+ <button id="twitter-login-button" class="twitter login-button flex flex-1 shrink gap-2 items-center self-stretch p-2 my-auto rounded basis-0 bg-cyan-950 hover:bg-opacity-80">
    <div>
-     <div class="icon">
+     <div class="icon object-contain shrink-0 self-stretch my-auto w-8 rounded-sm aspect-square">
        <svg version="1.1" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
          <g>
            <rect class="cls-1" width="400" height="400"></rect>
@@ -503,9 +540,9 @@
 [/#macro]
 
 [#macro openIDConnectButton identityProvider clientId]
- <button class="openid login-button" data-login-method="UseRedirect" data-identity-provider-id="${identityProvider.id}">
+ <button class="openid login-button flex flex-1 shrink gap-2 items-center self-stretch p-2 my-auto rounded basis-0 bg-cyan-950 hover:bg-opacity-80" data-login-method="UseRedirect" data-identity-provider-id="${identityProvider.id}">
    <div>
-     <div class="icon">
+     <div class="icon object-contain shrink-0 self-stretch my-auto w-8 rounded-sm aspect-square">
        [#if identityProvider.lookupButtonImageURL(clientId)?has_content]
          <img src="${identityProvider.lookupButtonImageURL(clientId)}" title="OpenID Connect Logo" alt="OpenID Connect Logo"/>
        [#else]
@@ -525,9 +562,9 @@
 [/#macro]
 
 [#macro samlv2Button identityProvider clientId]
- <button class="samlv2 login-button" data-login-method="UseRedirect" data-identity-provider-id="${identityProvider.id}">
+ <button class="samlv2 login-button flex flex-1 shrink gap-2 items-center self-stretch p-2 my-auto rounded basis-0 bg-cyan-950 hover:bg-opacity-80" data-login-method="UseRedirect" data-identity-provider-id="${identityProvider.id}">
    <div>
-     <div class="icon">
+     <div class="icon object-contain shrink-0 self-stretch my-auto w-8 rounded-sm aspect-square">
        [#if identityProvider.lookupButtonImageURL(clientId)?has_content]
          <img src="${identityProvider.lookupButtonImageURL(clientId)}" title="SAML Login" alt="SAML Login"/>
        [#else]
@@ -540,9 +577,9 @@
 [/#macro]
 
 [#macro sonypsnButton identityProvider clientId]
-<button id="sonypsn-login-button" class="sonypsn login-button" data-login-method="UseRedirect" data-scope="${identityProvider.lookupScope(clientId)!''}" data-identity-provider-id="${identityProvider.id}">
+<button id="sonypsn-login-button" class="sonypsn login-button flex flex-1 shrink gap-2 items-center self-stretch p-2 my-auto rounded basis-0 bg-cyan-950 hover:bg-opacity-80" data-login-method="UseRedirect" data-scope="${identityProvider.lookupScope(clientId)!''}" data-identity-provider-id="${identityProvider.id}">
   <div>
-    <div class="icon">
+    <div class="icon object-contain shrink-0 self-stretch my-auto w-8 rounded-sm aspect-square">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="-6.003495 -7.75 52.03029 46.5">
         <path fill="#0070d1" d="M.81 22.6c-1.5 1-1 2.9 2.2 3.8 3.3 1.1 6.9 1.4 10.4.8.2 0 .4-.1.5-.1v-3.4l-3.4 1.1c-1.3.4-2.6.5-3.9.2-1-.3-.8-.9.4-1.4l6.9-2.4v-3.7l-9.6 3.3c-1.2.4-2.4 1-3.5 1.8zm23.2-15v9.7c4.1 2 7.3 0 7.3-5.2 0-5.3-1.9-7.7-7.4-9.6-2.9-1-5.9-1.9-8.9-2.5v28.9l7 2.1V6.7c0-1.1 0-1.9.8-1.6 1.1.3 1.2 1.4 1.2 2.5zm13 12.7c-2.9-1-6-1.4-9-1.1-1.6.1-3.1.5-4.5 1l-.3.1v3.9l6.5-2.4c1.3-.4 2.6-.5 3.9-.2 1 .3.8.9-.4 1.4l-10 3.7v3.8l13.8-5.1c1-.4 1.9-.9 2.7-1.7.7-1 .4-2.4-2.7-3.4z"/>
       </svg>
@@ -553,34 +590,21 @@
 [/#macro]
 
 [#macro steamButton identityProvider clientId]
-<button id="steam-login-button" class="steam login-button" data-login-method="UseRedirect" data-scope="${identityProvider.lookupScope(clientId)!''}" data-identity-provider-id="${identityProvider.id}">
-  <div>
-    <div class="icon">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 233 233">
-       <defs>
-        <linearGradient id="a" x2="50%" x1="50%" y2="100%">
-         <stop stop-color="#111D2E" offset="0"/>
-         <stop stop-color="#051839" offset=".21248"/>
-         <stop stop-color="#0A1B48" offset=".40695"/>
-         <stop stop-color="#132E62" offset=".58110"/>
-         <stop stop-color="#144B7E" offset=".73760"/>
-         <stop stop-color="#136497" offset=".87279"/>
-         <stop stop-color="#1387B8" offset="1"/>
-        </linearGradient>
-       </defs>
-       <path fill="url(#a)" d="m4.8911 150.01c14.393 48.01 58.916 82.99 111.61 82.99 64.34 0 116.5-52.16 116.5-116.5 0-64.341-52.16-116.5-116.5-116.5-61.741 0-112.26 48.029-116.25 108.76 7.5391 12.66 10.481 20.49 4.6411 41.25z"/>
-       <path fill="#fff" d="m110.5 87.322c0 0.196 0 0.392 0.01 0.576l-28.508 41.412c-4.618-0.21-9.252 0.6-13.646 2.41-1.937 0.79-3.752 1.76-5.455 2.88l-62.599-25.77c0.00049 0-1.4485 23.83 4.588 41.59l44.254 18.26c2.222 9.93 9.034 18.64 19.084 22.83 16.443 6.87 35.402-0.96 42.242-17.41 1.78-4.3 2.61-8.81 2.49-13.31l40.79-29.15c0.33 0.01 0.67 0.02 1 0.02 24.41 0 44.25-19.9 44.25-44.338 0-24.44-19.84-44.322-44.25-44.322-24.4 0-44.25 19.882-44.25 44.322zm-6.84 83.918c-5.294 12.71-19.9 18.74-32.596 13.45-5.857-2.44-10.279-6.91-12.83-12.24l14.405 5.97c9.363 3.9 20.105-0.54 23.997-9.9 3.904-9.37-0.525-20.13-9.883-24.03l-14.891-6.17c5.746-2.18 12.278-2.26 18.381 0.28 6.153 2.56 10.927 7.38 13.457 13.54s2.52 12.96-0.04 19.1m51.09-54.38c-16.25 0-29.48-13.25-29.48-29.538 0-16.275 13.23-29.529 29.48-29.529 16.26 0 29.49 13.254 29.49 29.529 0 16.288-13.23 29.538-29.49 29.538m-22.09-29.583c0-12.253 9.92-22.191 22.14-22.191 12.23 0 22.15 9.938 22.15 22.191 0 12.254-9.92 22.183-22.15 22.183-12.22 0-22.14-9.929-22.14-22.183z"/>
+<button id="steam-login-button" class="steam login-button flex flex-1 shrink gap-2 items-center self-stretch p-2 my-auto rounded basis-0 bg-cyan-950 hover:bg-opacity-80" data-login-method="UseRedirect" data-scope="${identityProvider.lookupScope(clientId)!''}" data-identity-provider-id="${identityProvider.id}">
+    <div class="icon object-contain shrink-0 self-stretch my-auto w-8 rounded-sm aspect-square">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="32" height="32" rx="1.6" fill="#1A1A19"/>
+      <path d="M15.9818 6.40002C10.93 6.40002 6.79146 10.2886 6.39844 15.23L11.5527 17.3574C11.9893 17.0589 12.5173 16.8851 13.0847 16.8851C13.1359 16.8851 13.1864 16.8864 13.2362 16.8892L15.5286 13.5721V13.5256C15.5286 11.5296 17.1554 9.90531 19.1551 9.90531C21.1548 9.90531 22.7815 11.5296 22.7815 13.5256C22.7815 15.5216 21.1548 17.1465 19.1551 17.1465C19.1274 17.1465 19.1004 17.1459 19.0727 17.1452L15.8033 19.4731C15.8054 19.5163 15.8068 19.5594 15.8068 19.6018C15.8068 21.1009 14.5855 22.3199 13.0847 22.3199C11.7672 22.3199 10.665 21.3808 10.4159 20.1378L6.72919 18.6162C7.87089 22.6458 11.5797 25.6 15.9818 25.6C21.2932 25.6 25.5984 21.3014 25.5984 16C25.5984 10.6979 21.2932 6.40002 15.9818 6.40002ZM12.4248 20.9664L11.2437 20.4791C11.4527 20.9144 11.8152 21.2786 12.2961 21.4784C13.3354 21.911 14.5339 21.4189 14.967 20.3805C15.1767 19.8781 15.1781 19.3236 14.9705 18.8199C14.7629 18.3161 14.3706 17.9232 13.8675 17.7137C13.3673 17.5063 12.8317 17.5138 12.3612 17.6911L13.5818 18.1949C14.3484 18.5139 14.711 19.3928 14.3913 20.158C14.0723 20.9233 13.1915 21.2854 12.4248 20.9664ZM21.5716 13.5257C21.5716 12.1957 20.4873 11.1128 19.1554 11.1128C17.8227 11.1128 16.7384 12.1957 16.7384 13.5257C16.7384 14.8556 17.8227 15.9378 19.1554 15.9378C20.4873 15.9378 21.5716 14.8556 21.5716 13.5257ZM17.3438 13.5215C17.3438 12.5208 18.1569 11.7097 19.1588 11.7097C20.1614 11.7097 20.9745 12.5208 20.9745 13.5215C20.9745 14.5223 20.1614 15.3334 19.1588 15.3334C18.1569 15.3334 17.3438 14.5223 17.3438 13.5215Z" fill="white"/>
       </svg>
     </div>
     <div class="text">${identityProvider.lookupButtonText(clientId)?trim}</div>
-  </div>
 </button>
 [/#macro]
 
 [#macro twitchButton identityProvider clientId]
-<button id="twitch-login-button" class="twitch login-button" data-login-method="UseRedirect" data-scope="${identityProvider.lookupScope(clientId)!''}" data-identity-provider-id="${identityProvider.id}">
+<button id="twitch-login-button" class="twitch login-button flex flex-1 shrink gap-2 items-center self-stretch p-2 my-auto rounded basis-0 bg-cyan-950 hover:bg-opacity-80" data-login-method="UseRedirect" data-scope="${identityProvider.lookupScope(clientId)!''}" data-identity-provider-id="${identityProvider.id}">
   <div>
-    <div class="icon">
+    <div class="icon object-contain shrink-0 self-stretch my-auto w-8 rounded-sm aspect-square">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 2800">
         <g>
           <polygon fill="#FFFFFF" points="2200,1300 1800,1700 1400,1700 1050,2050 1050,1700 600,1700 600,200 2200,200"/>
@@ -600,9 +624,9 @@
 [/#macro]
 
 [#macro xboxButton identityProvider clientId]
-<button id="xbox-login-button" class="xbox login-button" data-login-method="UseRedirect" data-scope="${identityProvider.lookupScope(clientId)!''}" data-identity-provider-id="${identityProvider.id}">
+<button id="xbox-login-button" class="xbox login-button flex flex-1 shrink gap-2 items-center self-stretch p-2 my-auto rounded basis-0 bg-cyan-950 hover:bg-opacity-80" data-login-method="UseRedirect" data-scope="${identityProvider.lookupScope(clientId)!''}" data-identity-provider-id="${identityProvider.id}">
   <div>
-    <div class="icon">
+    <div class="icon object-contain shrink-0 self-stretch my-auto w-8 rounded-sm aspect-square">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="-12.90591 -21.521775 111.85122 129.13065">
         <path d="M38.7297 85.9103c-6.628-.635-13.338-3.015-19.102-6.776-4.83-3.15-5.92-4.447-5.92-7.032 0-5.193 5.71-14.29 15.48-24.658 5.547-5.89 13.275-12.79 14.11-12.604 1.626.363 14.616 13.034 19.48 19 7.69 9.43 11.224 17.154 9.428 20.597-1.365 2.617-9.837 7.733-16.06 9.698-5.13 1.62-11.867 2.306-17.416 1.775zm-31.546-19.207c-4.014-6.158-6.042-12.22-7.02-20.988-.324-2.895-.21-4.55.733-10.494 1.173-7.4 5.39-15.97 10.46-21.24 2.158-2.24 2.35-2.3 4.982-1.41 3.19 1.08 6.6 3.436 11.89 8.22l3.09 2.794-1.69 2.07c-7.828 9.61-16.09 23.24-19.2 31.67-1.69 4.58-2.37 9.18-1.64 11.095.49 1.294.04.812-1.61-1.714zm70.453 1.047c.397-1.936-.105-5.49-1.28-9.076-2.545-7.765-11.054-22.21-18.867-32.032l-2.46-3.092 2.662-2.443c3.474-3.19 5.886-5.1 8.49-6.723 2.053-1.28 4.988-2.413 6.25-2.413.777 0 3.516 2.85 5.726 5.95 3.424 4.8 5.942 10.63 7.218 16.69.825 3.92.894 12.3.133 16.21-.63 3.208-1.95 7.366-3.23 10.187-.97 2.113-3.36 6.218-4.41 7.554-.54.687-.54.686-.24-.796zm-38.197-57.245c-3.606-1.83-9.168-3.795-12.24-4.325-1.076-.185-2.913-.29-4.08-.23-2.536.128-2.423-.004 1.643-1.925 3.38-1.597 6.2-2.536 10.03-3.34 4.305-.905 12.4-.915 16.637-.022 4.575.965 9.964 2.97 13 4.84l.904.554-2.07-.104c-4.116-.208-10.114 1.455-16.554 4.587-1.942.946-3.63 1.7-3.754 1.68-.123-.024-1.706-.795-3.52-1.715z" fill="#107c10"/>
       </svg>
@@ -614,10 +638,67 @@
 
 [#macro alternativeLogins clientId identityProviders passwordlessEnabled bootstrapWebauthnEnabled=false idpRedirectState="" federatedCSRFToken=""]
   [#if identityProviders?has_content || passwordlessEnabled || bootstrapWebauthnEnabled]
-    <div id="login-button-container" class="login-button-container" data-federated-csrf="${federatedCSRFToken}">
-      <div class="hr-container">
-        <hr>
-        <div>${theme.message("or")}</div>
+    <div class="flex flex-col mt-6 w-full text-white max-md:max-w-full">
+        <div class="self-start text-base tracking-wide text-center max-md:max-w-full text-center w-full">
+          <p>Or, log in with a game account</p>
+        </div>
+        <div class="grid grid-cols-2 gap-2 mt-6 w-full text-sm font-semibold leading-none max-md:px-5 max-md:max-w-full">
+          [#if identityProviders["Apple"]?has_content]
+            [@appleButton identityProvider=identityProviders["Apple"][0] clientId=clientId/]
+          [/#if]
+
+          [#if identityProviders["EpicGames"]?has_content]
+              [@epicButton identityProvider=identityProviders["EpicGames"][0] clientId=clientId/]
+          [/#if]
+
+          [#if identityProviders["Facebook"]?has_content]
+            [@facebookButton identityProvider=identityProviders["Facebook"][0] clientId=clientId /]
+          [/#if]
+
+          [#if identityProviders["Google"]?has_content]
+            [@googleButton identityProvider=identityProviders["Google"][0] clientId=clientId idpRedirectState=idpRedirectState/]
+          [/#if]
+
+          [#if identityProviders["LinkedIn"]?has_content]
+            [@linkedInBottom identityProvider=identityProviders["LinkedIn"][0] clientId=clientId/]
+          [/#if]
+
+          [#if identityProviders["Nintendo"]?has_content]
+            [@nintendoButton identityProvider=identityProviders["Nintendo"][0] clientId=clientId/]
+          [/#if]
+
+          [#if identityProviders["OpenIDConnect"]?has_content]
+            [#list identityProviders["OpenIDConnect"] as identityProvider]
+              [@openIDConnectButton identityProvider=identityProvider clientId=clientId/]
+            [/#list]
+          [/#if]
+
+          [#if identityProviders["SAMLv2"]?has_content]
+            [#list identityProviders["SAMLv2"] as identityProvider]
+              [@samlv2Button identityProvider=identityProvider clientId=clientId/]
+            [/#list]
+          [/#if]
+
+          [#if identityProviders["SonyPSN"]?has_content]
+            [@sonypsnButton identityProvider=identityProviders["SonyPSN"][0] clientId=clientId/]
+          [/#if]
+
+          [#if identityProviders["Steam"]?has_content]
+              [@steamButton identityProvider=identityProviders["Steam"][0] clientId=clientId/]
+          [/#if]
+
+          [#if identityProviders["Twitch"]?has_content]
+              [@twitchButton identityProvider=identityProviders["Twitch"][0] clientId=clientId/]
+          [/#if]
+
+          [#if identityProviders["Twitter"]?has_content]
+              [@twitterButton identityProvider=identityProviders["Twitter"][0] clientId=clientId/]
+          [/#if]
+
+          [#if identityProviders["Xbox"]?has_content]
+              [@xboxButton identityProvider=identityProviders["Xbox"][0] clientId=clientId/]
+          [/#if]
+        </div>
       </div>
 
       [#if passwordlessEnabled]
@@ -625,7 +706,7 @@
         [@link url = "/oauth2/passwordless"]
           <div class="magic login-button">
             <div>
-              <div class="icon">
+              <div class="icon object-contain shrink-0 self-stretch my-auto w-8 rounded-sm aspect-square">
                 <i class="fa fa-link"></i>
               </div>
               <div class="text">${theme.message('passwordless-button-text')}</div>
@@ -640,7 +721,7 @@
         [@link url = "/oauth2/webauthn"]
           <div class="magic login-button">
             <div>
-              <div class="icon">
+              <div class="icon object-contain shrink-0 self-stretch my-auto w-8 rounded-sm aspect-square">
                 <svg xmlns="http://www.w3.org/2000/svg" width="512.000000pt" height="512.000000pt" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
                   <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" fill="#FFF" stroke="none">
                     <path d="M923 4595 c-187 -51 -349 -214 -398 -402 -12 -44 -15 -122 -15 -348 0 -261 2 -294 19 -331 51 -112 193 -135 276 -43 19 21 37 49 40 61 2 13 6 160 7 328 3 338 5 345 72 386 28 17 58 19 336 22 168 1 315 5 328 7 12 3 40 21 61 40 92 83 69 225 -43 276 -37 17 -70 19 -336 18 -221 0 -308 -4 -347 -14z"/>
@@ -658,88 +739,6 @@
             </div>
           </div>
         [/@link]
-      </div>
-      [/#if]
-
-      [#if identityProviders["Apple"]?has_content]
-      <div class="form-row push-less-top">
-        [@appleButton identityProvider=identityProviders["Apple"][0] clientId=clientId/]
-      </div>
-      [/#if]
-
-      [#if identityProviders["EpicGames"]?has_content]
-        <div class="form-row push-less-top">
-          [@epicButton identityProvider=identityProviders["EpicGames"][0] clientId=clientId/]
-        </div>
-      [/#if]
-
-      [#if identityProviders["Facebook"]?has_content]
-      <div class="form-row push-less-top">
-        [@facebookButton identityProvider=identityProviders["Facebook"][0] clientId=clientId /]
-      </div>
-      [/#if]
-
-      [#if identityProviders["Google"]?has_content]
-      <div class="form-row push-less-top">
-        [@googleButton identityProvider=identityProviders["Google"][0] clientId=clientId idpRedirectState=idpRedirectState/]
-      </div>
-      [/#if]
-
-      [#if identityProviders["LinkedIn"]?has_content]
-      <div class="form-row push-less-top">
-        [@linkedInBottom identityProvider=identityProviders["LinkedIn"][0] clientId=clientId/]
-      </div>
-      [/#if]
-
-      [#if identityProviders["Nintendo"]?has_content]
-        <div class="form-row push-less-top">
-          [@nintendoButton identityProvider=identityProviders["Nintendo"][0] clientId=clientId/]
-        </div>
-      [/#if]
-
-      [#if identityProviders["OpenIDConnect"]?has_content]
-        [#list identityProviders["OpenIDConnect"] as identityProvider]
-          <div class="form-row push-less-top">
-            [@openIDConnectButton identityProvider=identityProvider clientId=clientId/]
-          </div>
-        [/#list]
-      [/#if]
-
-      [#if identityProviders["SAMLv2"]?has_content]
-        [#list identityProviders["SAMLv2"] as identityProvider]
-          <div class="form-row push-less-top">
-            [@samlv2Button identityProvider=identityProvider clientId=clientId/]
-          </div>
-        [/#list]
-      [/#if]
-
-      [#if identityProviders["SonyPSN"]?has_content]
-        <div class="form-row push-less-top">
-          [@sonypsnButton identityProvider=identityProviders["SonyPSN"][0] clientId=clientId/]
-        </div>
-      [/#if]
-
-      [#if identityProviders["Steam"]?has_content]
-        <div class="form-row push-less-top">
-          [@steamButton identityProvider=identityProviders["Steam"][0] clientId=clientId/]
-        </div>
-      [/#if]
-
-      [#if identityProviders["Twitch"]?has_content]
-        <div class="form-row push-less-top">
-          [@twitchButton identityProvider=identityProviders["Twitch"][0] clientId=clientId/]
-        </div>
-      [/#if]
-
-      [#if identityProviders["Twitter"]?has_content]
-      <div class="form-row push-less-top">
-        [@twitterButton identityProvider=identityProviders["Twitter"][0] clientId=clientId/]
-      </div>
-      [/#if]
-
-      [#if identityProviders["Xbox"]?has_content]
-      <div class="form-row push-less-top">
-        [@xboxButton identityProvider=identityProviders["Xbox"][0] clientId=clientId/]
       </div>
       [/#if]
     </div>

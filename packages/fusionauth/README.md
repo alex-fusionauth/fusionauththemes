@@ -1,5 +1,7 @@
 # FusionAuth Themes
 
+> Prerequisites: requires Node 22.6.0 or higher.
+
 ## Setup
 
 You can run `pnpm fa:setup` then select 'Setup' to setup your FusionAuth instance.

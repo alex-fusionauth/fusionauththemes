@@ -1305,6 +1305,9 @@
       cursor: not-allowed;
     }
   }
+  .-z-10 {
+    z-index: calc(10 * -1);
+  }
   .z-10 {
     z-index: 10;
   }
@@ -1948,6 +1951,11 @@
   .sm\:p-12 {
     @media (width >= 40rem) {
       padding: calc(var(--spacing) * 12);
+    }
+  }
+  .md\:mt-8 {
+    @media (width >= 48rem) {
+      margin-top: calc(var(--spacing) * 8);
     }
   }
   .md\:gap-4 {

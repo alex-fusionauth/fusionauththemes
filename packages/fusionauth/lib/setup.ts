@@ -784,6 +784,76 @@ class ApiRunner {
     );
   }
 
+  async createRegistrationForm() {
+    console.log(chalk.blue('Checking if Registration Form exists'));
+    const search = await this.singleApi('/api/form', {
+      method: 'GET',
+    });
+    const form = search.data?.forms.filter(
+      (f: { name: string; id: string }) =>
+        f.name === `${this.config.name}-registration-form`
+    );
+    if (form) {
+      console.log(
+        chalk.blue(
+          'Registration Form exists, update manually if needed.',
+          JSON.stringify(form.id)
+        )
+      );
+      await this.updateAppWithForm(form.id);
+      return;
+    }
+
+    console.log(chalk.blue('Registration Form not found, creating form.'));
+    const resp = await this.singleApi('/api/form', {
+      method: 'POST',
+      body: JSON.stringify({
+        form: {
+          name: `${this.config.name}-registration-form`,
+        },
+      }),
+    });
+    if (!resp?.data?.form?.id) {
+      console.log(
+        chalk.red(
+          'Failed to create Registration Form:',
+          JSON.stringify(resp.data)
+        )
+      );
+      return;
+    }
+    console.log(
+      chalk.green('Registration Form created:', resp?.data?.form?.id)
+    );
+    await this.updateAppWithForm(resp?.data?.form?.id);
+  }
+
+  async updateAppWithForm(formId: string) {
+    console.log(
+      chalk.blue('Updating app', this.config.appId, 'with form', formId)
+    );
+    const resp = await this.singleApi(`/api/application/${this.config.appId}`, {
+      method: 'PATCH',
+      body: JSON.stringify({
+        application: {
+          registrationConfiguration: {
+            formId,
+          },
+        },
+      }),
+    });
+    if (!resp?.data?.application?.id) {
+      console.log(chalk.red('Failed to patch app:', JSON.stringify(resp.data)));
+      return;
+    }
+    console.log(
+      chalk.green(
+        'App patched with form:',
+        resp?.data?.application?.registrationConfiguration?.formId
+      )
+    );
+  }
+
   async runAll() {
     await this.updateDefaultTenantIssuer(); //TODO: This feels like a bug.
     await this.tenantCreate();
@@ -793,6 +863,7 @@ class ApiRunner {
     await this.createAdminUser();
     await this.copyDefaultTheme();
     await this.addThemeToTenant();
+    await this.createRegistrationForm();
   }
 
   async deleteAll() {

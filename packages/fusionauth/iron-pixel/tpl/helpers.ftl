@@ -176,59 +176,167 @@
   [/#if]
 [/#macro]
 
-[#macro main title="Iron Pixel" rowClass="row center-xs" colClass="col-xs col-sm-8 col-md-6 col-lg-5 col-xl-4"]
-<main class="z-10">
-  [@printErrorAlerts rowClass colClass/]
-  [@printInfoAlerts rowClass colClass/]
-  <div class="${rowClass}">
-    <div class="${colClass}">
-      <div class="panel" data-in-progress>
-        <div class="logo-container">
-        <div class="flex gap-2 items-center">
-          <svg width="41" height="33" viewBox="0 0 41 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4.76287 6.80489L20.0739 13.6098V32.3232L-0.000549316 22.1159L4.76287 6.80489Z" fill="url(#paint0_radial_2243_771)"/>
-            <path d="M35.3849 6.80489L20.0739 13.6098V32.3232L40.1483 22.1159L35.3849 6.80489Z" fill="url(#paint1_radial_2243_771)"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M20.0739 2.97868L32.6629 8.57381V14.9707H7.48483V8.57381L20.0739 2.97868ZM4.76287 6.80489L20.0739 0L35.3849 6.80489V17.6927H4.76287V6.80489Z" fill="url(#paint2_radial_2243_771)"/>
-            <defs>
-            <radialGradient id="paint0_radial_2243_771" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(37.2846 6.13697) rotate(156.176) scale(42.0862 42.0862)">
-            <stop stop-color="#1AB7FF"/>
-            <stop offset="0.246584" stop-color="#0DC7E3"/>
-            <stop offset="0.444146" stop-color="#08C4B6"/>
-            <stop offset="0.662916" stop-color="#00C288"/>
-            <stop offset="1" stop-color="#00C750"/>
-            </radialGradient>
-            <radialGradient id="paint1_radial_2243_771" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(37.2846 6.13697) rotate(156.176) scale(42.0862 42.0862)">
-            <stop stop-color="#1AB7FF"/>
-            <stop offset="0.246584" stop-color="#0DC7E3"/>
-            <stop offset="0.444146" stop-color="#08C4B6"/>
-            <stop offset="0.662916" stop-color="#00C288"/>
-            <stop offset="1" stop-color="#00C750"/>
-            </radialGradient>
-            <radialGradient id="paint2_radial_2243_771" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(37.2846 6.13697) rotate(156.176) scale(42.0862 42.0862)">
-            <stop stop-color="#1AB7FF"/>
-            <stop offset="0.246584" stop-color="#0DC7E3"/>
-            <stop offset="0.444146" stop-color="#08C4B6"/>
-            <stop offset="0.662916" stop-color="#00C288"/>
-            <stop offset="1" stop-color="#00C750"/>
-            </radialGradient>
-            </defs>
+[#macro main title="Iron Pixel"]
+  <section class="h-screen w-screen flex items-center justify-center p-0 sm:p-12">
+    <div class="grid grid-cols-1 lg:grid-cols-2 max-h-full max-w-full aspect-[2/1]">
+      [#-- Photo --]
+      <div class="hidden lg:flex relative flex-col items-center justify-center px-8 py-8 w-full">
+        <img
+          loading="lazy"
+          src="https://res.cloudinary.com/djox1exln/image/upload/v1739206563/background-left_hbtcsz.jpg"
+          class="object-cover absolute inset-0 size-full object-center"
+          alt="Background"
+        />
+        <div class="flex overflow-hidden relative flex-col pb-3 pl-2.5 w-full shadow-sm min-h-[400px] max-md:max-w-full">
+          <img
+            loading="lazy"
+            src="https://res.cloudinary.com/djox1exln/image/upload/v1739207333/game-1_hz8dfv.png"
+            class="object-cover absolute inset-0 size-full"
+            alt="Game Overlay"
+          />
+          <div class="flex relative flex-wrap gap-5 justify-between max-md:max-w-full">
+            <div
+              class="object-contain shrink-0 self-start mt-3 w-5 aspect-[1.25]"
+              alt="Icon"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 17" fill="currentColor"><g opacity="1"><path d="M2.35789 3.86842L9.93684 7.23684V16.5L0 11.4474L2.35789 3.86842Z" fill="currentColor"></path><path d="M17.5158 3.86842L9.93684 7.23684V16.5L19.8737 11.4474L17.5158 3.86842Z" fill="currentColor"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M9.93684 1.97445L16.1684 4.74404V7.91053H3.70526V4.74404L9.93684 1.97445ZM2.35789 3.86842L9.93684 0.5L17.5158 3.86842V9.2579H2.35789V3.86842Z" fill="currentColor"></path></g></svg>
+            </div>
+            <img
+              loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/3c4269182d3775c272e2d79990d5c1a7dfc4ba495ffbc9ea6e55e54d04364a18?placeholderIfAbsent=true"
+              class="object-contain shrink-0 max-w-full aspect-[1.4] w-[175px]"
+              alt="Logo"
+            />
+          </div>
+          <div class="flex relative flex-col justify-center px-3 py-3 mt-60 bg-black bg-opacity-60 min-h-7">
+            <div class="w-full max-md:max-w-full">
+              <div class="flex relative flex-col items-start min-h-[5px] max-md:pr-5 max-md:max-w-full">
+                <img
+                  loading="lazy"
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/448e5ea2f6241981bf5c75a9c7628812968e05757b3183ac1f5b50fc28151759?placeholderIfAbsent=true"
+                  class="object-cover absolute inset-0 size-full"
+                  alt="Progress bar background"
+                />
+                <img
+                  loading="lazy"
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/d197cb55e6e5e5e43d569214b6a36438645a92c19d4ff954602f61e3e0e24af0?placeholderIfAbsent=true"
+                  class="object-contain max-w-full aspect-[45.45] w-[231px]"
+                  alt="Progress bar"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="grid grid-cols-3 relative gap-2 md:gap-6 items-center mt-6 w-full max-md:max-w-full">
+          <img
+            loading="lazy"
+            src="https://res.cloudinary.com/djox1exln/image/upload/v1739207333/game-1_hz8dfv.png"
+            class="object-cover flex-1 shrink self-stretch my-auto rounded aspect-video basis-0 shadow-[0px_4px_4px_rgba(0,0,0,0.28)]"
+            alt="Game 1"
+          />
+          <img
+            loading="lazy"
+            src="https://res.cloudinary.com/djox1exln/image/upload/v1739207965/game-2_rboby0.png"
+            class="object-cover flex-1 shrink self-stretch my-auto rounded aspect-video basis-0 shadow-[0px_4px_4px_rgba(0,0,0,0.28)]"
+            alt="Game 2"
+          />
+          <img
+            loading="lazy"
+            src="https://res.cloudinary.com/djox1exln/image/upload/v1739207966/game-3_nmuhh2.png"
+            class="object-cover flex-1 shrink self-stretch my-auto rounded aspect-video basis-0 shadow-[0px_4px_4px_rgba(0,0,0,0.28)]"
+            alt="Game 3"
+          />
+        </div>
+      </div>
+      [#-- LOGIN --]
+      <div class="flex relative flex-col px-8 py-8 w-full">
+        [@printErrorAlerts rowClass="" colClass="" /]
+        [@printInfoAlerts rowClass="" colClass="" /]
+        [#if devicePendingIdPLink?? || pendingIdPLink??]
+          <p class="mt-0">
+          [#if devicePendingIdPLink?? && pendingIdPLink??]
+            ${theme.message('pending-links-login-to-complete', devicePendingIdPLink.identityProviderName, pendingIdPLink.identityProviderName)}
+          [#elseif devicePendingIdPLink??]
+            ${theme.message('pending-link-login-to-complete', devicePendingIdPLink.identityProviderName)}
+          [#else]
+            ${theme.message('pending-link-login-to-complete', pendingIdPLink.identityProviderName)}
+          [/#if]
+          
+          [#if pendingIdPLink??]
+            [@helpers.link url="" extraParameters="&cancelPendingIdpLink=true"]${theme.message("login-cancel-link")}[/@helpers.link]
+          [/#if]
+          </p>
+        [/#if]
+
+        <img
+          loading="lazy"
+          src="https://res.cloudinary.com/djox1exln/image/upload/v1739199486/cbfdbbbe1c08984c203d09fe5e60d1df_fhm7lg.jpg"
+          class="object-cover absolute inset-0 size-full"
+          alt="Background"
+        />
+
+      <div class="flex gap-2 items-center">
+        <svg width="41" height="33" viewBox="0 0 41 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4.76287 6.80489L20.0739 13.6098V32.3232L-0.000549316 22.1159L4.76287 6.80489Z" fill="url(#paint0_radial_2243_771)"/>
+          <path d="M35.3849 6.80489L20.0739 13.6098V32.3232L40.1483 22.1159L35.3849 6.80489Z" fill="url(#paint1_radial_2243_771)"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M20.0739 2.97868L32.6629 8.57381V14.9707H7.48483V8.57381L20.0739 2.97868ZM4.76287 6.80489L20.0739 0L35.3849 6.80489V17.6927H4.76287V6.80489Z" fill="url(#paint2_radial_2243_771)"/>
+          <defs>
+          <radialGradient id="paint0_radial_2243_771" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(37.2846 6.13697) rotate(156.176) scale(42.0862 42.0862)">
+          <stop stop-color="#1AB7FF"/>
+          <stop offset="0.246584" stop-color="#0DC7E3"/>
+          <stop offset="0.444146" stop-color="#08C4B6"/>
+          <stop offset="0.662916" stop-color="#00C288"/>
+          <stop offset="1" stop-color="#00C750"/>
+          </radialGradient>
+          <radialGradient id="paint1_radial_2243_771" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(37.2846 6.13697) rotate(156.176) scale(42.0862 42.0862)">
+          <stop stop-color="#1AB7FF"/>
+          <stop offset="0.246584" stop-color="#0DC7E3"/>
+          <stop offset="0.444146" stop-color="#08C4B6"/>
+          <stop offset="0.662916" stop-color="#00C288"/>
+          <stop offset="1" stop-color="#00C750"/>
+          </radialGradient>
+          <radialGradient id="paint2_radial_2243_771" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(37.2846 6.13697) rotate(156.176) scale(42.0862 42.0862)">
+          <stop stop-color="#1AB7FF"/>
+          <stop offset="0.246584" stop-color="#0DC7E3"/>
+          <stop offset="0.444146" stop-color="#08C4B6"/>
+          <stop offset="0.662916" stop-color="#00C288"/>
+          <stop offset="1" stop-color="#00C750"/>
+          </radialGradient>
+          </defs>
         </svg>
         [#if title?has_content]
           <h2 class="uppercase text-6xl font-bold font-DINCondensed">${title}</h2>
         [/#if]
+      </div>
+
+      <div class="relative flex-1 mt-14 w-full max-md:mt-10 max-md:max-w-full">
+        <div class="flex items-start w-full text-xl tracking-wide leading-snug border-b border-white border-opacity-30 max-md:max-w-full">
+          <div class="flex-1 shrink px-4 pb-4 font-semibold text-white border-b-4 border-teal-500 min-h-11">
+            Log In
+          </div>
+          <div class="flex-1 shrink px-4 pb-4 min-h-11 text-white text-opacity-60">
+          [@helpers.link url="${request.contextPath}/oauth2/register"]
+            Sign Up
+            [/@helpers.link]
+          </div>
+        </div>
+        <div class="flex flex-col justify-center mt-6 w-full max-md:max-w-full">
+          <div class="text-lg leading-none text-white max-md:max-w-full">
+            Log in to your Iron Pixel account.
+          </div>
+          <div class="mt-3 text-sm tracking-normal leading-6 text-white text-opacity-80 max-md:max-w-full">
+            Your account connects you to all things Iron Pixel. Log in with
+            your existing credentials to access your purchases and account
+            settings.
+          </div>
         </div>
         <main>
           [#nested/]
+          [@localSelector/]
         </main>
       </div>
     </div>
-  </div>
-  <div class="${rowClass} mt-8">
-    <div class="${colClass}">
-      [@localSelector/]
-    </div>
-  </div>
-</main>
+  </section>
 [/#macro]
 
 [#macro accountMain rowClass="row center-xs" colClass="col-xs col-sm-8 col-md-6 col-lg-5 col-xl-4" actionURL="" actionText="Go back" actionDirection="back"]
@@ -359,43 +467,6 @@
   </div>
   [#nested/]
 [/#macro]
-
-                <#--  <button class="flex flex-1 shrink gap-2 items-center self-stretch p-2 my-auto rounded basis-0 bg-cyan-950 hover:bg-opacity-80">
-                <img
-                  loading="lazy"
-                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/8e0e2e25c2d789b1d208ba125c2e30ace387721db9f3cf139caaa4927d080c03?placeholderIfAbsent=true"
-                  class="object-contain shrink-0 self-stretch my-auto w-8 rounded-sm aspect-square"
-                  alt="Steam"
-                />
-                  <span>Steam</span>
-                </button>
-                <button class="flex flex-1 shrink gap-2 items-center self-stretch p-2 my-auto rounded basis-0 bg-cyan-950 hover:bg-opacity-80">
-                  <img
-                    loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/560644be9c6a1529f87fa0f087880de2c080a55aa9f3a284f99b9bdf3f36a825?placeholderIfAbsent=true"
-                    class="object-contain shrink-0 self-stretch my-auto w-8 rounded-sm aspect-square"
-                    alt="Xbox"
-                  />
-                  <span>Xbox</span>
-                </button>
-                <button class="flex flex-1 shrink gap-2 items-center self-stretch p-2 my-auto text-center whitespace-nowrap rounded basis-0 bg-cyan-950 hover:bg-opacity-80">
-                  <img
-                    loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/edd6ca3a42adf5079b4780496246dfc4364138569baf436ac3d24330d1491b27?placeholderIfAbsent=true"
-                    class="object-contain shrink-0 self-stretch my-auto w-8 rounded-sm aspect-square"
-                    alt="Twitch"
-                  />
-                  <span>Twitch</span>
-                </button>
-                <button class="flex flex-1 shrink gap-2 items-center self-stretch p-2 my-auto rounded basis-0 bg-cyan-950 hover:bg-opacity-80">
-                  <img
-                    loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/825488faa339f626c58e1abe3f7645e34980e8ac1de4ba9c421132efd819a175?placeholderIfAbsent=true"
-                    class="object-contain shrink-0 self-stretch my-auto w-8 rounded-sm aspect-square"
-                    alt="Epic Games"
-                  />
-                  <span>Epic Games</span>
-                </button>  -->
 
 [#-- Below are the social login buttons and helpers --]
 [#macro appleButton identityProvider clientId]

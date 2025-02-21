@@ -45,71 +45,71 @@ async function main() {
   const question = (query: string): Promise<string> =>
     new Promise((resolve) => rl.question(query, resolve));
 
-  const options = ['Upload', 'Download', 'Watch', 'Setup'];
-  const selected = await selectOption(options);
-  if (selected === 'Upload') {
-    console.log(`You selected: ${selected}`);
-  } else if (selected === 'Download') {
-    console.log(`You selected: ${selected}`);
-  } else if (selected === 'Watch') {
-    fusionauth.watch();
-  } else {
-    // Get API configuration
-    let name = await question(`App Name (.env: ${process.env.APP_NAME}): `);
+  // Get API configuration
+  let name = await question(`App Name (.env: ${process.env.APP_NAME}): `);
 
-    let apiKey = await question(
-      'API key(this_really_should_be_a_long_random_alphanumeric_value_but_this_still_works): '
+  let apiKey = await question(
+    'API key(this_really_should_be_a_long_random_alphanumeric_value_but_this_still_works): '
+  );
+  let endpoint = await question('API endpoint (http://localhost:9011): ');
+  let adminEmail = await question('Admin Email (admin@example.com): ');
+  let adminPassword = await question('Admin Password (password): ');
+  let redirectUri = await question(
+    'Redirect URI (http://localhost:3001/api/auth/callback/fusionauth): '
+  );
+
+  name = name || process.env.APP_NAME || '';
+  apiKey =
+    apiKey ||
+    process.env.API_KEY ||
+    'this_really_should_be_a_long_random_alphanumeric_value_but_this_still_works';
+  endpoint = endpoint || 'http://localhost:9011';
+  adminEmail = adminEmail || process.env.ADMIN_EMAIL || 'admin@example.com';
+  adminPassword = adminPassword || process.env.ADMIN_PASSWORD || 'password';
+  redirectUri = redirectUri || process.env.REDIRECT_URI || '';
+
+  if (!name) {
+    console.error(
+      chalk.red(
+        'APP_NAME is required, please set them in .env or pass in as parameters'
+      )
     );
-    let endpoint = await question('API endpoint (http://localhost:9011): ');
-    let adminEmail = await question('Admin Email (admin@example.com): ');
-    let adminPassword = await question('Admin Password (password): ');
-    let redirectUri = await question(
-      'Redirect URI (http://localhost:3001/api/auth/callback/fusionauth): '
-    );
-
-    name = name || process.env.APP_NAME || '';
-    apiKey =
-      apiKey ||
-      process.env.API_KEY ||
-      'this_really_should_be_a_long_random_alphanumeric_value_but_this_still_works';
-    endpoint = endpoint || 'http://localhost:9011';
-    adminEmail = adminEmail || process.env.ADMIN_EMAIL || 'admin@example.com';
-    adminPassword = adminPassword || process.env.ADMIN_PASSWORD || 'password';
-    redirectUri = redirectUri || process.env.REDIRECT_URI || '';
-
-    if (!name) {
-      console.error(
-        chalk.red(
-          'APP_NAME is required, please set them in .env or pass in as parameters'
-        )
-      );
-      process.exit(1);
+    process.exit(1);
+  }
+  const runner = new ApiRunner(
+    {
+      name,
+      apiKey,
+      endpoint,
+      adminEmail,
+      adminPassword,
+      redirectUri,
+    },
+    {
+      AUTH_FUSIONAUTH_CLIENT_ID: '',
+      AUTH_FUSIONAUTH_CLIENT_SECRET: '',
+      AUTH_FUSIONAUTH_TENANT_ID: '',
+      AUTH_FUSIONAUTH_ISSUER: '',
+      AUTH_SECRET: '',
     }
+  );
 
+  const options = ['Setup', 'Steam', 'Xbox'];
+  const selected = await selectOption(options);
+  if (selected === 'Steam') {
+    console.log(chalk.blue('Setting up Steam IDP'));
+    const clientId = await question('Client ID: ');
+    const webAPIKey = await question('Web API Key: ');
+    await runner.createIdpSteam(clientId, webAPIKey);
+  } else if (selected === 'Xbox') {
+    console.log(chalk.blue('Setting up Xbox IDP'));
+    const clientId = await question('Client ID: ');
+    const clientSecret = await question('Client Secret: ');
+    await runner.createIdpXbox(clientId, clientSecret);
+  } else {
     console.log(chalk.blue('Starting creation'));
-
-    const runner = new ApiRunner(
-      {
-        name,
-        apiKey,
-        endpoint,
-        adminEmail,
-        adminPassword,
-        redirectUri,
-      },
-      {
-        AUTH_FUSIONAUTH_CLIENT_ID: '',
-        AUTH_FUSIONAUTH_CLIENT_SECRET: '',
-        AUTH_FUSIONAUTH_TENANT_ID: '',
-        AUTH_FUSIONAUTH_ISSUER: '',
-        AUTH_SECRET: '',
-      }
-    );
-
     await runner.runAll();
-
     const env = runner.getEnv();
-
     console.log(
       chalk.bgYellow.black(
         'Put the below values into your Next.js local.env file:'
@@ -622,6 +622,166 @@ class ApiRunner {
     } else {
       console.log(chalk.red('Failed to delete admin user'));
     }
+  }
+
+  async createIdpSteam(client_id: string, webAPIKey: string) {
+    // Make sure app exists
+    if (!this.config.appId) {
+      await this.createApp();
+    }
+
+    let idpId: string | undefined;
+    console.log(chalk.blue('Checking if IdP Steam exists'));
+    const search = await this.singleApi('/api/identity-provider/search', {
+      method: 'POST',
+      body: JSON.stringify({
+        search: {
+          type: 'Steam',
+        },
+      }),
+    });
+    if (search.data?.identityProviders[0]?.id) {
+      console.log(
+        chalk.blue(
+          'Steam IDP exists, patching:',
+          JSON.stringify(search.data.identityProviders[0].id)
+        )
+      );
+      idpId = search.data.identityProviders[0].id;
+
+      const resp = await this.singleApi(`/api/identity-provider/${idpId}`, {
+        method: 'PATCH',
+        body: JSON.stringify({
+          identityProvider: {
+            ...search.data.identityProviders[0],
+            client_id,
+            webAPIKey,
+          },
+        }),
+      });
+      if (!resp?.data?.identityProvider?.id) {
+        console.log(
+          chalk.red('Failed to patch Steam IDP:', JSON.stringify(resp.data))
+        );
+        return;
+      }
+      console.log(
+        chalk.green('Steam IDP patched:', resp?.data?.identityProvider?.id)
+      );
+
+      return;
+    }
+
+    console.log(chalk.blue('Steam IDP not found, creating IDP.'));
+    const resp = await this.singleApi('/api/identity-provider', {
+      method: 'POST',
+      body: JSON.stringify({
+        identityProvider: {
+          applicationConfiguration: {
+            //@ts-ignore
+            [this.config.appId]: {
+              enabled: true,
+            },
+          },
+          client_id,
+          webAPIKey,
+          debug: true,
+          enabled: true,
+          linkingStrategy: 'CreatePendingLink',
+          scope: '',
+          type: 'Steam',
+        },
+      }),
+    });
+    if (!resp?.data?.identityProvider?.id) {
+      console.log(
+        chalk.red('Failed to create Steam IDP:', JSON.stringify(resp.data))
+      );
+      return;
+    }
+    console.log(
+      chalk.green('Steam IDP created:', resp?.data?.identityProvider?.id)
+    );
+  }
+
+  async createIdpXbox(client_id: string, client_secret: string) {
+    // Make sure app exists
+    if (!this.config.appId) {
+      await this.createApp();
+    }
+
+    let idpId: string | undefined;
+    console.log(chalk.blue('Checking if IdP Xbox exists'));
+    const search = await this.singleApi('/api/identity-provider/search', {
+      method: 'POST',
+      body: JSON.stringify({
+        search: {
+          type: 'Xbox',
+        },
+      }),
+    });
+    if (search.data?.identityProviders[0]?.id) {
+      console.log(
+        chalk.blue(
+          'Xbox IDP exists, patching:',
+          JSON.stringify(search.data.identityProviders[0].id)
+        )
+      );
+      idpId = search.data.identityProviders[0].id;
+
+      const resp = await this.singleApi(`/api/identity-provider/${idpId}`, {
+        method: 'PATCH',
+        body: JSON.stringify({
+          identityProvider: {
+            ...search.data.identityProviders[0],
+            client_id,
+            client_secret,
+          },
+        }),
+      });
+      if (!resp?.data?.identityProvider?.id) {
+        console.log(
+          chalk.red('Failed to patch Xbox IDP:', JSON.stringify(resp.data))
+        );
+        return;
+      }
+      console.log(
+        chalk.green('Xbox IDP patched:', resp?.data?.identityProvider?.id)
+      );
+
+      return;
+    }
+
+    console.log(chalk.blue('Xbox IDP not found, creating IDP.'));
+    const resp = await this.singleApi('/api/identity-provider', {
+      method: 'POST',
+      body: JSON.stringify({
+        identityProvider: {
+          applicationConfiguration: {
+            //@ts-ignore
+            [this.config.appId]: {
+              enabled: true,
+            },
+          },
+          client_id,
+          client_secret,
+          debug: true,
+          enabled: true,
+          linkingStrategy: 'CreatePendingLink',
+          scope: 'Xboxlive.signin Xboxlive.offline_access',
+          type: 'Xbox',
+        },
+      }),
+    });
+    if (!resp?.data?.identityProvider?.id) {
+      console.log(
+        chalk.red('Failed to create Xbox IDP:', JSON.stringify(resp.data))
+      );
+      return;
+    }
+    console.log(
+      chalk.green('Xbox IDP created:', resp?.data?.identityProvider?.id)
+    );
   }
 
   async runAll() {

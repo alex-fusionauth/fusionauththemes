@@ -176,7 +176,18 @@
   [/#if]
 [/#macro]
 
-[#macro main title="Iron Pixel"]
+[#macro main title="Iron Pixel" login=false]
+  [#if login]
+    [#assign loginUnderline = "border-b-4 border-teal-500" /]
+  [#else]
+    [#assign loginUnderline = "" /]
+  [/#if]
+  [#if !login]
+    [#assign registerUnderline = "border-b-4 border-teal-500" /]
+  [#else]
+    [#assign registerUnderline = "" /]
+  [/#if]
+
   <section class="h-screen w-screen flex items-center justify-center p-0 sm:p-12">
     <div class="grid grid-cols-1 lg:grid-cols-2 max-h-full max-w-full aspect-[2/1]">
       [#-- Photo --]
@@ -309,26 +320,34 @@
         [/#if]
       </div>
 
-      <div class="relative flex-1 mt-14 w-full max-md:mt-10 max-md:max-w-full">
+      <div class="relative flex-1 mt-14 w-full max-md:mt-10 max-md:max-w-full flex flex-col gap-2 md:gap-4">
         <div class="flex items-start w-full text-xl tracking-wide leading-snug border-b border-white border-opacity-30 max-md:max-w-full">
-          <div class="flex-1 shrink px-4 pb-4 font-semibold text-white border-b-4 border-teal-500 min-h-11">
-            Log In
+          <div class="flex-1 shrink px-4 pb-4 font-semibold text-white min-h-11 ${loginUnderline}">
+            [@helpers.link url="${request.contextPath}/oauth2/authorize"]
+              Log In
+            [/@helpers.link]
           </div>
-          <div class="flex-1 shrink px-4 pb-4 min-h-11 text-white text-opacity-60">
+          <div class="flex-1 shrink px-4 pb-4 min-h-11 text-white text-opacity-60 ${registerUnderline}">
           [@helpers.link url="${request.contextPath}/oauth2/register"]
             Sign Up
-            [/@helpers.link]
+          [/@helpers.link]
           </div>
         </div>
         <div class="flex flex-col justify-center mt-6 w-full max-md:max-w-full">
-          <div class="text-lg leading-none text-white max-md:max-w-full">
-            Log in to your Iron Pixel account.
+          [#if login]
+            <div class="text-lg leading-none text-white max-md:max-w-full">
+              Log in to your Iron Pixel account.
+            </div>
+            <div class="mt-3 text-sm tracking-normal leading-6 text-white text-opacity-80 max-md:max-w-full">
+              Your account connects you to all things Iron Pixel. Log in with
+              your existing credentials to access your purchases and account
+              settings.
           </div>
-          <div class="mt-3 text-sm tracking-normal leading-6 text-white text-opacity-80 max-md:max-w-full">
-            Your account connects you to all things Iron Pixel. Log in with
-            your existing credentials to access your purchases and account
-            settings.
-          </div>
+          [#else]
+            <div class="text-lg leading-none text-white max-md:max-w-full">
+              Create your Iron Pixel account.
+            </div>
+          [/#if]
         </div>
         <main>
           [#nested/]
@@ -866,7 +885,7 @@
 [/#macro]
 
 [#-- Input field of type. --]
-[#macro input type name id autocapitalize="none" autocomplete="on" autocorrect="off" autofocus=false spellcheck="false" label="" placeholder="" leftAddon="" required=false tooltip="" disabled=false class="" dateTimeFormat="" value="" uncheckedValue=""]
+[#macro input type name id autocapitalize="none" autocomplete="on" autocorrect="off" autofocus=false spellcheck="false" label="" placeholder="" leftAddon="" required=false tooltip="" disabled=false class="flex-1 shrink gap-2 self-stretch px-3.5 py-3 w-full rounded bg-cyan-950 max-md:max-w-full p-2" dateTimeFormat="" value="" uncheckedValue=""]
 <div class="form-row">
   [#if type == "checkbox"]
     [@_input_checkbox name=name value=value uncheckedValue=uncheckedValue label=label tooltip=tooltip]
@@ -898,11 +917,17 @@
     [#-- If the value is empty, we want to show the placeholder. This is a workaround for the date picker. --]
     [#assign the_type="text" /]
     [#assign the_class=class + " date-picker" /]
+    [#if (fieldMessages[name]![])?size > 0]
+      [#assign the_class=the_class + ' outline-red-500 outline-2' /]
+    [/#if]
     [#-- it is possible that this element is the first in the form list. We want it to focus on something else so that the placeholder shows. --]
     <input type="text" style="display:none" autofocus="autofocus" />
   [#else ]
     [#assign the_type=type /]
     [#assign the_class=class /]
+    [#if (fieldMessages[name]![])?size > 0]
+      [#assign the_class=the_class + ' outline-red-500 outline-2' /]
+    [/#if]
   [/#if]
   <input id="${id}" type="${the_type}" name="${name}" [#if type != "password"]value="${value}"[/#if] class="${the_class}" autocapitalize="${autocapitalize}" autocomplete="${autocomplete}" autocorrect="${autocorrect}" spellcheck="${spellcheck}" [#if autofocus]autofocus="autofocus"[/#if] placeholder="${placeholder}" [#if disabled]disabled="disabled"[/#if]/>
   [#if dateTimeFormat != ""]
@@ -1139,7 +1164,7 @@
 </div>
 [/#macro]
 
-[#macro customField field key autofocus=false placeholder="" label="" leftAddon="true"]
+[#macro customField field key autofocus=false placeholder="" label="" leftAddon="false"]
   [#assign fieldId = field.key?replace(".", "_") /]
   [#local leftAddon = (leftAddon == "true")?then(field.data.leftAddon!'info', "") /]
 
@@ -1152,9 +1177,9 @@
       [@checkbox field=field id="${fieldId}" name="${key}" required=field.required autofocus=autofocus label=label /]
     [/#if]
   [#elseif field.control == "number"]
-    [@input id="${fieldId}" type="number" name="${key}" leftAddon="${leftAddon}" required=field.required autofocus=autofocus label=label placeholder=theme.optionalMessage(placeholder) /]
+    [@input id="${fieldId}" type="number" name="${key}" leftAddon="${leftAddon}" required=field.required autofocus=autofocus label=label placeholder=theme.optionalMessage(placeholder)  /]
   [#elseif field.control == "password"]
-    [@input id="${fieldId}" type="password" name="${key}" leftAddon="lock" autocomplete="new-password" autofocus=autofocus label=label placeholder=theme.optionalMessage(placeholder)/]
+    [@input id="${fieldId}" type="password" name="${key}" leftAddon="${leftAddon}" autocomplete="new-password" autofocus=autofocus label=label placeholder=theme.optionalMessage(placeholder) /]
   [#elseif field.control == "radio"]
     [@radio_list field=field id="${fieldId}" name="${key}" required=field.required autofocus=autofocus label=label options=field.options /]
   [#elseif field.control == "select"]
@@ -1165,7 +1190,7 @@
     [#if field.type == "date"]
       [@input id="${fieldId}" name="${key}" type="date" leftAddon="${leftAddon}" required=field.required autofocus=autofocus label=label placeholder=theme.optionalMessage(placeholder) /]
     [#else]
-      [@input id="${fieldId}" type="text" name="${key}" leftAddon="${leftAddon}" required=field.required autofocus=autofocus label=label placeholder=theme.optionalMessage(placeholder)/]
+      [@input id="${fieldId}" type="text" name="${key}" leftAddon="${leftAddon}" required=field.required autofocus=autofocus label=label placeholder=theme.optionalMessage(placeholder) /]
     [/#if]
   [/#if]
 [/#macro]

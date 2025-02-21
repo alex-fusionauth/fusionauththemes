@@ -42,126 +42,40 @@
       [#-- Custom header code goes here --]
     [/@helpers.header]
 
-          <section class="h-screen w-screen flex items-center justify-center p-0 sm:p-12">
-        <div class="grid grid-cols-1 lg:grid-cols-2 max-h-full max-w-full aspect-[2/1]">
+    [@helpers.main]
+      <form action="${request.contextPath}/oauth2/register" method="POST" class="flex flex-col gap-2 md:gap-4">
 
-        [#-- Photo --]
-        <div class="hidden lg:flex relative flex-col items-center justify-center px-8 py-8 w-full">
-          <img
-            loading="lazy"
-            src="https://res.cloudinary.com/djox1exln/image/upload/v1739206563/background-left_hbtcsz.jpg"
-            class="object-cover absolute inset-0 size-full object-center"
-            alt="Background"
-          />
-          <div class="flex overflow-hidden relative flex-col pb-3 pl-2.5 w-full shadow-sm min-h-[400px] max-md:max-w-full">
-            <img
-              loading="lazy"
-              src="https://res.cloudinary.com/djox1exln/image/upload/v1739207333/game-1_hz8dfv.png"
-              class="object-cover absolute inset-0 size-full"
-              alt="Game Overlay"
-            />
-            <div class="flex relative flex-wrap gap-5 justify-between max-md:max-w-full">
-              <div
-                class="object-contain shrink-0 self-start mt-3 w-5 aspect-[1.25]"
-                alt="Icon"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 17" fill="currentColor"><g opacity="1"><path d="M2.35789 3.86842L9.93684 7.23684V16.5L0 11.4474L2.35789 3.86842Z" fill="currentColor"></path><path d="M17.5158 3.86842L9.93684 7.23684V16.5L19.8737 11.4474L17.5158 3.86842Z" fill="currentColor"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M9.93684 1.97445L16.1684 4.74404V7.91053H3.70526V4.74404L9.93684 1.97445ZM2.35789 3.86842L9.93684 0.5L17.5158 3.86842V9.2579H2.35789V3.86842Z" fill="currentColor"></path></g></svg>
-              </div>
-              <img
-                loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/3c4269182d3775c272e2d79990d5c1a7dfc4ba495ffbc9ea6e55e54d04364a18?placeholderIfAbsent=true"
-                class="object-contain shrink-0 max-w-full aspect-[1.4] w-[175px]"
-                alt="Logo"
-              />
-            </div>
-            <div class="flex relative flex-col justify-center px-3 py-3 mt-60 bg-black bg-opacity-60 min-h-7">
-              <div class="w-full max-md:max-w-full">
-                <div class="flex relative flex-col items-start min-h-[5px] max-md:pr-5 max-md:max-w-full">
-                  <img
-                    loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/448e5ea2f6241981bf5c75a9c7628812968e05757b3183ac1f5b50fc28151759?placeholderIfAbsent=true"
-                    class="object-cover absolute inset-0 size-full"
-                    alt="Progress bar background"
-                  />
-                  <img
-                    loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/d197cb55e6e5e5e43d569214b6a36438645a92c19d4ff954602f61e3e0e24af0?placeholderIfAbsent=true"
-                    class="object-contain max-w-full aspect-[45.45] w-[231px]"
-                    alt="Progress bar"
-                  />
+        [#-- Begin Self Service Custom Registration Form Step Counter --]
+        [#if step > 0]
+          <div class="flex flex-row">
+            [#list 1..totalSteps as aStep]
+              [#if aStep <= step]
+                <div class="relative flex">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="32" viewBox="0 0 28 32" fill="none">
+                    <path d="M12.0154 1.13403C13.2452 0.431328 14.7548 0.431328 15.9846 1.13403L25.9846 6.84832C27.2309 7.56049 28 8.88586 28 10.3213V21.6787C28 23.1141 27.2309 24.4395 25.9846 25.1517L15.9846 30.866C14.7548 31.5687 13.2452 31.5687 12.0154 30.866L2.01544 25.1517C0.769144 24.4395 0 23.1141 0 21.6787V10.3213C0 8.88586 0.769144 7.56049 2.01544 6.84832L12.0154 1.13403Z" fill="var(--color-primary)"/>
+                  </svg>
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-primary-content">${aStep}</div>
                 </div>
-              </div>
-            </div>
+              [#else]
+                <div class="relative flex">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="32" viewBox="0 0 28 32" fill="none">
+                    <path d="M12.3875 1.78521C13.3867 1.21427 14.6133 1.21427 15.6125 1.78521L25.6125 7.4995C26.6251 8.07814 27.25 9.155 27.25 10.3213V21.6787C27.25 22.845 26.6251 23.9219 25.6125 24.5005L15.6125 30.2148C14.6133 30.7857 13.3867 30.7857 12.3875 30.2148L2.38755 24.5005C1.37493 23.9219 0.75 22.845 0.75 21.6787V10.3213C0.75 9.15501 1.37493 8.07814 2.38755 7.4995L12.3875 1.78521Z" stroke="var(--color-primary)" stroke-width="1.5"/>
+                  </svg>
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">${aStep}</div>
+                </div>
+              [/#if]
+              [#if aStep != totalSteps]
+                <div class="flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="2" viewBox="0 0 16 2" fill="none">
+                    <path d="M0 1H16" stroke="#00C8A8" stroke-width="2"/>
+                  </svg>
+                </div>
+              [/#if]
+            [/#list]
           </div>
-          <div class="grid grid-cols-3 relative gap-2 md:gap-6 items-center mt-6 w-full max-md:max-w-full">
-            <img
-              loading="lazy"
-              src="https://res.cloudinary.com/djox1exln/image/upload/v1739207333/game-1_hz8dfv.png"
-              class="object-cover flex-1 shrink self-stretch my-auto rounded aspect-video basis-0 shadow-[0px_4px_4px_rgba(0,0,0,0.28)]"
-              alt="Game 1"
-            />
-            <img
-              loading="lazy"
-              src="https://res.cloudinary.com/djox1exln/image/upload/v1739207965/game-2_rboby0.png"
-              class="object-cover flex-1 shrink self-stretch my-auto rounded aspect-video basis-0 shadow-[0px_4px_4px_rgba(0,0,0,0.28)]"
-              alt="Game 2"
-            />
-            <img
-              loading="lazy"
-              src="https://res.cloudinary.com/djox1exln/image/upload/v1739207966/game-3_nmuhh2.png"
-              class="object-cover flex-1 shrink self-stretch my-auto rounded aspect-video basis-0 shadow-[0px_4px_4px_rgba(0,0,0,0.28)]"
-              alt="Game 3"
-            />
-          </div>
-        </div>
-        [#-- Register --]
-        <div class="flex relative flex-col px-8 py-8 w-full">
-        [#if devicePendingIdPLink?? || pendingIdPLink??]
-          <p class="mt-0">
-          [#if devicePendingIdPLink?? && pendingIdPLink??]
-            ${theme.message('pending-links-register-to-complete', devicePendingIdPLink.identityProviderName, pendingIdPLink.identityProviderName)}
-          [#elseif devicePendingIdPLink??]
-            ${theme.message('pending-link-register-to-complete', devicePendingIdPLink.identityProviderName)}
-          [#else]
-            ${theme.message('pending-link-register-to-complete', pendingIdPLink.identityProviderName)}
-          [/#if]
-          [#-- A pending link can be cancled. If we also have a device link in progress, this cannot be canceled. --]
-          [#if pendingIdPLink??]
-            [@helpers.link url="" extraParameters="&cancelPendingIdpLink=true"]${theme.message("register-cancel-link")}[/@helpers.link]
-          [/#if]
-          </p>
         [/#if]
+        [#-- End Self Service Custom Registration Form Step Counter --]
 
-          <img
-            loading="lazy"
-            src="https://res.cloudinary.com/djox1exln/image/upload/v1739199486/cbfdbbbe1c08984c203d09fe5e60d1df_fhm7lg.jpg"
-            class="object-cover absolute inset-0 size-full"
-            alt="Background"
-          />
-              [@helpers.main title=theme.message("Iron Pixel")]        
-          <div class="relative flex-1 mt-14 w-full max-md:mt-10 max-md:max-w-full">
-            <div class="flex items-start w-full text-xl tracking-wide leading-snug border-b border-white border-opacity-30 max-md:max-w-full">
-              <div class="flex-1 shrink px-4 pb-4 font-semibold text-white border-b-4 border-teal-500 min-h-11">
-                Log In
-              </div>
-              <div class="flex-1 shrink px-4 pb-4 min-h-11 text-white text-opacity-60">
-              [@helpers.link url="${request.contextPath}/oauth2/register"]
-                Sign Up
-                [/@helpers.link]
-              </div>
-            </div>
-            <div class="flex flex-col justify-center mt-6 w-full max-md:max-w-full">
-              <div class="text-lg leading-none text-white max-md:max-w-full">
-                Log in to your Iron Pixel account.
-              </div>
-              <div class="mt-3 text-sm tracking-normal leading-6 text-white text-opacity-80 max-md:max-w-full">
-                Your account connects you to all things Iron Pixel. Log in with
-                your existing credentials to access your purchases and account
-                settings.
-              </div>
-            </div>
-
-      <form action="${request.contextPath}/oauth2/register" method="POST" class="full">
  [@helpers.oauthHiddenFields/]
         [@helpers.hidden name="step"/]
         [@helpers.hidden name="registrationState"/]
@@ -172,10 +86,9 @@
         [#if (fieldMessages?keys?seq_contains("user.password")!false) && passwordValidationRules??]
           [@helpers.passwordRules passwordValidationRules/]
         [/#if]
-
         [#-- Begin Self Service Custom Registration Form Steps --]
         [#if fields?has_content]
-          <fieldset>
+          <fieldset class="flex flex-col gap-2 md:gap-4">
             [@helpers.hidden name="collectBirthDate"/]
             [#list fields as field]
               [@helpers.customField field field.key field?is_first?then(true, false) field.key /]
@@ -194,17 +107,17 @@
               <i class="fa fa-info-circle" data-tooltip="${theme.message('{tooltip}remember-device')}"></i>[#t/]
             [/@helpers.input]
             <div class="form-row">
-              [@helpers.button icon="key" text=theme.message('register')/]
+              [@helpers.button icon="key" color="btn btn-primary" text=theme.message('register')/]
             </div>
           [#else]
             <div class="form-row">
-              [@helpers.button icon="arrow-right" text=theme.message('next')/]
+              [@helpers.button icon="arrow-right" color="btn btn-primary" text=theme.message('next')/]
             </div>
           [/#if]
         [#-- End Custom Self Service Registration Form Steps --]
         [#else]
         [#-- Begin Basic Self Service Registration Form --]
-        <fieldset>
+        <fieldset class="flex flex-col gap-2 md:gap-4">
           [@helpers.hidden name="collectBirthDate"/]
           [#if !collectBirthDate && (!application.registrationConfiguration.birthDate.enabled || hideBirthDate)]
             [@helpers.hidden name="user.birthDate" dateTimeFormat="yyyy-MM-dd"/]
@@ -213,13 +126,20 @@
             [@helpers.input type="date" name="user.birthDate" id="birthDate" placeholder=theme.message('birthDate') leftAddon="calendar" class="date-picker" required=true/]
           [#else]
             [#if application.registrationConfiguration.loginIdType == 'email']
-              [@helpers.input type="text" name="user.email" id="email" autocomplete="username" autocapitalize="none" autocorrect="off" spellcheck="false" autofocus=true placeholder=theme.message('email') leftAddon="user" required=true/]
+
+                <div>
+                  <label for="loginId">Email Address</label>
+                  [@helpers.input type="text" name="user.email" id="email" autocomplete="username" autocapitalize="none" autocorrect="off" spellcheck="false" autofocus=true placeholder=theme.message('email') leftAddon="user" required=true /]
+                </div>
             [#else]
               [@helpers.input type="text" name="user.username" id="username" autocomplete="username" autocapitalize="none" autocorrect="off" spellcheck="false" autofocus=true placeholder=theme.message('username') leftAddon="user" required=true/]
             [/#if]
-            [@helpers.input type="password" name="user.password" id="password" autocomplete="new-password" placeholder=theme.message('password') leftAddon="lock" required=true/]
+            <div>
+              <label for="password">Password</label>
+              [@helpers.input type="password" name="user.password" id="password" autocomplete="new-password" placeholder=theme.message('password') required=true class="flex-1 shrink gap-2 self-stretch px-3.5 py-3 w-full rounded bg-cyan-950 max-md:max-w-full p-2${(errorMessages?size > 0)?then(' outline-red-500 outline-2', '')}" /]
+            </div>
             [#if application.registrationConfiguration.confirmPassword]
-              [@helpers.input type="password" name="passwordConfirm" id="passwordConfirm" autocomplete="new-password" placeholder=theme.message('passwordConfirm') leftAddon="lock" required=true/]
+              [@helpers.input type="password" name="passwordConfirm" id="passwordConfirm" autocomplete="new-password" placeholder=theme.message('passwordConfirm') required=true/]
             [/#if]
             [#if parentEmailRequired]
               [@helpers.input type="text" name="user.parentEmail" id="parentEmail" placeholder=theme.message('parentEmail') leftAddon="user" required=true/]
@@ -263,19 +183,11 @@
         [/@helpers.input]
 
         <div class="form-row">
-          [@helpers.button icon="key" text=theme.message('register')/]
+          [@helpers.button icon="key" color="btn btn-primary" text=theme.message('register')/]
           <p class="mt-2">[@helpers.link url="/oauth2/authorize"]${theme.message('return-to-login')}[/@helpers.link]</p>
         </div>
         [/#if]
         [#-- End Basic Self Service Registration Form --]
-
-        [#-- Begin Self Service Custom Registration Form Step Counter --]
-        [#if step > 0]
-          <div class="w-100 mt-3" style="display: inline-flex; flex-direction: row; justify-content: space-evenly;">
-            <div class="text-right" style="flex-grow: 1;"> ${theme.message('register-step', step, totalSteps)} </div>
-          </div>
-        [/#if]
-        [#-- End Self Service Custom Registration Form Step Counter --]
 
         [#-- Identity Provider Buttons (if you want to include these, remove the if-statement) --]
         [#if true]
@@ -285,9 +197,6 @@
 
       </form>
       [/@helpers.main]
-          </div>
-        </div>
-      </section>
 
     [@helpers.footer]
       [#-- Custom footer code goes here --]

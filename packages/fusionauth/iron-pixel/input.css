@@ -47,3 +47,7 @@
   src: url("https://res.cloudinary.com/djox1exln/raw/upload/v1739894904/DINCondensed_cyaj6n.ttf")
     format("ttf");
 }
+
+.error {
+  color: var(--color-error);
+}

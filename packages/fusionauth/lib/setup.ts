@@ -793,7 +793,7 @@ class ApiRunner {
       (f: { name: string; id: string }) =>
         f.name === `${this.config.name}-registration-form`
     );
-    if (form) {
+    if (form?.id) {
       console.log(
         chalk.blue(
           'Registration Form exists, update manually if needed.',

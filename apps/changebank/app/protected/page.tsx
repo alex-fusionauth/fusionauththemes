@@ -16,47 +16,45 @@ export default async function CoolUserPage() {
   // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   const user: any = decodeJwt(session?.id_token);
   return (
-    <div className="h-full  text-white p-4 mt-16 overflow-hidden">
-      <Card className="max-w-3xl mx-auto bg-[#132828] border-[#00FFD1]/20">
+    <div className="h-full   p-4 mt-16 overflow-hidden">
+      <Card className="max-w-3xl mx-auto ">
         <CardHeader>
-          <CardTitle className="text-2xl font-bold text-center text-[#00FFD1]">
+          <CardTitle className="text-2xl font-bold text-center ">
             User Profile
           </CardTitle>
         </CardHeader>
         <CardContent>
           <div className="flex flex-col items-center mb-6">
-            <Avatar className="w-16 h-16 mb-4 bg-[#00FFD1]/20 border-2 border-[#00FFD1]/40">
+            <Avatar className="w-16 h-16 mb-4 border-2 border-primary-foreground">
               <AvatarFallback className="text-xl ">
                 {user.email[0].toUpperCase()}
               </AvatarFallback>
             </Avatar>
-            <h2 className="text-xl font-semibold text-[#00FFD1]">
-              {user.email}
-            </h2>
-            <Badge className="mt-2 bg-[#00FFD1]/20 text-[#00FFD1] hover:bg-[#00FFD1]/30">
+            <h2 className="text-xl font-semibold ">{user.email}</h2>
+            <Badge className="mt-2">
               {user.email_verified ? 'Verified' : 'Unverified'}
             </Badge>
           </div>
 
           <Tabs defaultValue="user" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 bg-[#0D1F1F]">
+            <TabsList className="grid w-full grid-cols-2">
               <TabsTrigger
                 value="user"
-                className="data-[state=active]:bg-[#00FFD1]/20 data-[state=active]:text-[#00FFD1]"
+                className="data-[state=active]:bg-primary-foreground data-[state=active]:"
               >
                 User Info
               </TabsTrigger>
               <TabsTrigger
                 value="token"
-                className="data-[state=active]:bg-[#00FFD1]/20 data-[state=active]:text-[#00FFD1]"
+                className="data-[state=active]:bg-primary-foreground data-[state=active]:"
               >
                 Token Info
               </TabsTrigger>
             </TabsList>
             <TabsContent value="user">
-              <Card className="bg-[#0D1F1F] border-[#00FFD1]/20">
+              <Card className="">
                 <CardHeader>
-                  <CardTitle className="flex items-center text-lg text-[#00FFD1]">
+                  <CardTitle className="flex items-center text-lg ">
                     <User className="mr-2 h-5 w-5" /> User Details
                   </CardTitle>
                 </CardHeader>
@@ -64,8 +62,8 @@ export default async function CoolUserPage() {
                   <dl className="grid grid-cols-3 gap-3 text-sm">
                     {Object.entries(user).map(([key, value]) => (
                       <div key={key} className="col-span-2 sm:col-span-1">
-                        <dt className="font-medium text-[#00FFD1]/70">{key}</dt>
-                        <dd className="mt-1 text-white">{String(value)}</dd>
+                        <dt className="font-medium ">{key}</dt>
+                        <dd className="mt-1 ">{String(value)}</dd>
                       </div>
                     ))}
                   </dl>
@@ -73,9 +71,9 @@ export default async function CoolUserPage() {
               </Card>
             </TabsContent>
             <TabsContent value="token">
-              <Card className="bg-[#0D1F1F] border-[#00FFD1]/20">
+              <Card className="">
                 <CardHeader>
-                  <CardTitle className="flex items-center text-lg text-[#00FFD1]">
+                  <CardTitle className="flex items-center text-lg ">
                     <Key className="mr-2 h-5 w-5" /> Access Token
                   </CardTitle>
                 </CardHeader>
@@ -83,8 +81,8 @@ export default async function CoolUserPage() {
                   <dl className="grid grid-cols-3 gap-3 text-sm">
                     {Object.entries(access_token).map(([key, value]) => (
                       <div key={key} className="col-span-2 sm:col-span-1">
-                        <dt className="font-medium text-[#00FFD1]/70">{key}</dt>
-                        <dd className="mt-1 text-white">
+                        <dt className="font-medium ">{key}</dt>
+                        <dd className="mt-1 ">
                           {Array.isArray(value)
                             ? value.join(', ') || 'None'
                             : String(value)}
@@ -98,39 +96,39 @@ export default async function CoolUserPage() {
           </Tabs>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-            <Card className="bg-[#0D1F1F] border-[#00FFD1]/20">
+            <Card className="">
               <CardHeader className="pb-2">
-                <CardTitle className="flex items-center text-sm text-[#00FFD1]">
+                <CardTitle className="flex items-center text-sm ">
                   <Shield className="mr-2 h-4 w-4" /> Authentication
                 </CardTitle>
               </CardHeader>
               <CardContent className="text-sm">
                 <p className="flex gap-2">
-                  <span className="text-[#00FFD1]/70">Type:</span>
-                  <span className="text-white">{user.authenticationType}</span>
+                  <span className="">Type:</span>
+                  <span className="">{user.authenticationType}</span>
                 </p>
                 <p className="flex gap-2">
-                  <span className="text-[#00FFD1]/70">Scope:</span>
-                  <span className="text-white">{user.scope}</span>
+                  <span className="">Scope:</span>
+                  <span className="">{user.scope}</span>
                 </p>
               </CardContent>
             </Card>
-            <Card className="bg-[#0D1F1F] border-[#00FFD1]/20">
+            <Card className="">
               <CardHeader className="pb-2">
-                <CardTitle className="flex items-center text-sm text-[#00FFD1]">
+                <CardTitle className="flex items-center text-sm ">
                   <Clock className="mr-2 h-4 w-4" /> Timestamps
                 </CardTitle>
               </CardHeader>
               <CardContent className="text-sm">
                 <p className="flex gap-2">
-                  <span className="text-[#00FFD1]/70">Issued:</span>
-                  <span className="text-white">
+                  <span className="">Issued:</span>
+                  <span className="">
                     {new Date(user.iat * 1000).toLocaleString()}
                   </span>
                 </p>
                 <p className="flex gap-2">
-                  <span className="text-[#00FFD1]/70">Expires:</span>
-                  <span className="text-white">
+                  <span className="">Expires:</span>
+                  <span className="">
                     {new Date(user.exp * 1000).toLocaleString()}
                   </span>
                 </p>

@@ -15,7 +15,7 @@ export async function NavigationMenu() {
   const session = await auth();
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b">
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-4 h-16 items-middle">
           <NavigationSheet />
@@ -44,7 +44,7 @@ export async function NavigationMenu() {
                 await signIn('fusionauth');
               }}
             >
-              <Button variant="outline">Sign in</Button>
+              <Button variant="default">Sign in</Button>
             </form>
           ) : (
             <form
@@ -53,7 +53,7 @@ export async function NavigationMenu() {
                 await signOut({ redirectTo: '/' });
               }}
             >
-              <Button variant="default" className="text-white" type="submit">
+              <Button variant="default" className="" type="submit">
                 Sign Out
               </Button>
             </form>

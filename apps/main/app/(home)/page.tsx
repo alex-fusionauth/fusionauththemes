@@ -1,4 +1,4 @@
-import { Card, CardContent } from '@/app/components/ui/card';
+import { Card, CardContent } from '@/app/components/card';
 import Image from 'next/image';
 import Link from 'next/link';
 

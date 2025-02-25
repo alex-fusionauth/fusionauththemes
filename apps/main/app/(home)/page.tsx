@@ -17,13 +17,8 @@ const sites = [
   {
     id: 2,
     title: 'Changebank',
-    image: '/placeholder.svg?height=400&width=600',
+    image: '/images/changebank/login.png',
     link: process.env.NEXT_PUBLIC_CHANGEBANK_URL || 'http://localhost:3002',
-    thumbnails: [
-      '/placeholder.svg?height=200&width=300',
-      '/placeholder.svg?height=200&width=300',
-      '/placeholder.svg?height=200&width=300',
-    ],
   },
 ];
 
@@ -69,7 +64,7 @@ export default function HomePage() {
                     {site.title}
                   </h2>
                   <div className="grid grid-cols-3 gap-2">
-                    {site.thumbnails.map((thumbnail, index) => (
+                    {site.thumbnails?.map((thumbnail, index) => (
                       <Link
                         // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
                         key={index}

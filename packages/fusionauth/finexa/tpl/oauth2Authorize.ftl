@@ -57,9 +57,14 @@
           <div class="w-full leading-loose text-gray-400 max-md:max-w-full">
             <div class="flex flex-col justify-center w-full rounded max-md:max-w-full">
               <fieldset class="flex flex-col gap-2 md:gap-4">
-
+                <label className="text-sm font-medium tracking-normal leading-loose">
+                  Email
+                </label>
                 [@helpers.input type="text" name="loginId" id="loginId" autocomplete="username" autocapitalize="none" autocomplete="on" autocorrect="off" spellcheck="false" autofocus=(!loginId?has_content) placeholder=theme.message("loginId") disabled=(showPasswordField && hasDomainBasedIdentityProviders) /]
                 [#if showPasswordField]
+                  <label className="text-sm font-medium tracking-normal leading-loose">
+                    Password
+                  </label>
                   [@helpers.input type="password" name="password" id="password" autocomplete="current-password" autofocus=loginId?has_content placeholder=theme.message("password") /]
                   [@helpers.captchaBadge showCaptcha=showCaptcha captchaMethod=tenant.captchaConfiguration.captchaMethod siteKey=tenant.captchaConfiguration.siteKey/]
                   [#if errorMessages?size > 0]
@@ -70,44 +75,22 @@
                 [/#if]
               </fieldset>
             </div>
+            [@helpers.link url="${request.contextPath}/password/forgot"]${theme.message("forgot-your-password")}[/@helpers.link]
           </div>
           <div class="flex flex-col gap-2">
           [#if showPasswordField]
           <div class="flex gap-2">
-            <div class="flex flex-1 gap-2 items-center self-stretch my-auto leading-loose text-slate-50">
-              <label htmlFor="remember-me" class="self-stretch my-auto">
-              [@helpers.input id="rememberDevice" type="checkbox" name="rememberDevice" label=theme.message("remember-device") value="true" uncheckedValue="false" class="checkbox checkbox-primary"]
-                [#t/]
-              [/@helpers.input]
-              </label>
-            </div>
-
               <button type="submit" class="btn btn-primary">
-                Log In
+                Continue
               </button>
-            </div>
+          </div>
+          <div class="flex gap-10 justify-between items-start py-5 mt-6 w-full text-sm tracking-normal leading-loose text-white border-b border-white border-opacity-10 max-md:max-w-full">
+          <div class="flex justify-between w-full">
 
-
-
-        <div class="flex gap-10 justify-between items-start py-5 mt-6 w-full text-sm tracking-normal leading-loose text-white border-t border-b border-white border-opacity-10 max-md:max-w-full">
-        <div class="flex justify-between w-full">
-        
         <div>
-            [@helpers.link url="${request.contextPath}/password/forgot"]${theme.message("forgot-your-password")}[/@helpers.link]
+            
           [#else]
             [@helpers.button icon="arrow-right" color="btn btn-primary" text=theme.message("next")/]
-          [/#if]
-          </div>
-
-          <div>
-            [#if showPasswordField && hasDomainBasedIdentityProviders]
-              [@helpers.link url="" extraParameters="&showPasswordField=false"]${theme.message("sign-in-as-different-user")}[/@helpers.link]
-            [/#if]
-          [#if application.registrationConfiguration.enabled]
-            <div class="flex flex-col text-right">
-              ${theme.message("dont-have-an-account")}
-              [@helpers.link url="${request.contextPath}/oauth2/register"]${theme.message("create-an-account")}[/@helpers.link]
-            </div>
           [/#if]
           </div>
 

@@ -175,8 +175,9 @@
     <script src="${request.contextPath}/js/identityProvider/Redirect.js?version=${version}"></script>
   [/#if]
 [/#macro]
-
-[#macro main title="Iron Pixel" login=false]
+<#--  Zoe START HERE!  -->
+[#macro main title="Finexa" login=false]
+  [#-- This has to do with the underline for login or sign up --]
   [#if login]
     [#assign loginUnderline = "border-b-4 border-teal-500" /]
   [#else]
@@ -188,78 +189,10 @@
     [#assign registerUnderline = "" /]
   [/#if]
 
-  <section class="h-screen w-screen flex items-center justify-center p-0 sm:p-12">
+ <section class="h-screen w-screen flex justify-center p-0 sm:p-12">
+    [#-- LOGIN Pannel --]
     <div class="grid grid-cols-1 lg:grid-cols-2 max-h-full max-w-full aspect-[2/1]">
-      [#-- Photo --]
-      <div class="hidden lg:flex relative flex-col items-center justify-center px-8 py-8 w-full">
-        <img
-          loading="lazy"
-          src="https://res.cloudinary.com/djox1exln/image/upload/v1739206563/background-left_hbtcsz.jpg"
-          class="object-cover absolute inset-0 size-full object-center"
-          alt="Background"
-        />
-        <div class="flex overflow-hidden relative flex-col pb-3 pl-2.5 w-full shadow-sm min-h-[400px] max-md:max-w-full">
-          <img
-            loading="lazy"
-            src="https://res.cloudinary.com/djox1exln/image/upload/v1739207333/game-1_hz8dfv.png"
-            class="object-cover absolute inset-0 size-full"
-            alt="Game Overlay"
-          />
-          <div class="flex relative flex-wrap gap-5 justify-between max-md:max-w-full">
-            <div
-              class="object-contain shrink-0 self-start mt-3 w-5 aspect-[1.25]"
-              alt="Icon"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 17" fill="currentColor"><g opacity="1"><path d="M2.35789 3.86842L9.93684 7.23684V16.5L0 11.4474L2.35789 3.86842Z" fill="currentColor"></path><path d="M17.5158 3.86842L9.93684 7.23684V16.5L19.8737 11.4474L17.5158 3.86842Z" fill="currentColor"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M9.93684 1.97445L16.1684 4.74404V7.91053H3.70526V4.74404L9.93684 1.97445ZM2.35789 3.86842L9.93684 0.5L17.5158 3.86842V9.2579H2.35789V3.86842Z" fill="currentColor"></path></g></svg>
-            </div>
-            <img
-              loading="lazy"
-              src="https://res.cloudinary.com/djox1exln/raw/upload/v1740473944/3c4269182d3775c272e2d79990d5c1a7dfc4ba495ffbc9ea6e55e54d04364a18_prqxde"
-              class="object-contain shrink-0 max-w-full aspect-[1.4] w-[175px]"
-              alt="Logo"
-            />
-          </div>
-          <div class="flex relative flex-col justify-center px-3 py-3 mt-60 bg-black bg-opacity-60 min-h-7">
-            <div class="w-full max-md:max-w-full">
-              <div class="flex relative flex-col items-start min-h-[5px] max-md:pr-5 max-md:max-w-full">
-                <img
-                  loading="lazy"
-                  src="https://res.cloudinary.com/djox1exln/raw/upload/v1740474038/448e5ea2f6241981bf5c75a9c7628812968e05757b3183ac1f5b50fc28151759_xzwmog"
-                  class="object-cover absolute inset-0 size-full"
-                  alt="Progress bar background"
-                />
-                <img
-                  loading="lazy"
-                  src="https://res.cloudinary.com/djox1exln/raw/upload/v1740474060/d197cb55e6e5e5e43d569214b6a36438645a92c19d4ff954602f61e3e0e24af0_g4rh8p"
-                  class="object-contain max-w-full aspect-[45.45] w-[231px]"
-                  alt="Progress bar"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="grid grid-cols-3 relative gap-2 md:gap-6 items-center mt-6 w-full max-md:max-w-full">
-          <img
-            loading="lazy"
-            src="https://res.cloudinary.com/djox1exln/image/upload/v1739207333/game-1_hz8dfv.png"
-            class="object-cover flex-1 shrink self-stretch my-auto rounded aspect-video basis-0 shadow-[0px_4px_4px_rgba(0,0,0,0.28)]"
-            alt="Game 1"
-          />
-          <img
-            loading="lazy"
-            src="https://res.cloudinary.com/djox1exln/image/upload/v1739207965/game-2_rboby0.png"
-            class="object-cover flex-1 shrink self-stretch my-auto rounded aspect-video basis-0 shadow-[0px_4px_4px_rgba(0,0,0,0.28)]"
-            alt="Game 2"
-          />
-          <img
-            loading="lazy"
-            src="https://res.cloudinary.com/djox1exln/image/upload/v1739207966/game-3_nmuhh2.png"
-            class="object-cover flex-1 shrink self-stretch my-auto rounded aspect-video basis-0 shadow-[0px_4px_4px_rgba(0,0,0,0.28)]"
-            alt="Game 3"
-          />
-        </div>
-      </div>
-      [#-- LOGIN --]
+      [#-- Not sure what this section is all about --]
       <div class="flex relative flex-col px-8 py-8 w-full">
         [@printErrorAlerts rowClass="" colClass="" /]
         [@printInfoAlerts rowClass="" colClass="" /]
@@ -278,86 +211,56 @@
           [/#if]
           </p>
         [/#if]
-
+      [#-- Light gray image background across everything --]
+      <div className="flex flex-col justify-center items-center self-center ">
         <img
           loading="lazy"
           src="https://res.cloudinary.com/djox1exln/image/upload/v1739199486/cbfdbbbe1c08984c203d09fe5e60d1df_fhm7lg.jpg"
           class="object-cover absolute inset-0 size-full -z-10"
           alt="Background"
         />
-
-      <div class="flex gap-2 items-center">
-        <svg width="41" height="33" viewBox="0 0 41 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M4.76287 6.80489L20.0739 13.6098V32.3232L-0.000549316 22.1159L4.76287 6.80489Z" fill="url(#paint0_radial_2243_771)"/>
-          <path d="M35.3849 6.80489L20.0739 13.6098V32.3232L40.1483 22.1159L35.3849 6.80489Z" fill="url(#paint1_radial_2243_771)"/>
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M20.0739 2.97868L32.6629 8.57381V14.9707H7.48483V8.57381L20.0739 2.97868ZM4.76287 6.80489L20.0739 0L35.3849 6.80489V17.6927H4.76287V6.80489Z" fill="url(#paint2_radial_2243_771)"/>
-          <defs>
-          <radialGradient id="paint0_radial_2243_771" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(37.2846 6.13697) rotate(156.176) scale(42.0862 42.0862)">
-          <stop stop-color="#1AB7FF"/>
-          <stop offset="0.246584" stop-color="#0DC7E3"/>
-          <stop offset="0.444146" stop-color="#08C4B6"/>
-          <stop offset="0.662916" stop-color="#00C288"/>
-          <stop offset="1" stop-color="#00C750"/>
-          </radialGradient>
-          <radialGradient id="paint1_radial_2243_771" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(37.2846 6.13697) rotate(156.176) scale(42.0862 42.0862)">
-          <stop stop-color="#1AB7FF"/>
-          <stop offset="0.246584" stop-color="#0DC7E3"/>
-          <stop offset="0.444146" stop-color="#08C4B6"/>
-          <stop offset="0.662916" stop-color="#00C288"/>
-          <stop offset="1" stop-color="#00C750"/>
-          </radialGradient>
-          <radialGradient id="paint2_radial_2243_771" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(37.2846 6.13697) rotate(156.176) scale(42.0862 42.0862)">
-          <stop stop-color="#1AB7FF"/>
-          <stop offset="0.246584" stop-color="#0DC7E3"/>
-          <stop offset="0.444146" stop-color="#08C4B6"/>
-          <stop offset="0.662916" stop-color="#00C288"/>
-          <stop offset="1" stop-color="#00C750"/>
-          </radialGradient>
-          </defs>
-        </svg>
-        [#if title?has_content]
-          <h2 class="uppercase text-6xl font-bold font-DINCondensed">${title}</h2>
-        [/#if]
+      </div>
+      [#-- Finexa Pro Logo --]
+      <div class="flex flex-col justify-center items-center self-center max-w-full text-4xl leading-none text-center text-white w-[203px]">
+        <img
+          src="https://cdn.builder.io/api/v1/image/assets/cfdc3922ae324962acbb708d9e5bed22/a0e692705e2868511f73ae66cf384ccce4eebe3bc1aecc2614526c29911a213d?placeholderIfAbsent=true"
+          alt="Finexa Logo"
+          width={71}
+          height={71}
+          className="object-contain aspect-[1.01] w-[71px]"
+        />
+        <div className="mt-2">finexa pro</div>
       </div>
 
       <div class="relative flex-1 mt-14 w-full max-md:mt-10 max-md:max-w-full flex flex-col gap-2 md:gap-4">
         <div class="flex items-start w-full text-xl tracking-wide leading-snug border-b border-white border-opacity-30 max-md:max-w-full">
           <div class="flex-1 shrink px-4 pb-4 font-semibold text-white min-h-11 ${loginUnderline}">
             [@helpers.link url="${request.contextPath}/oauth2/authorize"]
-              Log In
+              Sign In
             [/@helpers.link]
           </div>
           <div class="flex-1 shrink px-4 pb-4 min-h-11 text-white text-opacity-60 ${registerUnderline}">
           [@helpers.link url="${request.contextPath}/oauth2/register"]
-            Sign Up
+            Register
           [/@helpers.link]
           </div>
         </div>
-        <div class="flex flex-col justify-center mt-6 w-full max-md:max-w-full">
-          [#if login]
-            <div class="text-lg leading-none text-white max-md:max-w-full">
-              Log in to your Iron Pixel account.
-            </div>
-            <div class="mt-3 text-sm tracking-normal leading-6 text-white text-opacity-80 max-md:max-w-full">
-              Your account connects you to all things Iron Pixel. Log in with
-              your existing credentials to access your purchases and account
-              settings.
-          </div>
-          [#else]
-            <div class="text-lg leading-none text-white max-md:max-w-full">
-              Create your Iron Pixel account.
-            </div>
-          [/#if]
-        </div>
+        
         <main>
           [#nested/]
-          <div class="mt-2 md:mt-8"> 
-            [@localSelector/]
-          </div>
         </main>
       </div>
     </div>
-  </section>
+    [#-- Photo --]
+      <div class="hidden lg:flex relative flex-col items-center justify-center px-8 py-8 w-full">
+        <img
+          loading="lazy"
+          src="https://cdn.builder.io/api/v1/image/assets/cfdc3922ae324962acbb708d9e5bed22/0e7238da-c5e8-49cb-b6e3-6c9928c8e7ac?placeholderIfAbsent=tru"
+          class="object-cover absolute inset-0 size-full object-center"
+          alt="Background"
+        />
+      </div>
+  </section> 
 [/#macro]
 
 [#macro accountMain rowClass="row center-xs" colClass="col-xs col-sm-8 col-md-6 col-lg-5 col-xl-4" actionURL="" actionText="Go back" actionDirection="back"]

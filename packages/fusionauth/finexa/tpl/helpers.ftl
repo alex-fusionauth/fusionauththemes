@@ -32,7 +32,7 @@
 </html>
 [/#macro]
 
-[#macro head title="Change Bank" author="FusionAuth" description="User Management Redefined. A Single Sign-On solution for your entire enterprise."]
+[#macro head title="Iron Pixel" author="FusionAuth" description="User Management Redefined. A Single Sign-On solution for your entire enterprise."]
 <head>
   <title>${title}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -53,10 +53,10 @@
        Questions about icon names and sizes? https://realfavicongenerator.net/faq#.XrBnPJNKg3g --]
 
   [#--  Standard Favicon Fare --]
-  <link rel="icon" type="image/png" sizes="16x16" href="https://res.cloudinary.com/djox1exln/image/upload/w_16,h_16,c_fill/v1740479237/web-app-manifest-512x512_qrturm.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/djox1exln/image/upload/w_32,h_32,c_fill/v1740479237/web-app-manifest-512x512_qrturm.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="https://res.cloudinary.com/djox1exln/image/upload/w_96,h_96,c_fill/v1740479237/web-app-manifest-512x512_qrturm.png">
-  <link rel="icon" type="image/png" sizes="128" href="https://res.cloudinary.com/djox1exln/image/upload/w_128,h_128,c_fill/v1740479237/web-app-manifest-512x512_qrturm.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://res.cloudinary.com/djox1exln/image/upload/w_16,h_16,c_fill/v1739291929/web-app-manifest-512x512_v756tz.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/djox1exln/image/upload/w_32,h_32,c_fill/v1739291929/web-app-manifest-512x512_v756tz.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="https://res.cloudinary.com/djox1exln/image/upload/w_96,h_96,c_fill/v1739291929/web-app-manifest-512x512_v756tz.png">
+  <link rel="icon" type="image/png" sizes="128" href="https://res.cloudinary.com/djox1exln/image/upload/w_128,h_128,c_fill/v1739291929/web-app-manifest-512x512_v756tz.png">
 
   [#-- End Favicon Madness --]
 
@@ -90,7 +90,7 @@
         }
       });
       Prime.Document.query('[data-tooltip]').each(function(e) {
-        new Prime.Widgets.Tooltip(e).withclass('tooltip').initialize();
+        new Prime.Widgets.Tooltip(e).withClassName('tooltip').initialize();
       });
       document.querySelectorAll('.date-picker').forEach(datePicker => {
         datePicker.onfocus = () => datePicker.type = 'date';
@@ -117,12 +117,7 @@
 
 [#macro body]
 <body>
-  <main class="relative">
-        <div
-          class="absolute inset-0 bg-[url('https://res.cloudinary.com/djox1exln/image/upload/v1740480620/ChangeBank_Background_unpssr.png')] bg-cover bg-bottom -z-10"
-          role="img"
-          aria-label="Background pattern"
-        ></div>
+  <main class="">
     [#nested/]
   </main>
 </body>
@@ -181,7 +176,7 @@
   [/#if]
 [/#macro]
 
-[#macro main title="Change Bank" login=false]
+[#macro main title="Iron Pixel" login=false]
   [#if login]
     [#assign loginUnderline = "border-b-4 border-teal-500" /]
   [#else]
@@ -192,21 +187,177 @@
   [#else]
     [#assign registerUnderline = "" /]
   [/#if]
-  [#assign protocol = redirect_uri?split("/")[0] /]
-  [#assign origin = redirect_uri?split("/")[2] /]
-<div class="flex overflow-hidden relative flex-col items-center w-full min-h-screen justify-center">
-      <a href="${protocol}//${origin}" class="z-10">
-        <svg width="350" height="56" viewBox="0 0 350 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M56.043 28C56.043 43.5083 43.5513 56 28.043 56C12.5346 56 0.0429688 43.5083 0.0429688 28C0.0429688 12.4917 12.5346 0 28.043 0C43.5513 0 56.043 12.4917 56.043 28ZM22.2632 14.8443C27.9548 12.4255 31.7179 8.46236 30.6682 5.99239C29.6186 3.52242 24.1536 3.48095 18.4619 5.89976C12.7703 8.31858 9.00718 12.2817 10.0569 14.7517C11.1065 17.2217 16.5715 17.2631 22.2632 14.8443ZM23.9166 51.6278C30.0053 52.7108 35.3222 51.4467 35.7922 48.8044C36.2622 46.1621 31.7072 43.1422 25.6184 42.0592C19.5297 40.9763 14.2128 42.2404 13.7428 44.8827C13.2729 47.525 17.8278 50.5449 23.9166 51.6278ZM47.8 35.3261C49.227 36.7301 48.0908 40.1989 45.2621 43.0739C42.4334 45.949 38.9835 47.1415 37.5565 45.7375C36.1295 44.3335 37.2657 40.8646 40.0944 37.9896C42.9231 35.1146 46.373 33.9221 47.8 35.3261ZM38.1444 14.2081C41.9754 17.0736 46.0891 18.0488 47.3326 16.3863C48.5761 14.7238 46.4786 11.0531 42.6476 8.1876C38.8166 5.32209 34.7029 4.34687 33.4593 6.00938C32.2158 7.67189 34.3134 11.3426 38.1444 14.2081ZM8.1726 17.7005C11.0886 17.3502 14.1069 22.5133 14.9143 29.2327C15.7216 35.9522 14.0122 41.6834 11.0962 42.0337C8.18027 42.3841 5.16193 37.2209 4.35458 30.5015C3.54724 23.7821 5.25662 18.0509 8.1726 17.7005Z" fill="white"/>
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M109.223 36.7776C109.223 37.9147 109.251 38.816 109.306 39.4816C109.389 40.1195 109.542 40.6187 109.764 40.9792C110.013 41.3398 110.374 41.5755 110.845 41.6864C111.345 41.7974 112.01 41.8806 112.842 41.936V43.6H99.7383V41.936C100.57 41.8806 101.236 41.7974 101.735 41.6864C102.234 41.5755 102.609 41.3536 102.858 41.0208C103.108 40.688 103.26 40.2166 103.316 39.6064C103.399 38.9686 103.441 38.1227 103.441 37.0688V19.9712C103.441 18.3072 103.413 17.0038 103.357 16.0608C103.33 15.0902 103.26 14.3552 103.149 13.856C103.066 13.4955 102.969 13.2182 102.858 13.024C102.747 12.8022 102.567 12.6358 102.317 12.5248C102.096 12.3862 101.777 12.303 101.361 12.2752C100.972 12.2198 100.473 12.192 99.8631 12.192V10.6528L109.14 9.07202V24.4224H109.306C110.166 23.2854 111.123 22.4534 112.177 21.9264C113.258 21.3995 114.548 21.136 116.045 21.136C118.763 21.136 120.871 21.968 122.369 23.632C123.09 24.464 123.658 25.4763 124.074 26.6688C124.49 27.8336 124.698 29.0539 124.698 30.3296V36.7776C124.698 37.9424 124.726 38.8576 124.781 39.5232C124.837 40.1611 124.976 40.6603 125.197 41.0208C125.447 41.3536 125.808 41.5755 126.279 41.6864C126.751 41.7974 127.402 41.8806 128.234 41.936V43.6H115.213V41.936C116.045 41.9083 116.697 41.839 117.169 41.728C117.668 41.5894 118.042 41.3536 118.292 41.0208C118.569 40.688 118.736 40.2166 118.791 39.6064C118.874 38.9686 118.916 38.1227 118.916 37.0688V31.952C118.916 29.0123 118.597 26.9323 117.959 25.712C117.321 24.4918 116.226 23.8816 114.673 23.8816C113.009 23.8816 111.691 24.4918 110.721 25.712C110.249 26.3499 109.875 27.1403 109.597 28.0832C109.348 29.0262 109.223 30.08 109.223 31.2448V36.7776ZM337.697 41.8528C337.336 41.9083 336.712 41.936 335.825 41.936V43.6H348.762V41.936C347.764 41.936 346.96 41.7696 346.35 41.4368C345.74 41.104 345.116 40.4939 344.478 39.6064L337.281 29.4144L341.316 25.6288C342.259 24.7414 343.133 24.1174 343.937 23.7568C344.741 23.3963 345.67 23.216 346.724 23.216V21.552H335.367V23.216C336.754 23.216 337.697 23.2715 338.196 23.3824C338.723 23.4656 338.986 23.632 338.986 23.8816C338.986 24.1867 338.681 24.6859 338.071 25.3792C337.461 26.0448 336.435 27.0571 334.993 28.416L330.999 32.2016V9.07202L321.722 10.6528V12.192C322.554 12.192 323.206 12.2475 323.678 12.3584C324.177 12.4694 324.537 12.7744 324.759 13.2736C325.009 13.7451 325.161 14.4662 325.217 15.4368C325.272 16.4075 325.3 17.7387 325.3 19.4304V37.0688C325.3 38.0672 325.245 38.8854 325.134 39.5232C325.05 40.1334 324.87 40.6187 324.593 40.9792C324.316 41.312 323.941 41.5478 323.47 41.6864C322.998 41.8251 322.374 41.9083 321.598 41.936V43.6H333.87V41.936C333.287 41.936 332.802 41.8667 332.414 41.728C332.053 41.5894 331.762 41.3398 331.54 40.9792C331.346 40.591 331.207 40.064 331.124 39.3984C331.041 38.7328 330.999 37.8592 330.999 36.7776V35.1552L333.079 33.1584L336.241 37.9008C336.823 38.7606 337.295 39.5232 337.655 40.1888C338.044 40.8267 338.238 41.2288 338.238 41.3952C338.238 41.6171 338.057 41.7696 337.697 41.8528ZM301.094 39.5232C301.038 38.8576 301.011 37.9563 301.011 36.8192V31.0784C301.011 30.2187 301.094 29.4006 301.26 28.624C301.454 27.8198 301.676 27.168 301.926 26.6688C302.397 25.7814 302.952 25.088 303.59 24.5888C304.228 24.0896 304.99 23.84 305.878 23.84C306.793 23.84 307.556 23.9787 308.166 24.256C308.776 24.5056 309.261 24.9355 309.622 25.5456C310.01 26.128 310.287 26.9046 310.454 27.8752C310.62 28.8459 310.703 30.0384 310.703 31.4528V37.1104C310.703 38.1366 310.662 38.9686 310.579 39.6064C310.495 40.2166 310.329 40.688 310.079 41.0208C309.83 41.3536 309.455 41.5894 308.956 41.728C308.485 41.839 307.833 41.9083 307.001 41.936V43.6H320.022V41.936C319.218 41.8806 318.58 41.7974 318.108 41.6864C317.637 41.5755 317.276 41.3536 317.027 41.0208C316.805 40.6603 316.652 40.1611 316.569 39.5232C316.514 38.8576 316.486 37.9563 316.486 36.8192V30.9536C316.486 29.1787 316.306 27.792 315.945 26.7936C315.584 25.7675 315.168 24.9355 314.697 24.2976C313.837 23.1606 312.853 22.3563 311.743 21.8848C310.662 21.3856 309.234 21.136 307.459 21.136C305.961 21.136 304.588 21.455 303.34 22.0928C302.092 22.7307 301.011 23.632 300.095 24.7968H299.929L299.388 21.136L291.359 22.7168V24.1312C291.997 24.1312 292.524 24.159 292.94 24.2144C293.356 24.2422 293.703 24.3254 293.98 24.464C294.258 24.575 294.466 24.7552 294.604 25.0048C294.743 25.2267 294.854 25.5179 294.937 25.8784C295.02 26.239 295.09 26.9323 295.145 27.9584C295.2 28.9568 295.228 30.2742 295.228 31.9104V37.1104C295.228 38.1643 295.187 38.9963 295.103 39.6064C295.02 40.2166 294.84 40.688 294.563 41.0208C294.313 41.3536 293.939 41.5755 293.439 41.6864C292.968 41.7974 292.33 41.8806 291.526 41.936V43.6H304.63V41.936C303.798 41.8806 303.132 41.7974 302.633 41.6864C302.162 41.5755 301.801 41.3536 301.551 41.0208C301.33 40.6603 301.177 40.1611 301.094 39.5232ZM281.158 31.744C278.828 32.7979 277.067 33.7824 275.875 34.6976C274.71 35.5851 274.127 36.5141 274.127 37.4848C274.127 38.2891 274.349 38.9269 274.793 39.3984C275.237 39.8699 275.791 40.1056 276.457 40.1056C277.123 40.1056 277.747 39.9947 278.329 39.7728C278.911 39.5232 279.411 39.2043 279.827 38.816C280.243 38.4277 280.561 37.9701 280.783 37.4432C281.033 36.8885 281.158 36.3061 281.158 35.696V31.744ZM281.158 29.5392V27.792C281.158 26.1835 280.867 25.0187 280.284 24.2976C279.729 23.5488 278.856 23.1744 277.663 23.1744C276.859 23.1744 276.249 23.3963 275.833 23.84C275.417 24.256 275.029 24.9632 274.668 25.9616C274.419 26.6549 274.058 27.1957 273.587 27.584C273.143 27.9723 272.519 28.1664 271.715 28.1664C270.938 28.1664 270.342 27.9307 269.926 27.4592C269.51 26.9877 269.302 26.3221 269.302 25.4624C269.302 24.1312 270.023 23.0773 271.465 22.3008C272.935 21.5243 275.14 21.136 278.079 21.136C281.185 21.136 283.404 21.7045 284.735 22.8416C286.066 23.9509 286.732 25.8229 286.732 28.4576V37.568C286.732 39.9253 287.204 41.104 288.146 41.104C288.673 41.104 289.159 40.9237 289.603 40.5632L290.227 41.7696C289.838 42.4629 289.228 43.0176 288.396 43.4336C287.592 43.8219 286.677 44.016 285.651 44.016C284.375 44.016 283.404 43.6277 282.739 42.8512C282.073 42.0747 281.74 40.9792 281.74 39.5648H281.532C280.728 41.0069 279.688 42.1024 278.412 42.8512C277.136 43.6 275.68 43.9744 274.044 43.9744C272.297 43.9744 270.896 43.4891 269.842 42.5184C268.789 41.52 268.262 40.2304 268.262 38.6496C268.262 37.4293 268.803 36.2923 269.884 35.2384C270.966 34.1568 272.768 33.1029 275.292 32.0768L281.158 29.5392ZM236.289 41.9363V43.6003H252.305C256.631 43.6003 260.029 42.9069 262.497 41.5203C263.773 40.7992 264.743 39.9117 265.409 38.8579C266.102 37.804 266.449 36.5699 266.449 35.1555C266.449 33.9075 266.213 32.7565 265.742 31.7027C265.27 30.6488 264.605 29.7336 263.745 28.9571C262.885 28.1805 261.831 27.5843 260.583 27.1683C259.363 26.7245 257.99 26.5027 256.465 26.5027V26.3363C261.207 24.9773 263.579 22.6477 263.579 19.3475C263.579 16.8515 262.442 14.9379 260.167 13.6067C257.921 12.2477 254.704 11.5683 250.516 11.5683H237.163V13.2323C237.911 13.2877 238.508 13.3848 238.951 13.5235C239.423 13.6344 239.783 13.8701 240.033 14.2307C240.31 14.5635 240.491 15.0349 240.574 15.6451C240.657 16.2275 240.699 17.004 240.699 17.9747V37.1939C240.699 38.1645 240.643 38.9549 240.532 39.5651C240.421 40.1752 240.199 40.6467 239.867 40.9795C239.562 41.3123 239.118 41.548 238.535 41.6867C237.981 41.8253 237.232 41.9085 236.289 41.9363ZM259.294 35.0307C259.294 39.052 257.061 41.0627 252.596 41.0627C250.516 41.0627 249.033 40.7021 248.145 39.9811C247.258 39.26 246.814 38.0397 246.814 36.3203V28.0003H248.811C250.724 28.0003 252.333 28.1251 253.636 28.3747C254.967 28.6243 256.049 29.0403 256.881 29.6227C258.49 30.7597 259.294 32.5624 259.294 35.0307ZM252.513 25.1715C251.598 25.3933 250.516 25.5043 249.268 25.5043H246.814V14.8131C246.814 14.3416 247.063 14.1059 247.563 14.1059H250.516C252.735 14.1059 254.343 14.5635 255.342 15.4787C256.34 16.3661 256.839 17.8221 256.839 19.8467C256.839 21.788 256.174 23.2163 254.843 24.1315C254.205 24.5752 253.428 24.9219 252.513 25.1715ZM226.825 39.7312C224.301 42.5877 221.153 44.016 217.381 44.016C215.662 44.016 214.095 43.7525 212.681 43.2256C211.294 42.6709 210.101 41.9083 209.103 40.9376C208.105 39.9392 207.328 38.7605 206.773 37.4016C206.219 36.0427 205.941 34.5312 205.941 32.8672C205.941 31.1477 206.233 29.5808 206.815 28.1664C207.397 26.7243 208.216 25.4901 209.269 24.464C210.351 23.4101 211.613 22.592 213.055 22.0096C214.525 21.4272 216.133 21.136 217.881 21.136C220.82 21.136 223.108 21.9264 224.745 23.5072C226.381 25.088 227.199 27.3067 227.199 30.1632C227.199 30.6069 227.13 30.8843 226.991 30.9952C226.852 31.0784 226.464 31.12 225.826 31.12H212.431C212.32 31.3696 212.265 31.8272 212.265 32.4928C212.265 35.2107 212.847 37.36 214.012 38.9408C215.204 40.5216 216.813 41.312 218.837 41.312C220.002 41.312 221.153 41.0485 222.29 40.5216C223.455 39.9947 224.578 39.2459 225.66 38.2752L226.825 39.7312ZM218.754 28.7904C219.864 28.7904 220.571 28.7349 220.876 28.624C221.209 28.4853 221.375 28.1803 221.375 27.7088C221.375 26.4885 221.028 25.4901 220.335 24.7136C219.642 23.9371 218.768 23.5488 217.714 23.5488C216.522 23.5488 215.454 24.048 214.511 25.0464C213.596 26.0171 213 27.2651 212.722 28.7904H218.754ZM191.876 39.2736C191.322 39.2181 190.67 39.1627 189.921 39.1072C188.673 38.9963 188.049 38.608 188.049 37.9424C188.049 37.4987 188.299 37.1659 188.798 36.944C189.325 36.7221 190.254 36.5419 191.585 36.4032C193.166 36.2368 194.511 35.9179 195.62 35.4464C196.73 34.9749 197.631 34.4064 198.324 33.7408C199.045 33.0475 199.572 32.2571 199.905 31.3696C200.238 30.4821 200.404 29.5115 200.404 28.4576C200.404 27.7365 200.349 27.1125 200.238 26.5856C200.127 26.0309 199.933 25.5179 199.656 25.0464C200.182 24.2976 200.737 23.9232 201.32 23.9232C201.736 23.9232 202.068 24.0203 202.318 24.2144C202.568 24.3808 202.803 24.5888 203.025 24.8384C203.275 25.0603 203.524 25.2683 203.774 25.4624C204.024 25.6288 204.356 25.712 204.772 25.712C205.355 25.712 205.826 25.5317 206.187 25.1712C206.547 24.7829 206.728 24.2976 206.728 23.7152C206.728 22.9387 206.395 22.3147 205.729 21.8432C205.091 21.3717 204.245 21.136 203.192 21.136C202.859 21.136 202.526 21.1776 202.193 21.2608C201.86 21.3163 201.486 21.4272 201.07 21.5936C200.682 21.7323 200.252 21.9403 199.78 22.2176C199.309 22.4672 198.754 22.7861 198.116 23.1744C197.312 22.5365 196.341 22.0373 195.204 21.6768C194.067 21.3163 192.902 21.136 191.71 21.136C190.49 21.136 189.353 21.3301 188.299 21.7184C187.273 22.0789 186.371 22.5781 185.595 23.216C184.846 23.8539 184.25 24.6304 183.806 25.5456C183.39 26.4331 183.182 27.3899 183.182 28.416C183.182 29.1371 183.279 29.8443 183.473 30.5376C183.695 31.2032 184 31.8272 184.388 32.4096C184.777 32.992 185.22 33.5051 185.72 33.9488C186.246 34.3925 186.829 34.7392 187.467 34.9888V35.1552C186.108 35.4325 185.054 35.9317 184.305 36.6528C183.584 37.3739 183.224 38.3029 183.224 39.44C183.224 41.7696 184.763 43.1424 187.841 43.5584L195.121 44.5568C196.286 44.6955 197.173 45.0976 197.784 45.7632C198.421 46.4565 198.74 47.2747 198.74 48.2176C198.74 50.8523 196.66 52.1696 192.5 52.1696C190.587 52.1696 189.131 51.8645 188.132 51.2544C187.162 50.672 186.676 49.8261 186.676 48.7168C186.676 48.0235 186.898 47.4133 187.342 46.8864C187.813 46.3872 188.41 46.0683 189.131 45.9296C188.659 45.3749 188.077 44.9451 187.384 44.64C186.718 44.3627 186.025 44.224 185.304 44.224C184.166 44.224 183.224 44.5845 182.475 45.3056C181.726 46.0544 181.352 47.1499 181.352 48.592C181.352 50.4501 182.281 51.8784 184.139 52.8768C186.025 53.9029 188.701 54.416 192.168 54.416C195.939 54.416 198.796 53.8059 200.737 52.5856C202.678 51.3653 203.649 49.5765 203.649 47.2192C203.649 45.2779 203.025 43.6555 201.777 42.352C200.557 41.0208 198.865 40.2027 196.702 39.8976C196.12 39.8144 195.565 39.7451 195.038 39.6896C194.539 39.6064 194.026 39.5371 193.499 39.4816C193 39.3984 192.459 39.3291 191.876 39.2736ZM193.998 32.6176C193.499 33.5605 192.805 34.032 191.918 34.032C190.975 34.032 190.212 33.5467 189.63 32.576C189.075 31.5776 188.798 30.2464 188.798 28.5824C188.798 26.9461 189.075 25.6565 189.63 24.7136C190.185 23.7707 190.933 23.2992 191.876 23.2992C192.792 23.2992 193.499 23.7707 193.998 24.7136C194.497 25.6288 194.747 26.9461 194.747 28.6656C194.747 30.3573 194.497 31.6747 193.998 32.6176ZM162.112 36.8192C162.112 37.9563 162.14 38.8576 162.195 39.5232C162.279 40.1611 162.431 40.6603 162.653 41.0208C162.903 41.3536 163.263 41.5755 163.735 41.6864C164.234 41.7973 164.899 41.8805 165.731 41.936V43.6H152.627V41.936C153.432 41.8805 154.069 41.7973 154.541 41.6864C155.04 41.5755 155.415 41.3536 155.664 41.0208C155.941 40.688 156.122 40.2165 156.205 39.6064C156.288 38.9963 156.33 38.1643 156.33 37.1104V31.9104C156.33 30.2741 156.302 28.9568 156.247 27.9584C156.191 26.9323 156.122 26.2389 156.039 25.8784C155.955 25.5179 155.844 25.2267 155.706 25.0048C155.567 24.7552 155.359 24.5749 155.082 24.464C154.804 24.3253 154.458 24.2421 154.042 24.2144C153.626 24.1589 153.099 24.1312 152.461 24.1312V22.7168L160.49 21.136L161.031 24.7968H161.197C162.112 23.632 163.194 22.7307 164.442 22.0928C165.69 21.4549 167.063 21.136 168.56 21.136C170.335 21.136 171.763 21.3856 172.845 21.8848C173.954 22.3563 174.939 23.1605 175.799 24.2976C176.27 24.9355 176.686 25.7675 177.047 26.7936C177.407 27.792 177.587 29.1787 177.587 30.9536V36.8192C177.587 37.9563 177.615 38.8576 177.671 39.5232C177.754 40.1611 177.906 40.6603 178.128 41.0208C178.378 41.3536 178.738 41.5755 179.21 41.6864C179.681 41.7973 180.319 41.8805 181.123 41.936V43.6H168.103V41.936C168.935 41.9083 169.586 41.8389 170.058 41.728C170.557 41.5893 170.931 41.3536 171.181 41.0208C171.431 40.688 171.597 40.2165 171.68 39.6064C171.763 38.9685 171.805 38.1365 171.805 37.1104V31.4528C171.805 30.0384 171.722 28.8459 171.555 27.8752C171.389 26.9045 171.112 26.128 170.723 25.5456C170.363 24.9355 169.877 24.5056 169.267 24.256C168.657 23.9787 167.895 23.84 166.979 23.84C166.092 23.84 165.329 24.0896 164.691 24.5888C164.053 25.088 163.499 25.7813 163.027 26.6688C162.778 27.168 162.556 27.8197 162.362 28.624C162.195 29.4005 162.112 30.2187 162.112 31.0784V36.8192ZM136.582 34.6976C137.774 33.7824 139.535 32.7979 141.865 31.744V35.696C141.865 36.3061 141.74 36.8885 141.49 37.4432C141.268 37.9701 140.95 38.4277 140.534 38.816C140.118 39.2043 139.618 39.5232 139.036 39.7728C138.454 39.9947 137.83 40.1056 137.164 40.1056C136.498 40.1056 135.944 39.8699 135.5 39.3984C135.056 38.9269 134.834 38.2891 134.834 37.4848C134.834 36.5141 135.417 35.5851 136.582 34.6976ZM141.865 27.792V29.5392L135.999 32.0768C133.475 33.1029 131.673 34.1568 130.591 35.2384C129.51 36.2923 128.969 37.4293 128.969 38.6496C128.969 40.2304 129.496 41.52 130.55 42.5184C131.603 43.4891 133.004 43.9744 134.751 43.9744C136.387 43.9744 137.843 43.6 139.119 42.8512C140.395 42.1024 141.435 41.0069 142.239 39.5648H142.447C142.447 40.9792 142.78 42.0747 143.446 42.8512C144.111 43.6277 145.082 44.016 146.358 44.016C147.384 44.016 148.299 43.8219 149.103 43.4336C149.935 43.0176 150.545 42.4629 150.934 41.7696L150.31 40.5632C149.866 40.9237 149.38 41.104 148.854 41.104C147.911 41.104 147.439 39.9253 147.439 37.568V28.4576C147.439 25.8229 146.774 23.9509 145.442 22.8416C144.111 21.7045 141.892 21.136 138.786 21.136C135.847 21.136 133.642 21.5243 132.172 22.3008C130.73 23.0773 130.009 24.1312 130.009 25.4624C130.009 26.3221 130.217 26.9877 130.633 27.4592C131.049 27.9307 131.645 28.1664 132.422 28.1664C133.226 28.1664 133.85 27.9723 134.294 27.584C134.765 27.1957 135.126 26.6549 135.375 25.9616C135.736 24.9632 136.124 24.256 136.54 23.84C136.956 23.3963 137.566 23.1744 138.37 23.1744C139.563 23.1744 140.436 23.5488 140.991 24.2976C141.574 25.0187 141.865 26.1835 141.865 27.792ZM96.6897 11.5681H94.6513L93.8609 14.1473C92.1414 13.0935 90.5468 12.3308 89.0769 11.8593C87.607 11.3879 86.0262 11.1521 84.3345 11.1521C81.783 11.1521 79.4534 11.5681 77.3457 12.4001C75.2657 13.2044 73.463 14.3553 71.9377 15.8529C70.4401 17.3505 69.2753 19.1393 68.4433 21.2193C67.6113 23.2993 67.1953 25.6012 67.1953 28.1249C67.1953 30.5377 67.5836 32.7287 68.3601 34.6977C69.1644 36.6668 70.2876 38.3447 71.7297 39.7313C73.1718 41.0903 74.919 42.1441 76.9713 42.8929C79.0236 43.6417 81.3116 44.0161 83.8353 44.0161C88.1894 44.0161 91.8918 42.782 94.9425 40.3137L95.5249 43.6001H97.4801V32.3265H95.6497C94.8732 35.294 93.5697 37.5265 91.7393 39.0241C89.9366 40.5217 87.6486 41.2705 84.8753 41.2705C81.4364 41.2705 78.8294 40.1196 77.0545 37.8177C75.3073 35.4881 74.4337 32.174 74.4337 27.8753C74.4337 25.7121 74.6556 23.7708 75.0993 22.0513C75.5708 20.3041 76.2364 18.8343 77.0961 17.6417C77.9836 16.4215 79.0652 15.4924 80.3409 14.8545C81.6166 14.1889 83.0726 13.8561 84.7089 13.8561C87.094 13.8561 89.1185 14.5911 90.7825 16.0609C92.4742 17.5308 93.6113 19.5415 94.1937 22.0929H95.8577L96.6897 11.5681Z" fill="white"/>
-        </svg>
 
-      </a>
-      [#nested/]
-      <div class="mt-2 md:mt-8"> 
-        [@localSelector/]
+  <section class="h-screen w-screen flex items-center justify-center p-0 sm:p-12">
+    <div class="grid grid-cols-1 lg:grid-cols-2 max-h-full max-w-full aspect-[2/1]">
+      [#-- Photo --]
+      <div class="hidden lg:flex relative flex-col items-center justify-center px-8 py-8 w-full">
+        <img
+          loading="lazy"
+          src="https://res.cloudinary.com/djox1exln/image/upload/v1739206563/background-left_hbtcsz.jpg"
+          class="object-cover absolute inset-0 size-full object-center"
+          alt="Background"
+        />
+        <div class="flex overflow-hidden relative flex-col pb-3 pl-2.5 w-full shadow-sm min-h-[400px] max-md:max-w-full">
+          <img
+            loading="lazy"
+            src="https://res.cloudinary.com/djox1exln/image/upload/v1739207333/game-1_hz8dfv.png"
+            class="object-cover absolute inset-0 size-full"
+            alt="Game Overlay"
+          />
+          <div class="flex relative flex-wrap gap-5 justify-between max-md:max-w-full">
+            <div
+              class="object-contain shrink-0 self-start mt-3 w-5 aspect-[1.25]"
+              alt="Icon"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 17" fill="currentColor"><g opacity="1"><path d="M2.35789 3.86842L9.93684 7.23684V16.5L0 11.4474L2.35789 3.86842Z" fill="currentColor"></path><path d="M17.5158 3.86842L9.93684 7.23684V16.5L19.8737 11.4474L17.5158 3.86842Z" fill="currentColor"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M9.93684 1.97445L16.1684 4.74404V7.91053H3.70526V4.74404L9.93684 1.97445ZM2.35789 3.86842L9.93684 0.5L17.5158 3.86842V9.2579H2.35789V3.86842Z" fill="currentColor"></path></g></svg>
+            </div>
+            <img
+              loading="lazy"
+              src="https://res.cloudinary.com/djox1exln/raw/upload/v1740473944/3c4269182d3775c272e2d79990d5c1a7dfc4ba495ffbc9ea6e55e54d04364a18_prqxde"
+              class="object-contain shrink-0 max-w-full aspect-[1.4] w-[175px]"
+              alt="Logo"
+            />
+          </div>
+          <div class="flex relative flex-col justify-center px-3 py-3 mt-60 bg-black bg-opacity-60 min-h-7">
+            <div class="w-full max-md:max-w-full">
+              <div class="flex relative flex-col items-start min-h-[5px] max-md:pr-5 max-md:max-w-full">
+                <img
+                  loading="lazy"
+                  src="https://res.cloudinary.com/djox1exln/raw/upload/v1740474038/448e5ea2f6241981bf5c75a9c7628812968e05757b3183ac1f5b50fc28151759_xzwmog"
+                  class="object-cover absolute inset-0 size-full"
+                  alt="Progress bar background"
+                />
+                <img
+                  loading="lazy"
+                  src="https://res.cloudinary.com/djox1exln/raw/upload/v1740474060/d197cb55e6e5e5e43d569214b6a36438645a92c19d4ff954602f61e3e0e24af0_g4rh8p"
+                  class="object-contain max-w-full aspect-[45.45] w-[231px]"
+                  alt="Progress bar"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="grid grid-cols-3 relative gap-2 md:gap-6 items-center mt-6 w-full max-md:max-w-full">
+          <img
+            loading="lazy"
+            src="https://res.cloudinary.com/djox1exln/image/upload/v1739207333/game-1_hz8dfv.png"
+            class="object-cover flex-1 shrink self-stretch my-auto rounded aspect-video basis-0 shadow-[0px_4px_4px_rgba(0,0,0,0.28)]"
+            alt="Game 1"
+          />
+          <img
+            loading="lazy"
+            src="https://res.cloudinary.com/djox1exln/image/upload/v1739207965/game-2_rboby0.png"
+            class="object-cover flex-1 shrink self-stretch my-auto rounded aspect-video basis-0 shadow-[0px_4px_4px_rgba(0,0,0,0.28)]"
+            alt="Game 2"
+          />
+          <img
+            loading="lazy"
+            src="https://res.cloudinary.com/djox1exln/image/upload/v1739207966/game-3_nmuhh2.png"
+            class="object-cover flex-1 shrink self-stretch my-auto rounded aspect-video basis-0 shadow-[0px_4px_4px_rgba(0,0,0,0.28)]"
+            alt="Game 3"
+          />
+        </div>
+      </div>
+      [#-- LOGIN --]
+      <div class="flex relative flex-col px-8 py-8 w-full">
+        [@printErrorAlerts rowClass="" colClass="" /]
+        [@printInfoAlerts rowClass="" colClass="" /]
+        [#if devicePendingIdPLink?? || pendingIdPLink??]
+          <p class="mt-0">
+          [#if devicePendingIdPLink?? && pendingIdPLink??]
+            ${theme.message('pending-links-login-to-complete', devicePendingIdPLink.identityProviderName, pendingIdPLink.identityProviderName)}
+          [#elseif devicePendingIdPLink??]
+            ${theme.message('pending-link-login-to-complete', devicePendingIdPLink.identityProviderName)}
+          [#else]
+            ${theme.message('pending-link-login-to-complete', pendingIdPLink.identityProviderName)}
+          [/#if]
+          
+          [#if pendingIdPLink??]
+            [@helpers.link url="" extraParameters="&cancelPendingIdpLink=true"]${theme.message("login-cancel-link")}[/@helpers.link]
+          [/#if]
+          </p>
+        [/#if]
+
+        <img
+          loading="lazy"
+          src="https://res.cloudinary.com/djox1exln/image/upload/v1739199486/cbfdbbbe1c08984c203d09fe5e60d1df_fhm7lg.jpg"
+          class="object-cover absolute inset-0 size-full -z-10"
+          alt="Background"
+        />
+
+      <div class="flex gap-2 items-center">
+        <svg width="41" height="33" viewBox="0 0 41 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4.76287 6.80489L20.0739 13.6098V32.3232L-0.000549316 22.1159L4.76287 6.80489Z" fill="url(#paint0_radial_2243_771)"/>
+          <path d="M35.3849 6.80489L20.0739 13.6098V32.3232L40.1483 22.1159L35.3849 6.80489Z" fill="url(#paint1_radial_2243_771)"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M20.0739 2.97868L32.6629 8.57381V14.9707H7.48483V8.57381L20.0739 2.97868ZM4.76287 6.80489L20.0739 0L35.3849 6.80489V17.6927H4.76287V6.80489Z" fill="url(#paint2_radial_2243_771)"/>
+          <defs>
+          <radialGradient id="paint0_radial_2243_771" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(37.2846 6.13697) rotate(156.176) scale(42.0862 42.0862)">
+          <stop stop-color="#1AB7FF"/>
+          <stop offset="0.246584" stop-color="#0DC7E3"/>
+          <stop offset="0.444146" stop-color="#08C4B6"/>
+          <stop offset="0.662916" stop-color="#00C288"/>
+          <stop offset="1" stop-color="#00C750"/>
+          </radialGradient>
+          <radialGradient id="paint1_radial_2243_771" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(37.2846 6.13697) rotate(156.176) scale(42.0862 42.0862)">
+          <stop stop-color="#1AB7FF"/>
+          <stop offset="0.246584" stop-color="#0DC7E3"/>
+          <stop offset="0.444146" stop-color="#08C4B6"/>
+          <stop offset="0.662916" stop-color="#00C288"/>
+          <stop offset="1" stop-color="#00C750"/>
+          </radialGradient>
+          <radialGradient id="paint2_radial_2243_771" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(37.2846 6.13697) rotate(156.176) scale(42.0862 42.0862)">
+          <stop stop-color="#1AB7FF"/>
+          <stop offset="0.246584" stop-color="#0DC7E3"/>
+          <stop offset="0.444146" stop-color="#08C4B6"/>
+          <stop offset="0.662916" stop-color="#00C288"/>
+          <stop offset="1" stop-color="#00C750"/>
+          </radialGradient>
+          </defs>
+        </svg>
+        [#if title?has_content]
+          <h2 class="uppercase text-6xl font-bold font-DINCondensed">${title}</h2>
+        [/#if]
+      </div>
+
+      <div class="relative flex-1 mt-14 w-full max-md:mt-10 max-md:max-w-full flex flex-col gap-2 md:gap-4">
+        <div class="flex items-start w-full text-xl tracking-wide leading-snug border-b border-white border-opacity-30 max-md:max-w-full">
+          <div class="flex-1 shrink px-4 pb-4 font-semibold text-white min-h-11 ${loginUnderline}">
+            [@helpers.link url="${request.contextPath}/oauth2/authorize"]
+              Log In
+            [/@helpers.link]
+          </div>
+          <div class="flex-1 shrink px-4 pb-4 min-h-11 text-white text-opacity-60 ${registerUnderline}">
+          [@helpers.link url="${request.contextPath}/oauth2/register"]
+            Sign Up
+          [/@helpers.link]
+          </div>
+        </div>
+        <div class="flex flex-col justify-center mt-6 w-full max-md:max-w-full">
+          [#if login]
+            <div class="text-lg leading-none text-white max-md:max-w-full">
+              Log in to your Iron Pixel account.
+            </div>
+            <div class="mt-3 text-sm tracking-normal leading-6 text-white text-opacity-80 max-md:max-w-full">
+              Your account connects you to all things Iron Pixel. Log in with
+              your existing credentials to access your purchases and account
+              settings.
+          </div>
+          [#else]
+            <div class="text-lg leading-none text-white max-md:max-w-full">
+              Create your Iron Pixel account.
+            </div>
+          [/#if]
+        </div>
+        <main>
+          [#nested/]
+          <div class="mt-2 md:mt-8"> 
+            [@localSelector/]
+          </div>
+        </main>
       </div>
     </div>
+  </section>
 [/#macro]
 
 [#macro accountMain rowClass="row center-xs" colClass="col-xs col-sm-8 col-md-6 col-lg-5 col-xl-4" actionURL="" actionText="Go back" actionDirection="back"]
@@ -332,7 +483,7 @@
 [/#macro]
 
 [#macro footer]
-  <div class="fixed bottom-0 right-0 mb-4 mr-4 z-10 text-primary-content">
+  <div class="fixed bottom-0 right-0 mb-4 mr-4 z-10">
     <a target="_blank" href="https://fusionauth.io/docs/"><i class="fa fa-question-circle-o"></i> ${theme.message("help")}</a>
   </div>
   [#nested/]
@@ -734,7 +885,7 @@
 [/#macro]
 
 [#-- Input field of type. --]
-[#macro input type name id autocapitalize="none" autocomplete="on" autocorrect="off" autofocus=false spellcheck="false" label="" placeholder="" leftAddon="" required=false tooltip="" disabled=false class="flex-1 shrink gap-2 self-stretch px-3.5 py-3 w-full rounded-lg border border-solid max-md:max-w-full p-2" dateTimeFormat="" value="" uncheckedValue=""]
+[#macro input type name id autocapitalize="none" autocomplete="on" autocorrect="off" autofocus=false spellcheck="false" label="" placeholder="" leftAddon="" required=false tooltip="" disabled=false class="flex-1 shrink gap-2 self-stretch px-3.5 py-3 w-full rounded bg-cyan-950 max-md:max-w-full p-2" dateTimeFormat="" value="" uncheckedValue=""]
 <div class="form-row">
   [#if type == "checkbox"]
     [@_input_checkbox name=name value=value uncheckedValue=uncheckedValue label=label tooltip=tooltip]
@@ -973,7 +1124,7 @@
 [/#macro]
 
 [#macro link url extraParameters=""]
-<a href="${url}?tenantId=${(tenantId)!''}&client_id=${(client_id)!''}&nonce=${(nonce?url)!''}&pendingIdPLinkId=${(pendingIdPLinkId)!''}&redirect_uri=${(redirect_uri?url)!''}&response_mode=${(response_mode?url)!''}&response_type=${(response_type?url)!''}&scope=${(scope?url)!''}&state=${(state?url)!''}&timezone=${(timezone?url)!''}&metaData.device.name=${(metaData.device.name?url)!''}&metaData.device.type=${(metaData.device.type?url)!''}${(extraParameters!'')?no_esc}&code_challenge=${(code_challenge?url)!''}&code_challenge_method=${(code_challenge_method?url)!''}&user_code=${(user_code?url)!''}" class="underline">
+<a href="${url}?tenantId=${(tenantId)!''}&client_id=${(client_id)!''}&nonce=${(nonce?url)!''}&pendingIdPLinkId=${(pendingIdPLinkId)!''}&redirect_uri=${(redirect_uri?url)!''}&response_mode=${(response_mode?url)!''}&response_type=${(response_type?url)!''}&scope=${(scope?url)!''}&state=${(state?url)!''}&timezone=${(timezone?url)!''}&metaData.device.name=${(metaData.device.name?url)!''}&metaData.device.type=${(metaData.device.type?url)!''}${(extraParameters!'')?no_esc}&code_challenge=${(code_challenge?url)!''}&code_challenge_method=${(code_challenge_method?url)!''}&user_code=${(user_code?url)!''}">
 [#nested/]
 </a>
 [/#macro]

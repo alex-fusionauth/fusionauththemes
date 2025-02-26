@@ -51,83 +51,86 @@
     [/@helpers.header]
 
       
-    [@helpers.main login=true]     
-      <div class="z-10 p-8 mt-14 max-w-full bg-white rounded-3xl shadow-lg w-[560px] max-md:px-5 max-md:mt-10">
-        <div class="flex flex-col w-full text-center max-md:max-w-full items-center">
-          <h1 class="text-2xl font-medium tracking-tight leading-none text-sky-950 max-md:max-w-full">
-            Secure Login
-          </h1>
-          <p class="mt-3 text-lg tracking-tight leading-none max-md:max-w-full text-[19384c]">
-            Turning hard earned dollars into change®
-          </p>
-        </div>
-        <main class="mt-7 w-full max-md:max-w-full">   
-          <form action="${request.contextPath}/oauth2/authorize" method="POST">
-            <div class="mt-6 w-full text-sm tracking-normal max-md:max-w-full flex flex-col gap-2">
-              <div class="w-full leading-loose text-gray-400 max-md:max-w-full">
-                <div class="flex flex-col justify-center w-full rounded max-md:max-w-full">
-                  <fieldset class="flex flex-col gap-2 md:gap-4">
+    [@helpers.main login=true]        
+      <form action="${request.contextPath}/oauth2/authorize" method="POST">
+        <div class="mt-6 w-full text-sm tracking-normal max-md:max-w-full flex flex-col gap-2">
+          <div class="w-full leading-loose text-gray-400 max-md:max-w-full">
+            <div class="flex flex-col justify-center w-full rounded max-md:max-w-full">
+              <fieldset class="flex flex-col gap-2 md:gap-4">
 
-                    [@helpers.input type="text" name="loginId" id="loginId" autocomplete="username" autocapitalize="none" autocomplete="on" autocorrect="off" spellcheck="false" autofocus=(!loginId?has_content) placeholder=theme.message("loginId") disabled=(showPasswordField && hasDomainBasedIdentityProviders) /]
-                    [#if showPasswordField]
-                      [@helpers.input type="password" name="password" id="password" autocomplete="current-password" autofocus=loginId?has_content placeholder=theme.message("password") /]
-                      [@helpers.captchaBadge showCaptcha=showCaptcha captchaMethod=tenant.captchaConfiguration.captchaMethod siteKey=tenant.captchaConfiguration.siteKey/]
-                      [#if errorMessages?size > 0]
-                        [#list errorMessages as m]
-                          <div class="text-red-500">${m}</div>
-                        [/#list]
-                      [/#if]
-                    [/#if]
-                  </fieldset>
-                </div>
-              </div>
-              <div class="flex flex-col gap-2">
-              [#if showPasswordField]
-              <div class="flex gap-2">
-                <div class="flex flex-1 gap-2 justify-between self-stretch my-auto leading-loose">
-                  <label htmlFor="remember-me" class="self-stretch my-auto">
-                  [@helpers.input id="rememberDevice" type="checkbox" name="rememberDevice" label=theme.message("remember-device") value="true" uncheckedValue="false" class="checkbox checkbox-primary"]
-                    [#t/]
-                  [/@helpers.input]
-                  </label>
-                  [@helpers.link url="${request.contextPath}/password/forgot"]${theme.message("forgot-your-password")}[/@helpers.link]
-                </div>
-              </div>
-              [#else]
-                [@helpers.button icon="arrow-right" color="btn btn-primary" text=theme.message("next")/]
-              [/#if]
-            </div>
-                  <button type="submit" class="btn btn-primary">
-                    Log In
-                  </button>
-
-                [@helpers.oauthHiddenFields/]
-                [@helpers.hidden name="showPasswordField"/]
-                [@helpers.hidden name="userVerifyingPlatformAuthenticatorAvailable"/]
-                [#if showPasswordField && hasDomainBasedIdentityProviders]
-                  [@helpers.hidden name="loginId"/]
+                [@helpers.input type="text" name="loginId" id="loginId" autocomplete="username" autocapitalize="none" autocomplete="on" autocorrect="off" spellcheck="false" autofocus=(!loginId?has_content) placeholder=theme.message("loginId") disabled=(showPasswordField && hasDomainBasedIdentityProviders) /]
+                [#if showPasswordField]
+                  [@helpers.input type="password" name="password" id="password" autocomplete="current-password" autofocus=loginId?has_content placeholder=theme.message("password") /]
+                  [@helpers.captchaBadge showCaptcha=showCaptcha captchaMethod=tenant.captchaConfiguration.captchaMethod siteKey=tenant.captchaConfiguration.siteKey/]
+                  [#if errorMessages?size > 0]
+                    [#list errorMessages as m]
+                      <div class="text-red-500">${m}</div>
+                    [/#list]
+                  [/#if]
                 [/#if]
+              </fieldset>
+            </div>
+          </div>
+          <div class="flex flex-col gap-2">
+          [#if showPasswordField]
+          <div class="flex gap-2">
+            <div class="flex flex-1 gap-2 items-center self-stretch my-auto leading-loose text-slate-50">
+              <label htmlFor="remember-me" class="self-stretch my-auto">
+              [@helpers.input id="rememberDevice" type="checkbox" name="rememberDevice" label=theme.message("remember-device") value="true" uncheckedValue="false" class="checkbox checkbox-primary"]
+                [#t/]
+              [/@helpers.input]
+              </label>
+            </div>
 
-            [#if showWebAuthnReauthLink]
-              [@helpers.link url="${request.contextPath}/oauth2/webauthn-reauth"] ${theme.message("return-to-webauthn-reauth")} [/@helpers.link]
+              <button type="submit" class="btn btn-primary">
+                Log In
+              </button>
+            </div>
+
+
+
+        <div class="flex gap-10 justify-between items-start py-5 mt-6 w-full text-sm tracking-normal leading-loose text-white border-t border-b border-white border-opacity-10 max-md:max-w-full">
+        <div class="flex justify-between w-full">
+        
+        <div>
+            [@helpers.link url="${request.contextPath}/password/forgot"]${theme.message("forgot-your-password")}[/@helpers.link]
+          [#else]
+            [@helpers.button icon="arrow-right" color="btn btn-primary" text=theme.message("next")/]
+          [/#if]
+          </div>
+
+          <div>
+            [#if showPasswordField && hasDomainBasedIdentityProviders]
+              [@helpers.link url="" extraParameters="&showPasswordField=false"]${theme.message("sign-in-as-different-user")}[/@helpers.link]
             [/#if]
-              [@helpers.alternativeLogins clientId=client_id identityProviders=identityProviders passwordlessEnabled=passwordlessEnabled bootstrapWebauthnEnabled=bootstrapWebauthnEnabled idpRedirectState=idpRedirectState federatedCSRFToken=federatedCSRFToken/]
-          </form>
-        </main>
+          [#if application.registrationConfiguration.enabled]
+            <div class="flex flex-col text-right">
+              ${theme.message("dont-have-an-account")}
+              [@helpers.link url="${request.contextPath}/oauth2/register"]${theme.message("create-an-account")}[/@helpers.link]
+            </div>
+          [/#if]
+          </div>
+
       </div>
-      <div>
-        [#if showPasswordField && hasDomainBasedIdentityProviders]
-          [@helpers.link url="" extraParameters="&showPasswordField=false"]${theme.message("sign-in-as-different-user")}[/@helpers.link]
+          </div>
+        </div>
+            [@helpers.oauthHiddenFields/]
+            [@helpers.hidden name="showPasswordField"/]
+            [@helpers.hidden name="userVerifyingPlatformAuthenticatorAvailable"/]
+            [#if showPasswordField && hasDomainBasedIdentityProviders]
+              [@helpers.hidden name="loginId"/]
+            [/#if]
+
+                        [#if showWebAuthnReauthLink]
+          [@helpers.link url="${request.contextPath}/oauth2/webauthn-reauth"] ${theme.message("return-to-webauthn-reauth")} [/@helpers.link]
         [/#if]
-      </div>
-      <div class="z-10 mt-14 text-base font-medium tracking-normal text-primary-content max-md:mt-10">
-        <span class="text-primary-content">${theme.message("dont-have-an-account")} </span>
-        <span class="text-primary-content">
-        [@helpers.link url="${request.contextPath}/oauth2/register"]${theme.message("create-an-account")}[/@helpers.link]
-        </span>
-      </div>
+          [@helpers.alternativeLogins clientId=client_id identityProviders=identityProviders passwordlessEnabled=passwordlessEnabled bootstrapWebauthnEnabled=bootstrapWebauthnEnabled idpRedirectState=idpRedirectState federatedCSRFToken=federatedCSRFToken/]
+      </form>
     [/@helpers.main]
     [@helpers.footer]
+      [#-- Custom footer code goes here --]
+        </div>
+      </section>
     [/@helpers.footer]
 
   [/@helpers.body]

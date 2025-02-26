@@ -968,8 +968,8 @@
 [/#if]
 [/#macro]
 
-[#macro button text icon="arrow-right" color="blue" disabled=false name="" value=""]
-<button class="${color} button${disabled?then(' disabled', '')}"[#if disabled] disabled="disabled"[/#if][#if name !=""]name="${name}"[/#if][#if value !=""]value="${value}"[/#if]><i class="fa fa-${icon}"></i> ${text}</button>
+[#macro button text color="blue" disabled=false name="" value=""]
+<button class="${color} button${disabled?then(' disabled', '')}"[#if disabled] disabled="disabled"[/#if][#if name !=""]name="${name}"[/#if][#if value !=""]value="${value}"[/#if]>${text}</button>
 [/#macro]
 
 [#macro link url extraParameters=""]

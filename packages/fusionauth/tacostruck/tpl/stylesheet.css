@@ -1562,6 +1562,9 @@
   .bg-\[url\(\'https\:\/\/res\.cloudinary\.com\/djox1exln\/image\/upload\/v1740480620\/ChangeBank_Background_unpssr\.png\'\)\] {
     background-image: url('https://res.cloudinary.com/djox1exln/image/upload/v1740480620/ChangeBank_Background_unpssr.png');
   }
+  .bg-\[url\(\'https\:\/\/res\.cloudinary\.com\/djox1exln\/image\/upload\/v1740698536\/Background_iahgmz\.png\'\)\] {
+    background-image: url('https://res.cloudinary.com/djox1exln/image/upload/v1740698536/Background_iahgmz.png');
+  }
   .bg-cover {
     background-size: cover;
   }

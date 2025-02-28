@@ -214,7 +214,7 @@
             </div>
             <img
               loading="lazy"
-              src="https://res.cloudinary.com/djox1exln/raw/upload/v1740473944/3c4269182d3775c272e2d79990d5c1a7dfc4ba495ffbc9ea6e55e54d04364a18_prqxde"
+              src="https://res.cloudinary.com/djox1exln/image/upload/v1740769461/3c4269182d3775c272e2d79990d5c1a7dfc4ba495ffbc9ea6e55e54d04364a18_prqxde_fv2sqx.svg"
               class="object-contain shrink-0 max-w-full aspect-[1.4] w-[175px]"
               alt="Logo"
             />
@@ -224,13 +224,13 @@
               <div class="flex relative flex-col items-start min-h-[5px] max-md:pr-5 max-md:max-w-full">
                 <img
                   loading="lazy"
-                  src="https://res.cloudinary.com/djox1exln/raw/upload/v1740474038/448e5ea2f6241981bf5c75a9c7628812968e05757b3183ac1f5b50fc28151759_xzwmog"
+                  src="https://res.cloudinary.com/djox1exln/image/upload/v1740769460/448e5ea2f6241981bf5c75a9c7628812968e05757b3183ac1f5b50fc28151759_xzwmog_zw2lae.svg"
                   class="object-cover absolute inset-0 size-full"
                   alt="Progress bar background"
                 />
                 <img
                   loading="lazy"
-                  src="https://res.cloudinary.com/djox1exln/raw/upload/v1740474060/d197cb55e6e5e5e43d569214b6a36438645a92c19d4ff954602f61e3e0e24af0_g4rh8p"
+                  src="https://res.cloudinary.com/djox1exln/image/upload/v1740769460/d197cb55e6e5e5e43d569214b6a36438645a92c19d4ff954602f61e3e0e24af0_g4rh8p_qdzf3w.svg"
                   class="object-contain max-w-full aspect-[45.45] w-[231px]"
                   alt="Progress bar"
                 />

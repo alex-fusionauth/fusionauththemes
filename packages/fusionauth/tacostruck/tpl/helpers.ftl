@@ -119,7 +119,7 @@
 <body>
   <main class="relative">
         <div
-          class="absolute inset-0 bg-[url('https://res.cloudinary.com/djox1exln/image/upload/v1740480620/ChangeBank_Background_unpssr.png')] bg-cover bg-bottom -z-10"
+          class="absolute inset-0 bg-[url('https://res.cloudinary.com/djox1exln/image/upload/v1740698536/Background_iahgmz.png')] bg-cover bg-bottom -z-10"
           role="img"
           aria-label="Background pattern"
         ></div>

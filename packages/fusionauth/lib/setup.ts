@@ -785,14 +785,21 @@ class ApiRunner {
   }
 
   async createRegistrationForm() {
+    if (this.config.name !== 'iron-pixel') {
+      console.log(chalk.blue('Skipping Registration Form creation'));
+      return;
+    }
+
     console.log(chalk.blue('Checking if Registration Form exists'));
     const search = await this.singleApi('/api/form', {
       method: 'GET',
     });
-    const form = search.data?.forms.filter(
-      (f: { name: string; id: string }) =>
-        f.name === `${this.config.name}-registration-form`
-    );
+    const form = search.data?.forms
+      .filter(
+        (f: { name: string; id: string }) =>
+          f.name === `${this.config.name}-registration-form`
+      )
+      ?.at(0);
     if (form?.id) {
       console.log(
         chalk.blue(
@@ -809,7 +816,21 @@ class ApiRunner {
       method: 'POST',
       body: JSON.stringify({
         form: {
+          data: {},
           name: `${this.config.name}-registration-form`,
+          steps: [
+            {
+              fields: ['55816739-bba8-9c1e-6fce-b51a78fe62fb'],
+            },
+            {
+              fields: [
+                '44edf05c-49bd-2799-3b85-a8f0acae5748',
+                '2c74b6d4-f7ee-f6c5-17cb-12280ca4c868',
+                '1d1f02f5-fd7e-bd30-fc9a-52e4b25f05e7',
+              ],
+            },
+          ],
+          type: 'registration',
         },
       }),
     });

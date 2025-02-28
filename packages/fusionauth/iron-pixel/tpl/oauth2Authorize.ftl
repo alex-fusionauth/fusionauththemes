@@ -129,8 +129,7 @@
     [/@helpers.main]
     [@helpers.footer]
       [#-- Custom footer code goes here --]
-        </div>
-      </section>
+ 
     [/@helpers.footer]
 
   [/@helpers.body]

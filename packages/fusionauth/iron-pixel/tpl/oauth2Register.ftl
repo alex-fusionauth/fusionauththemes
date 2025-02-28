@@ -103,15 +103,14 @@
           </fieldset>
 
           [#if step == totalSteps]
-            [@helpers.input id="rememberDevice" type="checkbox" name="rememberDevice" label=theme.message("remember-device") value="true" uncheckedValue="false"]
-              <i class="fa fa-info-circle" data-tooltip="${theme.message('{tooltip}remember-device')}"></i>[#t/]
-            [/@helpers.input]
-            <div class="form-row">
-              [@helpers.button icon="key" color="btn btn-primary" text=theme.message('register')/]
+            <div class="flex gap-2 md:gap-4">
+              [@helpers.input id="rememberDevice" type="checkbox" name="rememberDevice" label=theme.message('remember-device') value="true" uncheckedValue="false" /]
+              [@helpers.button color="btn btn-primary flex-1" text=theme.message('register')/]
             </div>
+            <p class="mt-2 flex justify-center w-full">[@helpers.link url="/oauth2/authorize"]${theme.message('return-to-login')}[/@helpers.link]</p>
           [#else]
             <div class="form-row">
-              [@helpers.button icon="arrow-right" color="btn btn-primary" text=theme.message('next')/]
+              [@helpers.button color="btn btn-primary" text=theme.message('next')/]
             </div>
           [/#if]
         [#-- End Custom Self Service Registration Form Steps --]
@@ -123,26 +122,26 @@
             [@helpers.hidden name="user.birthDate" dateTimeFormat="yyyy-MM-dd"/]
           [/#if]
           [#if collectBirthDate]
-            [@helpers.input type="date" name="user.birthDate" id="birthDate" placeholder=theme.message('birthDate') leftAddon="calendar" class="date-picker" required=true/]
+            [@helpers.input type="date" name="user.birthDate" id="birthDate" placeholder=theme.message('birthDate')  class="date-picker" required=true/]
           [#else]
             [#if application.registrationConfiguration.loginIdType == 'email']
 
                 <div>
-                  <label for="loginId">Email Address</label>
-                  [@helpers.input type="text" name="user.email" id="email" autocomplete="username" autocapitalize="none" autocorrect="off" spellcheck="false" autofocus=true placeholder=theme.message('email') leftAddon="user" required=true /]
+                  
+                  [@helpers.input type="text" name="user.email" id="email" autocomplete="username" autocapitalize="none" autocorrect="off" spellcheck="false" autofocus=true placeholder=theme.message('email')  required=true /]
                 </div>
             [#else]
-              [@helpers.input type="text" name="user.username" id="username" autocomplete="username" autocapitalize="none" autocorrect="off" spellcheck="false" autofocus=true placeholder=theme.message('username') leftAddon="user" required=true/]
+              [@helpers.input type="text" name="user.username" id="username" autocomplete="username" autocapitalize="none" autocorrect="off" spellcheck="false" autofocus=true placeholder=theme.message('username')  required=true/]
             [/#if]
             <div>
-              <label for="password">Password</label>
+              
               [@helpers.input type="password" name="user.password" id="password" autocomplete="new-password" placeholder=theme.message('password') required=true class="flex-1 shrink gap-2 self-stretch px-3.5 py-3 w-full rounded bg-cyan-950 max-md:max-w-full p-2${(errorMessages?size > 0)?then(' outline-red-500 outline-2', '')}" /]
             </div>
             [#if application.registrationConfiguration.confirmPassword]
               [@helpers.input type="password" name="passwordConfirm" id="passwordConfirm" autocomplete="new-password" placeholder=theme.message('passwordConfirm') required=true/]
             [/#if]
             [#if parentEmailRequired]
-              [@helpers.input type="text" name="user.parentEmail" id="parentEmail" placeholder=theme.message('parentEmail') leftAddon="user" required=true/]
+              [@helpers.input type="text" name="user.parentEmail" id="parentEmail" placeholder=theme.message('parentEmail')  required=true/]
             [/#if]
             [#if application.registrationConfiguration.birthDate.enabled ||
             application.registrationConfiguration.firstName.enabled    ||
@@ -153,22 +152,22 @@
             application.registrationConfiguration.preferredLanguages.enabled ]
               <div class="mt-5 mb-5"></div>
               [#if application.registrationConfiguration.firstName.enabled]
-                [@helpers.input type="text" name="user.firstName" id="firstName" placeholder=theme.message('firstName') leftAddon="user" required=application.registrationConfiguration.firstName.required/]
+                [@helpers.input type="text" name="user.firstName" id="firstName" placeholder=theme.message('firstName')  required=application.registrationConfiguration.firstName.required/]
               [/#if]
               [#if application.registrationConfiguration.fullName.enabled]
-                [@helpers.input type="text" name="user.fullName" id="fullName" placeholder=theme.message('fullName') leftAddon="user" required=application.registrationConfiguration.fullName.required/]
+                [@helpers.input type="text" name="user.fullName" id="fullName" placeholder=theme.message('fullName')  required=application.registrationConfiguration.fullName.required/]
               [/#if]
               [#if application.registrationConfiguration.middleName.enabled]
-                [@helpers.input type="text" name="user.middleName" id="middleName" placeholder=theme.message('middleName') leftAddon="user" required=application.registrationConfiguration.middleName.required/]
+                [@helpers.input type="text" name="user.middleName" id="middleName" placeholder=theme.message('middleName')  required=application.registrationConfiguration.middleName.required/]
               [/#if]
               [#if application.registrationConfiguration.lastName.enabled]
-                [@helpers.input type="text" name="user.lastName" id="lastName" placeholder=theme.message('lastName') leftAddon="user" required=application.registrationConfiguration.lastName.required/]
+                [@helpers.input type="text" name="user.lastName" id="lastName" placeholder=theme.message('lastName')  required=application.registrationConfiguration.lastName.required/]
               [/#if]
               [#if application.registrationConfiguration.birthDate.enabled && !hideBirthDate]
-                [@helpers.input type="date" name="user.birthDate" id="birthDate" placeholder=theme.message('birthDate') leftAddon="calendar" class="date-picker" required=application.registrationConfiguration.birthDate.required/]
+                [@helpers.input type="date" name="user.birthDate" id="birthDate" placeholder=theme.message('birthDate')  class="date-picker" required=application.registrationConfiguration.birthDate.required/]
               [/#if]
               [#if application.registrationConfiguration.mobilePhone.enabled]
-                [@helpers.input type="text" name="user.mobilePhone" id="mobilePhone" placeholder=theme.message('mobilePhone') leftAddon="phone" required=application.registrationConfiguration.mobilePhone.required/]
+                [@helpers.input type="text" name="user.mobilePhone" id="mobilePhone" placeholder=theme.message('mobilePhone')  required=application.registrationConfiguration.mobilePhone.required/]
               [/#if]
               [#if application.registrationConfiguration.preferredLanguages.enabled]
                 [@helpers.locale_select field="" name="user.preferredLanguages" id="preferredLanguages" label=theme.message("preferredLanguage") required=application.registrationConfiguration.preferredLanguages.required /]
@@ -178,15 +177,14 @@
           [@helpers.captchaBadge showCaptcha=showCaptcha captchaMethod=tenant.captchaConfiguration.captchaMethod siteKey=tenant.captchaConfiguration.siteKey/]
         </fieldset>
 
-        [@helpers.input id="rememberDevice" type="checkbox" name="rememberDevice" label=theme.message('remember-device') value="true" uncheckedValue="false"]
-          <i class="fa fa-info-circle" data-tooltip="${theme.message('{tooltip}remember-device')}"></i>[#t/]
-        [/@helpers.input]
-
-        <div class="form-row">
-          [@helpers.button icon="key" color="btn btn-primary" text=theme.message('register')/]
-          <p class="mt-2">[@helpers.link url="/oauth2/authorize"]${theme.message('return-to-login')}[/@helpers.link]</p>
+        <div class="flex gap-2 items-center my-auto leading-loose">
+          [@helpers.input id="rememberDevice" type="checkbox" name="rememberDevice" label=theme.message('remember-device') value="true" uncheckedValue="false" /]
+          [@helpers.button color="btn btn-primary flex-1" text=theme.message('register')/]
         </div>
+        <p class="mt-2 flex justify-center w-full">[@helpers.link url="/oauth2/authorize"]${theme.message('return-to-login')}[/@helpers.link]</p>
+
         [/#if]
+        </div>
         [#-- End Basic Self Service Registration Form --]
 
         [#-- Identity Provider Buttons (if you want to include these, remove the if-statement) --]

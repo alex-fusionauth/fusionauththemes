@@ -730,66 +730,65 @@
 [#macro alternativeLogins clientId identityProviders passwordlessEnabled bootstrapWebauthnEnabled=false idpRedirectState="" federatedCSRFToken=""]
   [#if identityProviders?has_content || passwordlessEnabled || bootstrapWebauthnEnabled]
     <div class="flex flex-col mt-6 w-full text-white max-md:max-w-full">
-        <div class="self-start text-base tracking-wide text-center max-md:max-w-full text-center w-full">
-          <p>Or, log in with a game account</p>
-        </div>
-        <div class="grid grid-cols-2 gap-2 mt-6 w-full text-sm font-semibold leading-none max-md:px-5 max-md:max-w-full">
-          [#if identityProviders["Apple"]?has_content]
-            [@appleButton identityProvider=identityProviders["Apple"][0] clientId=clientId/]
-          [/#if]
+      <div class="self-start text-base tracking-wide text-center max-md:max-w-full text-center w-full">
+        <p>Or, log in with a game account</p>
+      </div>
+      <div class="grid grid-cols-2 gap-2 mt-6 w-full text-sm font-semibold leading-none max-md:px-5 max-md:max-w-full">
+        [#if identityProviders["Apple"]?has_content]
+          [@appleButton identityProvider=identityProviders["Apple"][0] clientId=clientId/]
+        [/#if]
 
-          [#if identityProviders["EpicGames"]?has_content]
-              [@epicButton identityProvider=identityProviders["EpicGames"][0] clientId=clientId/]
-          [/#if]
+        [#if identityProviders["EpicGames"]?has_content]
+            [@epicButton identityProvider=identityProviders["EpicGames"][0] clientId=clientId/]
+        [/#if]
 
-          [#if identityProviders["Facebook"]?has_content]
-            [@facebookButton identityProvider=identityProviders["Facebook"][0] clientId=clientId /]
-          [/#if]
+        [#if identityProviders["Facebook"]?has_content]
+          [@facebookButton identityProvider=identityProviders["Facebook"][0] clientId=clientId /]
+        [/#if]
 
-          [#if identityProviders["Google"]?has_content]
-            [@googleButton identityProvider=identityProviders["Google"][0] clientId=clientId idpRedirectState=idpRedirectState/]
-          [/#if]
+        [#if identityProviders["Google"]?has_content]
+          [@googleButton identityProvider=identityProviders["Google"][0] clientId=clientId idpRedirectState=idpRedirectState/]
+        [/#if]
 
-          [#if identityProviders["LinkedIn"]?has_content]
-            [@linkedInBottom identityProvider=identityProviders["LinkedIn"][0] clientId=clientId/]
-          [/#if]
+        [#if identityProviders["LinkedIn"]?has_content]
+          [@linkedInBottom identityProvider=identityProviders["LinkedIn"][0] clientId=clientId/]
+        [/#if]
 
-          [#if identityProviders["Nintendo"]?has_content]
-            [@nintendoButton identityProvider=identityProviders["Nintendo"][0] clientId=clientId/]
-          [/#if]
+        [#if identityProviders["Nintendo"]?has_content]
+          [@nintendoButton identityProvider=identityProviders["Nintendo"][0] clientId=clientId/]
+        [/#if]
 
-          [#if identityProviders["OpenIDConnect"]?has_content]
-            [#list identityProviders["OpenIDConnect"] as identityProvider]
-              [@openIDConnectButton identityProvider=identityProvider clientId=clientId/]
-            [/#list]
-          [/#if]
+        [#if identityProviders["OpenIDConnect"]?has_content]
+          [#list identityProviders["OpenIDConnect"] as identityProvider]
+            [@openIDConnectButton identityProvider=identityProvider clientId=clientId/]
+          [/#list]
+        [/#if]
 
-          [#if identityProviders["SAMLv2"]?has_content]
-            [#list identityProviders["SAMLv2"] as identityProvider]
-              [@samlv2Button identityProvider=identityProvider clientId=clientId/]
-            [/#list]
-          [/#if]
+        [#if identityProviders["SAMLv2"]?has_content]
+          [#list identityProviders["SAMLv2"] as identityProvider]
+            [@samlv2Button identityProvider=identityProvider clientId=clientId/]
+          [/#list]
+        [/#if]
 
-          [#if identityProviders["SonyPSN"]?has_content]
-            [@sonypsnButton identityProvider=identityProviders["SonyPSN"][0] clientId=clientId/]
-          [/#if]
+        [#if identityProviders["SonyPSN"]?has_content]
+          [@sonypsnButton identityProvider=identityProviders["SonyPSN"][0] clientId=clientId/]
+        [/#if]
 
-          [#if identityProviders["Steam"]?has_content]
-              [@steamButton identityProvider=identityProviders["Steam"][0] clientId=clientId/]
-          [/#if]
+        [#if identityProviders["Steam"]?has_content]
+            [@steamButton identityProvider=identityProviders["Steam"][0] clientId=clientId/]
+        [/#if]
 
-          [#if identityProviders["Twitch"]?has_content]
-              [@twitchButton identityProvider=identityProviders["Twitch"][0] clientId=clientId/]
-          [/#if]
+        [#if identityProviders["Twitch"]?has_content]
+            [@twitchButton identityProvider=identityProviders["Twitch"][0] clientId=clientId/]
+        [/#if]
 
-          [#if identityProviders["Twitter"]?has_content]
-              [@twitterButton identityProvider=identityProviders["Twitter"][0] clientId=clientId/]
-          [/#if]
+        [#if identityProviders["Twitter"]?has_content]
+            [@twitterButton identityProvider=identityProviders["Twitter"][0] clientId=clientId/]
+        [/#if]
 
-          [#if identityProviders["Xbox"]?has_content]
-              [@xboxButton identityProvider=identityProviders["Xbox"][0] clientId=clientId/]
-          [/#if]
-        </div>
+        [#if identityProviders["Xbox"]?has_content]
+            [@xboxButton identityProvider=identityProviders["Xbox"][0] clientId=clientId/]
+        [/#if]
       </div>
 
       [#if passwordlessEnabled]

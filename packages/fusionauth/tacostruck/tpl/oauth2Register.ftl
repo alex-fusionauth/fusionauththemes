@@ -49,11 +49,8 @@
       <div class="z-10 p-8 mt-14 max-w-full bg-white rounded-3xl shadow-lg w-[560px] max-md:px-5 max-md:mt-10">
         <div class="flex flex-col w-full text-center max-md:max-w-full items-center">
           <h1 class="text-2xl font-medium tracking-tight leading-none text-sky-950 max-md:max-w-full">
-            Create An Account
+            Create Your Taco's Rewards Account
           </h1>
-          <p class="mt-3 text-lg tracking-tight leading-none max-md:max-w-full text-base-content/40">
-            Turning hard earned dollars into change®
-          </p>
         </div>
         <main class="mt-7 w-full max-md:max-w-full">   
           <form action="${request.contextPath}/oauth2/register" method="POST" class="flex flex-col gap-2 md:gap-4">

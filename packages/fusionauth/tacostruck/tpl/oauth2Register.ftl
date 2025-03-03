@@ -152,7 +152,7 @@
                 [/#if]
               </section>
               <div>
-                <label for="email">Email Address</label>
+                <label for="email">Email Address DOY</label>
                 [@helpers.input type="text" name="user.email" id="email" autocomplete="username" autocapitalize="none" autocorrect="off" spellcheck="false" autofocus=true placeholder=theme.message('email') required=true/]
               </div>
               <section class="flex gap-2 md:gap-4">

@@ -1,9 +1,8 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-
 @plugin "daisyui/theme" {
-  name: "fusionauththeme";
+  name: "tacostruck";
   default: false;
   prefersdark: false;
   color-scheme: "light";
@@ -11,7 +10,7 @@
   --color-base-200: oklch(98% 0 0);
   --color-base-300: oklch(95% 0 0);
   --color-base-content: oklch(21% 0.006 285.885);
-  --color-primary: #B75CB5;
+  --color-primary: #b75cb5;
   --color-primary-content: oklch(93% 0.034 272.788);
   --color-secondary: oklch(65% 0.241 354.308);
   --color-secondary-content: oklch(94% 0.028 342.258);
@@ -36,7 +35,6 @@
   --depth: 1;
   --noise: 0;
 }
-
 
 .error {
   color: var(--color-error);

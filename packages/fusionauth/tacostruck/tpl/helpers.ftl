@@ -53,10 +53,7 @@
        Questions about icon names and sizes? https://realfavicongenerator.net/faq#.XrBnPJNKg3g --]
 
   [#--  Standard Favicon Fare --]
-  <link rel="icon" type="image/png" sizes="16x16" href="https://res.cloudinary.com/djox1exln/image/upload/w_16,h_16,c_fill/v1740479237/web-app-manifest-512x512_qrturm.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/djox1exln/image/upload/w_32,h_32,c_fill/v1740479237/web-app-manifest-512x512_qrturm.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="https://res.cloudinary.com/djox1exln/image/upload/w_96,h_96,c_fill/v1740479237/web-app-manifest-512x512_qrturm.png">
-  <link rel="icon" type="image/png" sizes="128" href="https://res.cloudinary.com/djox1exln/image/upload/w_128,h_128,c_fill/v1740479237/web-app-manifest-512x512_qrturm.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://i.ibb.co/9kq0KFyK/Group-27.png">
 
   [#-- End Favicon Madness --]
 

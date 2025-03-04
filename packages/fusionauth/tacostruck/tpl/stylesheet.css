@@ -1335,6 +1335,13 @@
     grid-template-columns: 1fr;
     grid-auto-rows: max-content;
   }
+  .mask {
+    display: inline-block;
+    vertical-align: middle;
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+  }
   .block {
     display: block;
   }
@@ -1570,6 +1577,9 @@
   }
   .bg-\[url\(\'https\:\/\/res\.cloudinary\.com\/djox1exln\/image\/upload\/v1740698536\/Background_iahgmz\.png\'\)\] {
     background-image: url('https://res.cloudinary.com/djox1exln/image/upload/v1740698536/Background_iahgmz.png');
+  }
+  .bg-contain {
+    background-size: contain;
   }
   .bg-cover {
     background-size: cover;

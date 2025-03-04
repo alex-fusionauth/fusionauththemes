@@ -98,7 +98,7 @@
               [/#if]
             </div>
                   <button type="submit" class="btn btn-primary">
-                    Log In
+                    Sign In With Email
                   </button>
 
                 [@helpers.oauthHiddenFields/]

@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=work+sans");
 @import "tailwindcss";
 @plugin "daisyui";
 
@@ -10,7 +11,7 @@
   --color-base-200: oklch(98% 0 0);
   --color-base-300: oklch(95% 0 0);
   --color-base-content: oklch(21% 0.006 285.885);
-  --color-primary: #0092db;
+  --color-primary: #B75CB5;
   --color-primary-content: oklch(93% 0.034 272.788);
   --color-secondary: #0093a3;
   --color-secondary-content: oklch(94% 0.028 342.258);

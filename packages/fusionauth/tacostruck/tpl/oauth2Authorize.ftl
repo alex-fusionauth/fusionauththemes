@@ -53,13 +53,11 @@
       
     [@helpers.main login=true]     
       <div class="z-10 p-8 mt-14 max-w-full bg-white rounded-3xl shadow-lg w-[560px] max-md:px-5 max-md:mt-10">
-        <div class="flex flex-col w-full text-center max-md:max-w-full items-center">
-          <h1 class="text-2xl font-medium tracking-tight leading-none text-sky-950 max-md:max-w-full">
-            Secure Login
+        <div class="flex flex-col w-full text-left max-md:max-w-full">
+          <h1 class="text-2xl font-sans font-medium tracking-tight leading-none text-[#1B2D7E] max-md:max-w-full">
+            Sign in to Taco's Rewards
           </h1>
-          <p class="mt-3 text-lg tracking-tight leading-none max-md:max-w-full text-[19384c]">
-            Turning hard earned dollars into change®
-          </p>
+
         </div>
         <main class="mt-7 w-full max-md:max-w-full">   
           <form action="${request.contextPath}/oauth2/authorize" method="POST">
@@ -98,7 +96,7 @@
               [/#if]
             </div>
                   <button type="submit" class="btn btn-primary">
-                    Log In
+                    Sign In With Email
                   </button>
 
                 [@helpers.oauthHiddenFields/]

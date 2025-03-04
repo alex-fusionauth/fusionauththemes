@@ -180,7 +180,7 @@
                 </section>
                 [#if application.registrationConfiguration.loginIdType == 'email']
                     <div>
-                      <label for="loginId">Email Address</label>
+                      <label for="loginId">Email Address Hi</label>
                       [@helpers.input type="text" name="user.email" id="email" autocomplete="username" autocapitalize="none" autocorrect="off" spellcheck="false" autofocus=true placeholder=theme.message('email')  required=true /]
                     </div>
                 [#else]

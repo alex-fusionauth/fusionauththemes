@@ -189,11 +189,11 @@
     [#assign registerUnderline = "" /]
   [/#if]
 
- <section class="h-screen w-screen flex justify-center p-0 sm:p-12">
+ <section class="h-screen w-screen flex justify-center p-0 sm:p-4">
     [#-- LOGIN Pannel --]
     <div class="grid grid-cols-1 lg:grid-cols-2 max-h-full max-w-full aspect-[2/1]">
       [#-- Not sure what this section is all about --]
-      <div class="flex relative flex-col px-8 py-8 w-full">
+      <div class="flex relative flex-col px-8 py-8 w-full bg-blue-950">
         [@printErrorAlerts rowClass="" colClass="" /]
         [@printInfoAlerts rowClass="" colClass="" /]
         [#if devicePendingIdPLink?? || pendingIdPLink??]
@@ -211,6 +211,8 @@
           [/#if]
           </p>
         [/#if]
+      [#-- Light gray image background across everything --]
+      <div className="flex flex-col justify-center items-center self-center ">
       [#-- Light gray image background across everything --]
       <div className="flex flex-col justify-center items-center self-center ">
         <img
@@ -231,25 +233,50 @@
         />
         <div className="mt-2">finexa pro</div>
       </div>
+      [#-- Finexa Pro Logo --]
+      <div class="flex flex-col justify-center items-center self-center max-w-full text-4xl leading-none text-center text-white w-[203px]">
+        <img
+          src="https://cdn.builder.io/api/v1/image/assets/cfdc3922ae324962acbb708d9e5bed22/a0e692705e2868511f73ae66cf384ccce4eebe3bc1aecc2614526c29911a213d?placeholderIfAbsent=true"
+          alt="Finexa Logo"
+          width={71}
+          height={71}
+          className="object-contain aspect-[1.01] w-[71px]"
+        />
+        <div className="mt-2">finexa pro</div>
+      </div>
 
       <div class="relative flex-1 mt-14 w-full max-md:mt-10 max-md:max-w-full flex flex-col gap-2 md:gap-4">
         <div class="flex items-start w-full text-xl tracking-wide leading-snug border-b border-white border-opacity-30 max-md:max-w-full">
           <div class="flex-1 shrink px-4 pb-4 font-semibold text-white min-h-11 ${loginUnderline}">
             [@helpers.link url="${request.contextPath}/oauth2/authorize"]
               Sign In
+              Sign In
             [/@helpers.link]
           </div>
           <div class="flex-1 shrink px-4 pb-4 min-h-11 text-white text-opacity-60 ${registerUnderline}">
           [@helpers.link url="${request.contextPath}/oauth2/register"]
             Register
+            Register
           [/@helpers.link]
           </div>
         </div>
+        
         
         <main>
           [#nested/]
         </main>
       </div>
+    </div>
+    [#-- Photo --]
+      <div class="hidden lg:flex relative flex-col items-center justify-center px-8 py-8 w-full">
+        <img
+          loading="lazy"
+          src="https://cdn.builder.io/api/v1/image/assets/cfdc3922ae324962acbb708d9e5bed22/0e7238da-c5e8-49cb-b6e3-6c9928c8e7ac?placeholderIfAbsent=tru"
+          class="object-cover absolute inset-0 size-full object-center"
+          alt="Background"
+        />
+      </div>
+  </section> 
     </div>
     [#-- Photo --]
       <div class="hidden lg:flex relative flex-col items-center justify-center px-8 py-8 w-full">

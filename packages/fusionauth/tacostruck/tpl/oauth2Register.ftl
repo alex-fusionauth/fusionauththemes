@@ -178,11 +178,7 @@
               [/#if]
               [@helpers.captchaBadge showCaptcha=showCaptcha captchaMethod=tenant.captchaConfiguration.captchaMethod siteKey=tenant.captchaConfiguration.siteKey/]
             </fieldset>
-            <p class="text-sm text-base-content/40">Password must be more than 8 characters and include at least one symbol.</p>
-            [@helpers.input id="rememberDevice" type="checkbox" name="rememberDevice" label=theme.message("remember-device") value="true" uncheckedValue="false" /]
-            <div class="text-base-content/60">
-              <span>By registering, you agree to the <a href="${protocol}//${origin}/terms" class="text-primary underline" target="_blank">terms of service</a> and <a href="${protocol}//${origin}/privacy" class="text-primary underline" target="_blank">privacy policy</a>.</span>
-            </div>
+
             <div class="w-full">
               [@helpers.button color="btn btn-primary w-full" text=theme.message('register')/]
             </div>

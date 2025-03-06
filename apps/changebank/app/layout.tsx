@@ -20,7 +20,7 @@ export default function RootLayout({
         <div className="relative flex min-h-screen flex-col">
           <div className="absolute inset-0 -z-10">
             <Image
-              src="https://res.cloudinary.com/djox1exln/image/upload/v1740480620/ChangeBank_Background_unpssr.png"
+              src="https://res.cloudinary.com/djox1exln/image/upload/v1740698536/Background_iahgmz.png"
               alt="Background pattern"
               fill
               priority

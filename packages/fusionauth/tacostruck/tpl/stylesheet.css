@@ -1335,6 +1335,13 @@
     grid-template-columns: 1fr;
     grid-auto-rows: max-content;
   }
+  .mask {
+    display: inline-block;
+    vertical-align: middle;
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+  }
   .block {
     display: block;
   }
@@ -1375,6 +1382,9 @@
     width: 100%;
     height: 100%;
   }
+  .h-12 {
+    height: calc(var(--spacing) * 12);
+  }
   .h-screen {
     height: 100vh;
   }
@@ -1401,6 +1411,9 @@
   }
   .w-8 {
     width: calc(var(--spacing) * 8);
+  }
+  .w-12 {
+    width: calc(var(--spacing) * 12);
   }
   .w-100 {
     width: calc(var(--spacing) * 100);
@@ -1564,6 +1577,9 @@
   }
   .bg-\[url\(\'https\:\/\/res\.cloudinary\.com\/djox1exln\/image\/upload\/v1740698536\/Background_iahgmz\.png\'\)\] {
     background-image: url('https://res.cloudinary.com/djox1exln/image/upload/v1740698536/Background_iahgmz.png');
+  }
+  .bg-contain {
+    background-size: contain;
   }
   .bg-cover {
     background-size: cover;
@@ -2175,15 +2191,15 @@ video {
   }
 }
 @layer base {
-  :root:has(input.theme-controller[value=fusionauththeme]:checked),[data-theme="fusionauththeme"] {
+  :root:has(input.theme-controller[value=tacostruck]:checked),[data-theme="tacostruck"] {
     color-scheme: light;
     --color-base-100: oklch(100% 0 0);
     --color-base-200: oklch(98% 0 0);
     --color-base-300: oklch(95% 0 0);
     --color-base-content: oklch(21% 0.006 285.885);
-    --color-primary: #0092db;
+    --color-primary: #b75cb5;
     --color-primary-content: oklch(93% 0.034 272.788);
-    --color-secondary: #0093a3;
+    --color-secondary: oklch(65% 0.241 354.308);
     --color-secondary-content: oklch(94% 0.028 342.258);
     --color-accent: oklch(77% 0.152 181.912);
     --color-accent-content: oklch(38% 0.063 188.416);
@@ -2193,9 +2209,9 @@ video {
     --color-info-content: oklch(29% 0.066 243.157);
     --color-success: oklch(76% 0.177 163.223);
     --color-success-content: oklch(37% 0.077 168.94);
-    --color-warning: oklch(94% 0.129 101.54);
+    --color-warning: oklch(82% 0.189 84.429);
     --color-warning-content: oklch(41% 0.112 45.904);
-    --color-error: oklch(63% 0.237 25.331);
+    --color-error: oklch(71% 0.194 13.428);
     --color-error-content: oklch(27% 0.105 12.094);
     --radius-selector: 0.5rem;
     --radius-field: 0.25rem;

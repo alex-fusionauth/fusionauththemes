@@ -49,11 +49,8 @@
       <div class="z-10 p-8 mt-14 max-w-full bg-white rounded-3xl shadow-lg w-[560px] max-md:px-5 max-md:mt-10">
         <div class="flex flex-col w-full text-center max-md:max-w-full items-center">
           <h1 class="text-2xl font-medium tracking-tight leading-none text-sky-950 max-md:max-w-full">
-            Create An Account
+            Create Your Taco's Rewards Account
           </h1>
-          <p class="mt-3 text-lg tracking-tight leading-none max-md:max-w-full text-base-content/40">
-            Turning hard earned dollars into change®
-          </p>
         </div>
         <main class="mt-7 w-full max-md:max-w-full">   
           <form action="${request.contextPath}/oauth2/register" method="POST" class="flex flex-col gap-2 md:gap-4">
@@ -139,68 +136,45 @@
               [/#if]
               [#if collectBirthDate]
                 [@helpers.input type="date" name="user.birthDate" id="birthDate" placeholder=theme.message('birthDate') leftAddon="calendar" class="date-picker" required=true/]
-              [#else]
-                <section class="grid grid-cols-2 gap-2 md:gap-4">
-                  [#if application.registrationConfiguration.birthDate.enabled ||
-                    application.registrationConfiguration.firstName.enabled    ||
-                    application.registrationConfiguration.fullName.enabled     ||
-                    application.registrationConfiguration.middleName.enabled   ||
-                    application.registrationConfiguration.lastName.enabled     ||
-                    application.registrationConfiguration.mobilePhone.enabled  ||
-                    application.registrationConfiguration.preferredLanguages.enabled ]
-                  [#if application.registrationConfiguration.firstName.enabled]
-                    <div>
-                        <label for="loginId">First Name</label>
-                      [@helpers.input type="text" name="user.firstName" id="firstName" placeholder=theme.message('firstName')  required=application.registrationConfiguration.firstName.required/]
-                    </div>
-                  [/#if]
-                  [#if application.registrationConfiguration.fullName.enabled]
-                    [@helpers.input type="text" name="user.fullName" id="fullName" placeholder=theme.message('fullName')  required=application.registrationConfiguration.fullName.required/]
-                  [/#if]
-                  [#if application.registrationConfiguration.middleName.enabled]
-                    [@helpers.input type="text" name="user.middleName" id="middleName" placeholder=theme.message('middleName')  required=application.registrationConfiguration.middleName.required/]
-                  [/#if]
-                  [#if application.registrationConfiguration.lastName.enabled]
-                    <div>
-                        <label for="loginId">Last Name</label>
-                      [@helpers.input type="text" name="user.lastName" id="lastName" placeholder=theme.message('lastName')  required=application.registrationConfiguration.lastName.required/]
-                    </div>
-                  [/#if]
-                  [#if application.registrationConfiguration.birthDate.enabled && !hideBirthDate]
-                    [@helpers.input type="date" name="user.birthDate" id="birthDate" placeholder=theme.message('birthDate') leftAddon="calendar" class="date-picker" required=application.registrationConfiguration.birthDate.required/]
-                  [/#if]
-                  [#if application.registrationConfiguration.mobilePhone.enabled]
-                    [@helpers.input type="text" name="user.mobilePhone" id="mobilePhone" placeholder=theme.message('mobilePhone') leftAddon="phone" required=application.registrationConfiguration.mobilePhone.required/]
-                    [@helpers.input type="text" name="user.mobilePhone" id="mobilePhone" placeholder=theme.message('mobilePhone') leftAddon="phone" required=application.registrationConfiguration.mobilePhone.required/]
-                  [/#if]
-                  [#if application.registrationConfiguration.preferredLanguages.enabled]
-                    [@helpers.locale_select field="" name="user.preferredLanguages" id="preferredLanguages" label=theme.message("preferredLanguage") required=application.registrationConfiguration.preferredLanguages.required /]
-                  [/#if]
-                [/#if]
-                </section>
-                [#if application.registrationConfiguration.loginIdType == 'email']
-                    <div>
-                      <label for="loginId">Email Address Hi</label>
-                      [@helpers.input type="text" name="user.email" id="email" autocomplete="username" autocapitalize="none" autocorrect="off" spellcheck="false" autofocus=true placeholder=theme.message('email')  required=true /]
-                    </div>
-                [#else]
-                  [@helpers.input type="text" name="user.username" id="username" autocomplete="username" autocapitalize="none" autocorrect="off" spellcheck="false" autofocus=true placeholder=theme.message('username')  required=true/]
-                [/#if]
-                <section class="flex gap-2 md:gap-4">
-                  <div class="w-full">
-                  <label for="password">Password</label>
-                  [@helpers.input type="password" name="user.password" id="password" autocomplete="new-password" placeholder=theme.message('password') required=true /]
+              [/#if]
+              <section class="grid grid-cols-2 gap-2 md:gap-4">
+                [#if application.registrationConfiguration.firstName.enabled]
+                  <div>
+                    <label for="firstName">First Name</label>
+                    [@helpers.input type="text" name="user.firstName" id="firstName" placeholder=theme.message('firstName') required=application.registrationConfiguration.firstName.required/]
                   </div>
+                [/#if]
+                [#if application.registrationConfiguration.lastName.enabled]
+                  <div>
+                    <label for="lastName">Last Name</label>
+                    [@helpers.input type="text" name="user.lastName" id="lastName" placeholder=theme.message('lastName') required=application.registrationConfiguration.lastName.required/]
+                  </div>
+                [/#if]
+              </section>
+              <div>
+                <label for="email">Email Address</label>
+                [@helpers.input type="text" name="user.email" id="email" autocomplete="username" autocapitalize="none" autocorrect="off" spellcheck="false" autofocus=true placeholder=theme.message('email') required=true/]
+              </div>
+              <section class="flex gap-2 md:gap-4">
+                <div class="w-full">
+                  <label for="password">Password</label>
+                  [@helpers.input type="password" name="user.password" id="password" autocomplete="new-password" placeholder=theme.message('password') required=true/]
+                </div>
                 [#if application.registrationConfiguration.confirmPassword]
                   <div class="w-full">
-                  <label for="passwordConfirm">Confirm Password</label>
-                  [@helpers.input type="password" name="passwordConfirm" id="passwordConfirm" autocomplete="new-password" placeholder=theme.message('passwordConfirm') required=true/]
+                    <label for="passwordConfirm">Confirm Password</label>
+                    [@helpers.input type="password" name="passwordConfirm" id="passwordConfirm" autocomplete="new-password" placeholder=theme.message('passwordConfirm') required=true/]
                   </div>
                 [/#if]
-                </section>
-                [#if parentEmailRequired]
-                  [@helpers.input type="text" name="user.parentEmail" id="parentEmail" placeholder=theme.message('parentEmail')  required=true/]
-                [/#if]
+              </section>
+              [#if application.registrationConfiguration.birthDate.enabled && !hideBirthDate]
+                [@helpers.input type="date" name="user.birthDate" id="birthDate" placeholder=theme.message('birthDate') leftAddon="calendar" class="date-picker" required=application.registrationConfiguration.birthDate.required/]
+              [/#if]
+              [#if application.registrationConfiguration.mobilePhone.enabled]
+                [@helpers.input type="text" name="user.mobilePhone" id="mobilePhone" placeholder=theme.message('mobilePhone') leftAddon="phone" required=application.registrationConfiguration.mobilePhone.required/]
+              [/#if]
+              [#if application.registrationConfiguration.preferredLanguages.enabled]
+                [@helpers.locale_select field="" name="user.preferredLanguages" id="preferredLanguages" label=theme.message("preferredLanguage") required=application.registrationConfiguration.preferredLanguages.required /]
               [/#if]
               [@helpers.captchaBadge showCaptcha=showCaptcha captchaMethod=tenant.captchaConfiguration.captchaMethod siteKey=tenant.captchaConfiguration.siteKey/]
             </fieldset>
@@ -210,7 +184,7 @@
               <span>By registering, you agree to the <a href="${protocol}//${origin}/terms" class="text-primary underline" target="_blank">terms of service</a> and <a href="${protocol}//${origin}/privacy" class="text-primary underline" target="_blank">privacy policy</a>.</span>
             </div>
             <div class="w-full">
-              [@helpers.button color="btn btn-primary w-full" disabled=disabled text=theme.message('register')/]
+              [@helpers.button color="btn btn-primary w-full" text=theme.message('register')/]
             </div>
             [/#if]
             [#-- End Basic Self Service Registration Form --]

@@ -48,7 +48,7 @@
     [@helpers.main]
       <div class="z-10 p-8 mt-14 max-w-full bg-white rounded-3xl shadow-lg w-[560px] max-md:px-5 max-md:mt-10">
         <div class="flex flex-col w-full text-center max-md:max-w-full items-center">
-          <h1 class="text-2xl font-medium tracking-tight leading-none text-sky-950 max-md:max-w-full">
+          <h1 class="text-2xl font-medium tracking-tight leading-none text-[#1B2D7E] max-md:max-w-full">
             Create Your Taco's Rewards Account
           </h1>
         </div>
@@ -58,7 +58,7 @@
             [#-- Begin Self Service Custom Registration Form Step Counter --]
             [#if step > 0]
               <div class="flex flex-row">
-                [#list 1..totalSteps as aStep]
+               [#list 1..totalSteps as aStep]
                   [#if aStep <= step]
                     <div class="relative flex">
                       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="32" viewBox="0 0 28 32" fill="none">

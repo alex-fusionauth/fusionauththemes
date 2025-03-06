@@ -178,7 +178,6 @@
               [/#if]
               [@helpers.captchaBadge showCaptcha=showCaptcha captchaMethod=tenant.captchaConfiguration.captchaMethod siteKey=tenant.captchaConfiguration.siteKey/]
             </fieldset>
-
             <div class="w-full">
               [@helpers.button color="btn btn-primary w-full" text=theme.message('register')/]
             </div>

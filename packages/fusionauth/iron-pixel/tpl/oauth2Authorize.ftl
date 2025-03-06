@@ -73,16 +73,16 @@
           </div>
           <div class="flex flex-col gap-2">
           [#if showPasswordField]
-          <div class="flex gap-2">
-            <div class="flex flex-1 gap-2 items-center self-stretch my-auto leading-loose text-slate-50">
-              <label htmlFor="remember-me" class="self-stretch my-auto">
+          <div class="flex gap-2 md:gap-4">
+            <div class="flex gap-2 items-center my-auto leading-loose">
+              <label htmlFor="remember-me" class="my-auto">
               [@helpers.input id="rememberDevice" type="checkbox" name="rememberDevice" label=theme.message("remember-device") value="true" uncheckedValue="false" class="checkbox checkbox-primary"]
                 [#t/]
               [/@helpers.input]
               </label>
             </div>
 
-              <button type="submit" class="btn btn-primary">
+              <button type="submit" class="btn btn-primary flex-1">
                 Log In
               </button>
             </div>
@@ -104,7 +104,7 @@
               [@helpers.link url="" extraParameters="&showPasswordField=false"]${theme.message("sign-in-as-different-user")}[/@helpers.link]
             [/#if]
           [#if application.registrationConfiguration.enabled]
-            <div class="flex flex-col text-right">
+            <div class="flex text-right gap-2 md:gap-4">
               ${theme.message("dont-have-an-account")}
               [@helpers.link url="${request.contextPath}/oauth2/register"]${theme.message("create-an-account")}[/@helpers.link]
             </div>
@@ -129,8 +129,7 @@
     [/@helpers.main]
     [@helpers.footer]
       [#-- Custom footer code goes here --]
-        </div>
-      </section>
+ 
     [/@helpers.footer]
 
   [/@helpers.body]

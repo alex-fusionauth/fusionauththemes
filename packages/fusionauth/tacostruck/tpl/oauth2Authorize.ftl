@@ -88,7 +88,6 @@
                     [#t/]
                   [/@helpers.input]
                   </label>
-                  [@helpers.link url="${request.contextPath}/password/forgot"]${theme.message("forgot-your-password")}[/@helpers.link]
                 </div>
               </div>
               [#else]

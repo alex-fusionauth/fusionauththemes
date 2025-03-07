@@ -64,39 +64,24 @@
             <div class="mt-6 w-full text-sm tracking-normal max-md:max-w-full flex flex-col gap-2">
               <div class="w-full leading-loose text-gray-400 max-md:max-w-full">
                 <div class="flex flex-col justify-center w-full rounded max-md:max-w-full">
+                <p class="text-[#6473B4]"> Email Address </p>
                   <fieldset class="flex flex-col gap-2 md:gap-4">
-
                     [@helpers.input type="text" name="loginId" id="loginId" autocomplete="username" autocapitalize="none" autocomplete="on" autocorrect="off" spellcheck="false" autofocus=(!loginId?has_content) placeholder=theme.message("loginId") disabled=(showPasswordField && hasDomainBasedIdentityProviders) /]
-                    [#if showPasswordField]
-                      [@helpers.input type="password" name="password" id="password" autocomplete="current-password" autofocus=loginId?has_content placeholder=theme.message("password") /]
-                      [@helpers.captchaBadge showCaptcha=showCaptcha captchaMethod=tenant.captchaConfiguration.captchaMethod siteKey=tenant.captchaConfiguration.siteKey/]
-                      [#if errorMessages?size > 0]
-                        [#list errorMessages as m]
-                          <div class="text-red-500">${m}</div>
-                        [/#list]
-                      [/#if]
-                    [/#if]
                   </fieldset>
                 </div>
               </div>
-              <div class="flex flex-col gap-2">
-              [#if showPasswordField]
-              <div class="flex gap-2">
-                <div class="flex flex-1 gap-2 justify-between self-stretch my-auto leading-loose">
-                  <label htmlFor="remember-me" class="self-stretch my-auto">
-                  [@helpers.input id="rememberDevice" type="checkbox" name="rememberDevice" label=theme.message("remember-device") value="true" uncheckedValue="false" class="checkbox checkbox-primary"]
-                    [#t/]
-                  [/@helpers.input]
-                  </label>
+
+              <button type="submit" class="btn btn-primary">
+                Sign In With Email
+              </button>
+              <div class="z-10 text-base font-medium tracking-normal text-primary-content max-md:mt-8 flex justify-between">
+                <span class="text-[#1B2D7E]">
+                [@helpers.link url="${request.contextPath}/oauth2/register"]${theme.message("Create An Account")}[/@helpers.link]
+                </span>
+                <div>
+                  <span class="text-[#6473B4]"> Sign in with</span>
                 </div>
               </div>
-              [#else]
-                [@helpers.button icon="arrow-right" color="btn btn-primary" text=theme.message("next")/]
-              [/#if]
-            </div>
-                  <button type="submit" class="btn btn-primary">
-                    Sign In With Email
-                  </button>
 
                 [@helpers.oauthHiddenFields/]
                 [@helpers.hidden name="showPasswordField"/]
@@ -116,12 +101,6 @@
         [#if showPasswordField && hasDomainBasedIdentityProviders]
           [@helpers.link url="" extraParameters="&showPasswordField=false"]${theme.message("sign-in-as-different-user")}[/@helpers.link]
         [/#if]
-      </div>
-      <div class="z-10 mt-14 text-base font-medium tracking-normal text-primary-content max-md:mt-10">
-        <span class="text-primary-content">${theme.message("dont-have-an-account")} </span>
-        <span class="text-primary-content">
-        [@helpers.link url="${request.contextPath}/oauth2/register"]${theme.message("create-an-account")}[/@helpers.link]
-        </span>
       </div>
     [/@helpers.main]
     [@helpers.footer]

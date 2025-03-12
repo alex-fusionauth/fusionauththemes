@@ -2212,6 +2212,9 @@
 .error {
   color: var(--color-error);
 }
+form border {
+  color: #6473b4;
+}
 @layer base {
   :where(:root),
   :root:has(input.theme-controller[value="light"]:checked),

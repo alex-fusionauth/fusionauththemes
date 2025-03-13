@@ -181,13 +181,14 @@
             <div class="w-full">
               [@helpers.button color="btn btn-primary w-full" text=theme.message('register')/]
             </div>
-                  <div class="z-10 mt-14 text-base font-medium tracking-normal max-md:mt-10" style="color: #1B2D7E;">
+                  <div class="z-10 mt-8 text-[16px] font-semibold leading-[26px] tracking-[0%] text-center text-[#1B2D7E] underline decoration-solid underline-offset-[40%] decoration-[5%] max-md:mt-10"
+  style="font-family: 'Work Sans', sans-serif;">
+  <span class="return-to-login">
+    [@helpers.link url="${request.contextPath}/oauth2/authorize"]${theme.message("return-to-login")}[/@helpers.link]
+  </span>
+</div>
 
-        [#--  <span class="text-primary-content">${theme.message("return-to-login")} </span>  --]
-        <span class="return-to-login">
-        [@helpers.link url="${request.contextPath}/oauth2/authorize"]${theme.message("return-to-login")}[/@helpers.link]
-        </span>
-      </div>
+
             [/#if]
             [#-- End Basic Self Service Registration Form --]
 

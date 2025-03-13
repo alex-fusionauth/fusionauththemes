@@ -1860,6 +1860,9 @@
 form border {
   color: #6473b4;
 }
+.return-to-login {
+  color: #1b2d7e;
+}
 @layer base {
   :where(:root),:root:has(input.theme-controller[value=light]:checked),[data-theme=light] {
     color-scheme: light;

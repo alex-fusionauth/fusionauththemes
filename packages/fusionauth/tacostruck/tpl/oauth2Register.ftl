@@ -181,6 +181,13 @@
             <div class="w-full">
               [@helpers.button color="btn btn-primary w-full" text=theme.message('register')/]
             </div>
+                  <div class="z-10 mt-14 text-base font-medium tracking-normal max-md:mt-10" style="color: #1B2D7E;">
+
+        [#--  <span class="text-primary-content">${theme.message("return-to-login")} </span>  --]
+        <span class="return-to-login">
+        [@helpers.link url="${request.contextPath}/oauth2/authorize"]${theme.message("return-to-login")}[/@helpers.link]
+        </span>
+      </div>
             [/#if]
             [#-- End Basic Self Service Registration Form --]
 
@@ -193,12 +200,7 @@
           </form>
         </main>
       </div>
-      <div class="z-10 mt-14 text-base font-medium tracking-normal text-primary-content max-md:mt-10">
-        [#--  <span class="text-primary-content">${theme.message("return-to-login")} </span>  --]
-        <span class="text-primary-content">
-        [@helpers.link url="${request.contextPath}/oauth2/authorize"]${theme.message("return-to-login")}[/@helpers.link]
-        </span>
-      </div>
+
     [/@helpers.main]
 
     [@helpers.footer]

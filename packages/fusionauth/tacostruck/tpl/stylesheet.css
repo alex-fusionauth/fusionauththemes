@@ -1425,9 +1425,6 @@
   .mt-8 {
     margin-top: calc(var(--spacing) * 8);
   }
-  .mt-10 {
-    margin-top: calc(var(--spacing) * 10);
-  }
   .mt-14 {
     margin-top: calc(var(--spacing) * 14);
   }
@@ -1984,9 +1981,6 @@
   .text-right {
     text-align: right;
   }
-  .font-\[\'Work_Sans\'\] {
-    font-family: 'Work Sans';
-  }
   .font-sans {
     font-family: var(--font-sans);
   }
@@ -2242,6 +2236,9 @@
   color: var(--color-error);
 }
 form border {
+  color: #6473b4;
+}
+form {
   color: #6473b4;
 }
 .return-to-login {
@@ -2610,7 +2607,7 @@ form border {
     --color-base-300: oklch(95% 0 0);
     --color-base-content: #6473b4;
     --color-primary: #b75cb5;
-    --color-primary-content: oklch(93% 0.034 272.788);
+    --color-primary-content: #6473b4;
     --color-secondary: oklch(65% 0.241 354.308);
     --color-secondary-content: oklch(94% 0.028 342.258);
     --color-accent: oklch(77% 0.152 181.912);

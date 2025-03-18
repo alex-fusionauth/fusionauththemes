@@ -54,7 +54,7 @@ export async function NavigationMenu() {
               <form
                 action={async () => {
                   'use server';
-                  await signOut({ redirectTo: '/' });
+                  await signOut({ redirectTo: '/api/logout' });
                 }}
               >
                 <Button variant="default" className="text-white" type="submit">

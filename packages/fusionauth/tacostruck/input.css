@@ -1,4 +1,8 @@
 @import "tailwindcss";
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "preline/variants.css";
 @plugin "daisyui";
 
 @plugin "daisyui/theme" {
@@ -48,4 +52,22 @@ form {
 }
 .return-to-login {
   color: #1b2d7e;
+}
+
+.password-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-container input {
+  width: 100%;
+  padding-right: 2rem; /* Adjust based on icon size */
+}
+
+.toggle-password {
+  position: absolute;
+  right: 1.5rem;
+  cursor: pointer;
+  color: #8b8b8b;
 }

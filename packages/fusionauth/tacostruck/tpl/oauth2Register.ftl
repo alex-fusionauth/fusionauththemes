@@ -156,22 +156,24 @@
                 [@helpers.input type="text" name="user.email" id="email" autocomplete="username" autocapitalize="none" autocorrect="off" spellcheck="false" autofocus=true placeholder=theme.message('email') required=true/]
               </div>
               <section class="flex gap-2 md:gap-4">
-<div class="w-full">
-  <label for="password">Password</label>
-  <div class="password-container">
-    [@helpers.input type="password" name="user.password" id="password" autocomplete="new-password" placeholder=theme.message('password') required=true/]
-    <i class="fas fa-eye-slash toggle-password" data-toggle="#password"></i>
-  </div>
-</div>
+                <div class="w-full">
+                  <label for="password">Password</label>
+                  <div class="password-container">
+                    [@helpers.input type="password" name="user.password" id="password" autocomplete="new-password" placeholder=theme.message('password') required=true/]
+                    <i class="fas fa-eye-slash toggle-password" data-toggle="#password" id="show" onclick="togglePass()"></i>
+                    <i class="fas fa-eye toggle-password hidden" data-toggle="#password" id="hide" onclick="togglePass()"></i>
+                  </div>
+                </div>
 
                 [#if application.registrationConfiguration.confirmPassword]
                  <div class="w-full">
-  <label for="passwordConfirm">Confirm Password</label>
-  <div class="password-container">
-    [@helpers.input type="password" name="passwordConfirm" id="passwordConfirm" autocomplete="new-password" placeholder=theme.message('passwordConfirm') required=true/]
-    <i class="fas fa-eye-slash toggle-password" data-toggle="#passwordConfirm"></i>
-  </div>
-</div>
+                  <label for="passwordConfirm">Confirm Password</label>
+                  <div class="password-container">
+                    [@helpers.input type="password" name="passwordConfirm" id="passwordConfirm" autocomplete="new-password" placeholder=theme.message('passwordConfirm') required=true/]
+                    <i class="fas fa-eye-slash toggle-password" data-toggle="#password" id="showConfirm" onclick="togglePass()"></i>
+                    <i class="fas fa-eye toggle-password hidden" data-toggle="#password" id="hideConfirm" onclick="togglePass()"></i>
+                  </div>
+                </div>
 
                 [/#if]
               </section>

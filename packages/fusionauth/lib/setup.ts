@@ -112,7 +112,7 @@ async function main() {
     const env = runner.getEnv();
     console.log(
       chalk.bgYellow.black(
-        'Put the below values into your Next.js local.env file:'
+        'Put the below values into your Next.js .env.local file:'
       )
     );
     console.log(

@@ -1,4 +1,0 @@
-APP_NAME="iron-pixel"
-REDIRECT_URI="http://localhost:3001/api/auth/callback/fusionauth"
-FUSIONAUTH_API_KEY=
-FUSIONAUTH_HOST=

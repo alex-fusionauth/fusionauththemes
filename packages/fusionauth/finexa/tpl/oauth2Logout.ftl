@@ -24,7 +24,7 @@
     [/@helpers.header]
     <div class="h-screen w-screen flex flex-col gap-8 justify-center items-center">
       <div>${theme.message("logging-out")}</div>
-      <div><progress id="logoutProgress" class="progress w-56" value="0" max="100"></progress></div>
+      <div><progress id="logoutProgress" class="progress progress-neutral w-56" value="0" max="100"></progress></div>
     </div>
 
       <script>

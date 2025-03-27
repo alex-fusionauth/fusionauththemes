@@ -8,11 +8,6 @@ const sites = [
     title: 'Iron Pixel',
     image: '/images/iron-pixel/login.png',
     link: process.env.NEXT_PUBLIC_IRON_PIXEL_URL || 'http://localhost:3001',
-    // thumbnails: [
-    //   '/images/iron-pixel/GameImage_01.png?height=200&width=300',
-    //   '/images/iron-pixel/GameImage_02.png?height=200&width=300',
-    //   '/images/iron-pixel/GameImage_03.png?height=200&width=300',
-    // ],
   },
   {
     id: 2,
@@ -75,25 +70,6 @@ export default function HomePage() {
                   <h2 className="text-xl font-bold text-white mb-4">
                     {site.title}
                   </h2>
-                  <div className="grid grid-cols-3 gap-2">
-                    {site.thumbnails?.map((thumbnail, index) => (
-                      <Link
-                        // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-                        key={index}
-                        href={site.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Image
-                          src={thumbnail || '/placeholder.svg'}
-                          alt={`${site.title} thumbnail ${index + 1}`}
-                          width={300}
-                          height={200}
-                          className="w-full aspect-video object-cover rounded-md hover:opacity-80 transition-opacity"
-                        />
-                      </Link>
-                    ))}
-                  </div>
                 </div>
               </CardContent>
             </Card>

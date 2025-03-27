@@ -53,7 +53,7 @@ npx @tailwindcss/cli -i ./<theme-name>/input.css -o ./<theme-name>/tpl/styleshee
 
 Example:
 ```sh
-npx @tailwindcss/cli -i ./iron-pixel/input.css -o ./iron-pixel/tpl/stylesheet.css --watch
+npx @tailwindcss/cli -i ./finexa/input.css -o ./finexa/tpl/stylesheet.css --watch
 ```
 
 ### Uploading to FusionAuth
@@ -65,5 +65,5 @@ npx fusionauth theme:watch <themeid> -k <apikey> -h <host> -i ./<theme-name>/tpl
 
 Example:
 ```sh
-npx fusionauth theme:watch e753828b-b475-44f3-8727-39749c2f36e3 -k this_really_should_be_a_long_random_alphanumeric_value_but_this_still_works -h http://localhost:9011 -i ./iron-pixel/tpl/
+npx fusionauth theme:watch 4a3ebb23-11df-4eb8-be45-39268aea60c8 -k this_really_should_be_a_long_random_alphanumeric_value_but_this_still_works -h http://localhost:9011 -i ./finexa/tpl/
 ```

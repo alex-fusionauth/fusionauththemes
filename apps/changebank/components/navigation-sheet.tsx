@@ -1,6 +1,5 @@
 'use client';
 
-import { CoinbaseLogo } from '@/components/coinbase-logo';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Menu } from 'lucide-react';

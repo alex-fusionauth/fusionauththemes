@@ -33,13 +33,13 @@ export default function HomePage() {
   return (
     <main className="flex flex-1 flex-col justify-center text-center">
       <div className="container mx-auto px-4 py-12">
-        <h1 className="text-5xl font-bold text-white mb-4 text-center bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-cyan-400">
+        <h1 className="text-5xl font-bold mb-4 text-center bg-clip-text">
           Featured Themes
         </h1>
-        <p className="text-lg text-center text-gray-300 mb-12">
+        <p className="text-lg text-center  mb-12">
           Explore our collection of fully themed sites and logins.
         </p>
-        <div className="grid gap-8 items-center justify-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center justify-center justify-items-center">
           {sites.map((site) => (
             <Card
               key={site.id}

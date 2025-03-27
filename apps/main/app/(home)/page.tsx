@@ -8,17 +8,29 @@ const sites = [
     title: 'Iron Pixel',
     image: '/images/iron-pixel/login.png',
     link: process.env.NEXT_PUBLIC_IRON_PIXEL_URL || 'http://localhost:3001',
-    thumbnails: [
-      '/images/iron-pixel/GameImage_01.png?height=200&width=300',
-      '/images/iron-pixel/GameImage_02.png?height=200&width=300',
-      '/images/iron-pixel/GameImage_03.png?height=200&width=300',
-    ],
+    // thumbnails: [
+    //   '/images/iron-pixel/GameImage_01.png?height=200&width=300',
+    //   '/images/iron-pixel/GameImage_02.png?height=200&width=300',
+    //   '/images/iron-pixel/GameImage_03.png?height=200&width=300',
+    // ],
   },
   {
     id: 2,
     title: 'Changebank',
     image: '/images/changebank/login.png',
     link: process.env.NEXT_PUBLIC_CHANGEBANK_URL || 'http://localhost:3002',
+  },
+  {
+    id: 3,
+    title: 'Tacos Truck',
+    image: '/images/tacostruck/login.png',
+    link: process.env.NEXT_PUBLIC_CHANGEBANK_URL || 'http://localhost:3004',
+  },
+  {
+    id: 4,
+    title: 'Finexa',
+    image: '/images/finexa/login.png',
+    link: process.env.NEXT_PUBLIC_CHANGEBANK_URL || 'http://localhost:3003',
   },
 ];
 

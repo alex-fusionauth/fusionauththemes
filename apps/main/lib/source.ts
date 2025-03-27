@@ -1,4 +1,6 @@
 import { docs } from '@/.source';
+import Finexa from '@/lib/finexa';
+import TacosTruck from '@/lib/tacostruck';
 import { loader } from 'fumadocs-core/source';
 import { icons } from 'lucide-react';
 import { createElement } from 'react';
@@ -18,6 +20,12 @@ export const source = loader({
     }
     if (icon === 'changebank') {
       return createElement(ChangeBank);
+    }
+    if (icon === 'tacostruck') {
+      return createElement(TacosTruck);
+    }
+    if (icon === 'finexa') {
+      return createElement(Finexa);
     }
     if (icon in icons) return createElement(icons[icon as keyof typeof icons]);
   },

@@ -17,8 +17,8 @@ export default function IronPixel() {
         fill="url(#paint1_radial_316_1804)"
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M20.6458 2.97868L33.2349 8.57381V14.9707H8.05679V8.57381L20.6458 2.97868ZM5.33483 6.80489L20.6458 0L35.9568 6.80489V17.6927H5.33483V6.80489Z"
         fill="url(#paint2_radial_316_1804)"
       />
@@ -31,11 +31,11 @@ export default function IronPixel() {
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(37.8566 6.13697) rotate(156.176) scale(42.0862 42.0862)"
         >
-          <stop stop-color="#1AB7FF" />
-          <stop offset="0.246584" stop-color="#0DC7E3" />
-          <stop offset="0.444146" stop-color="#08C4B6" />
-          <stop offset="0.662916" stop-color="#00C288" />
-          <stop offset="1" stop-color="#00C750" />
+          <stop stopColor="#1AB7FF" />
+          <stop offset="0.246584" stopColor="#0DC7E3" />
+          <stop offset="0.444146" stopColor="#08C4B6" />
+          <stop offset="0.662916" stopColor="#00C288" />
+          <stop offset="1" stopColor="#00C750" />
         </radialGradient>
         <radialGradient
           id="paint1_radial_316_1804"
@@ -45,11 +45,11 @@ export default function IronPixel() {
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(37.8566 6.13697) rotate(156.176) scale(42.0862 42.0862)"
         >
-          <stop stop-color="#1AB7FF" />
-          <stop offset="0.246584" stop-color="#0DC7E3" />
-          <stop offset="0.444146" stop-color="#08C4B6" />
-          <stop offset="0.662916" stop-color="#00C288" />
-          <stop offset="1" stop-color="#00C750" />
+          <stop stopColor="#1AB7FF" />
+          <stop offset="0.246584" stopColor="#0DC7E3" />
+          <stop offset="0.444146" stopColor="#08C4B6" />
+          <stop offset="0.662916" stopColor="#00C288" />
+          <stop offset="1" stopColor="#00C750" />
         </radialGradient>
         <radialGradient
           id="paint2_radial_316_1804"
@@ -59,11 +59,11 @@ export default function IronPixel() {
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(37.8566 6.13697) rotate(156.176) scale(42.0862 42.0862)"
         >
-          <stop stop-color="#1AB7FF" />
-          <stop offset="0.246584" stop-color="#0DC7E3" />
-          <stop offset="0.444146" stop-color="#08C4B6" />
-          <stop offset="0.662916" stop-color="#00C288" />
-          <stop offset="1" stop-color="#00C750" />
+          <stop stopColor="#1AB7FF" />
+          <stop offset="0.246584" stopColor="#0DC7E3" />
+          <stop offset="0.444146" stopColor="#08C4B6" />
+          <stop offset="0.662916" stopColor="#00C288" />
+          <stop offset="1" stopColor="#00C750" />
         </radialGradient>
       </defs>
     </svg>

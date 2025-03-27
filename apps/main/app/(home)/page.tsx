@@ -19,13 +19,13 @@ const sites = [
     id: 3,
     title: 'Tacos Truck',
     image: '/images/tacostruck/login.png',
-    link: process.env.NEXT_PUBLIC_CHANGEBANK_URL || 'http://localhost:3004',
+    link: process.env.NEXT_PUBLIC_TACOSTRUCK_URL || 'http://localhost:3004',
   },
   {
     id: 4,
     title: 'Finexa',
     image: '/images/finexa/login.png',
-    link: process.env.NEXT_PUBLIC_CHANGEBANK_URL || 'http://localhost:3003',
+    link: process.env.NEXT_PUBLIC_FINEXA_URL || 'http://localhost:3003',
   },
 ];
 

@@ -158,13 +158,23 @@
               <section class="flex gap-2 md:gap-4">
                 <div class="w-full">
                   <label for="password">Password</label>
-                  [@helpers.input type="password" name="user.password" id="password" autocomplete="new-password" placeholder=theme.message('password') required=true/]
-                </div>
-                [#if application.registrationConfiguration.confirmPassword]
-                  <div class="w-full">
-                    <label for="passwordConfirm">Confirm Password</label>
-                    [@helpers.input type="password" name="passwordConfirm" id="passwordConfirm" autocomplete="new-password" placeholder=theme.message('passwordConfirm') required=true/]
+                  <div class="password-container">
+                    [@helpers.input type="password" name="user.password" id="password" autocomplete="new-password" placeholder=theme.message('password') required=true/]
+                    <i class="fas fa-eye-slash toggle-password" data-toggle="#password" id="show" onclick="togglePass()"></i>
+                    <i class="fas fa-eye toggle-password hidden" data-toggle="#password" id="hide" onclick="togglePass()"></i>
                   </div>
+                </div>
+
+                [#if application.registrationConfiguration.confirmPassword]
+                 <div class="w-full">
+                  <label for="passwordConfirm">Confirm Password</label>
+                  <div class="password-container">
+                    [@helpers.input type="password" name="passwordConfirm" id="passwordConfirm" autocomplete="new-password" placeholder=theme.message('passwordConfirm') required=true/]
+                    <i class="fas fa-eye-slash toggle-password" data-toggle="#password" id="showConfirm" onclick="togglePass()"></i>
+                    <i class="fas fa-eye toggle-password hidden" data-toggle="#password" id="hideConfirm" onclick="togglePass()"></i>
+                  </div>
+                </div>
+
                 [/#if]
               </section>
               [#if application.registrationConfiguration.birthDate.enabled && !hideBirthDate]
@@ -178,10 +188,17 @@
               [/#if]
               [@helpers.captchaBadge showCaptcha=showCaptcha captchaMethod=tenant.captchaConfiguration.captchaMethod siteKey=tenant.captchaConfiguration.siteKey/]
             </fieldset>
-
             <div class="w-full">
               [@helpers.button color="btn btn-primary w-full" text=theme.message('register')/]
             </div>
+                  <div class="z-10 mt-8 text-[16px] font-semibold leading-[26px] tracking-[0%] text-center text-[#1B2D7E] underline decoration-solid underline-offset-[40%] decoration-[5%] max-md:mt-10"
+  style="font-family: 'Work Sans', sans-serif;">
+  <span class="return-to-login">
+    [@helpers.link url="${request.contextPath}/oauth2/authorize"]${theme.message("return-to-login")}[/@helpers.link]
+  </span>
+</div>
+
+
             [/#if]
             [#-- End Basic Self Service Registration Form --]
 
@@ -194,12 +211,7 @@
           </form>
         </main>
       </div>
-      <div class="z-10 mt-14 text-base font-medium tracking-normal text-primary-content max-md:mt-10">
-        [#--  <span class="text-primary-content">${theme.message("return-to-login")} </span>  --]
-        <span class="text-primary-content">
-        [@helpers.link url="${request.contextPath}/oauth2/authorize"]${theme.message("return-to-login")}[/@helpers.link]
-        </span>
-      </div>
+
     [/@helpers.main]
 
     [@helpers.footer]

@@ -191,23 +191,19 @@
             <div class="w-full">
               [@helpers.button color="btn btn-primary w-full" text=theme.message('register')/]
             </div>
-                  <div class="z-10 mt-8 text-[16px] font-semibold leading-[26px] tracking-[0%] text-center text-[#1B2D7E] underline decoration-solid underline-offset-[40%] decoration-[5%] max-md:mt-10"
-  style="font-family: 'Work Sans', sans-serif;">
-  <span class="return-to-login">
-    [@helpers.link url="${request.contextPath}/oauth2/authorize"]${theme.message("return-to-login")}[/@helpers.link]
-  </span>
-</div>
-
-
             [/#if]
             [#-- End Basic Self Service Registration Form --]
 
             [#-- Identity Provider Buttons (if you want to include these, remove the if-statement) --]
-            [#if true]
-              [@helpers.alternativeLogins clientId=client_id identityProviders=identityProviders![] passwordlessEnabled=false bootstrapWebauthnEnabled=false idpRedirectState=idpRedirectState federatedCSRFToken=federatedCSRFToken/]
-            [/#if]
+            <section class="flex gap-2 justify-between">
+              [#if true]
+                [@helpers.alternativeLogins clientId=client_id identityProviders=identityProviders![] passwordlessEnabled=false bootstrapWebauthnEnabled=false idpRedirectState=idpRedirectState federatedCSRFToken=federatedCSRFToken/]
+              [/#if]
+                <span class="flex w-full gap-2 justify-end">
+                [@helpers.link url="${request.contextPath}/oauth2/authorize"]${theme.message("return-to-login")}[/@helpers.link]
+              </span>
+            </section>
             [#-- End Identity Provider Buttons --]
-
           </form>
         </main>
       </div>

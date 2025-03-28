@@ -19,23 +19,37 @@
 
     [@helpers.main title=theme.message("passwordless-login")]
       [#setting url_escaping_charset='UTF-8']
-      <form action="${request.contextPath}/oauth2/passwordless" method="POST" class="full">
-        [@helpers.oauthHiddenFields/]
+      <div class="z-10 p-8 mt-14 max-w-full bg-white rounded-3xl shadow-lg w-[560px] max-md:px-5 max-md:mt-10">
+        <div class="flex flex-col w-full text-left max-md:max-w-full">
+          <h1 class="text-2xl font-sans font-medium tracking-tight leading-none text-[#1B2D7E] max-md:max-w-full">
+            Sign in to Taco's Rewards
+          </h1>
 
-        <fieldset>
-          [@helpers.input type="text" name="loginId" id="loginId" autocomplete="username" autocapitalize="none" autocomplete="on" autocorrect="off" spellcheck="false" autofocus=true placeholder=theme.message("loginId") leftAddon="user" required=true/]
-          [@helpers.captchaBadge showCaptcha=showCaptcha captchaMethod=tenant.captchaConfiguration.captchaMethod siteKey=tenant.captchaConfiguration.siteKey/]
-        </fieldset>
-
-        [@helpers.input id="rememberDevice" type="checkbox" name="rememberDevice" label=theme.message("remember-device") value="true" uncheckedValue="false"]
-          <i class="fa fa-info-circle" data-tooltip="${theme.message('{tooltip}remember-device')}"></i>[#t/]
-        [/@helpers.input]
-
-        <div class="form-row">
-          [@helpers.button icon="send" text=theme.message('send')/]
-          <p class="mt-2">[@helpers.link url="/oauth2/authorize"]${theme.message('return-to-login')}[/@helpers.link]</p>
         </div>
-      </form>
+        <main class="mt-7 w-full max-md:max-w-full">   
+          <form action="${request.contextPath}/oauth2/passwordless" method="POST">
+            [@helpers.oauthHiddenFields/]
+            <div class="mt-6 w-full text-sm tracking-normal max-md:max-w-full flex flex-col gap-2">
+              <div class="w-full leading-loose max-md:max-w-full">
+                <div class="flex flex-col justify-center w-full rounded max-md:max-w-full">
+                  <label for="loginId" class="text-[#6473B4]"> Email Address </label>
+                  <fieldset class="flex flex-col gap-2 md:gap-4">
+                    [@helpers.input type="text" name="loginId" id="loginId" autocomplete="username" autocapitalize="none" autocomplete="on" autocorrect="off" spellcheck="false" autofocus=true placeholder=theme.message("loginId")  required=true/]
+                    [@helpers.captchaBadge showCaptcha=showCaptcha captchaMethod=tenant.captchaConfiguration.captchaMethod siteKey=tenant.captchaConfiguration.siteKey/]
+                  </fieldset>
+                </div>
+              </div>
+
+            [@helpers.input id="rememberDevice" type="checkbox" name="rememberDevice" label=theme.message("remember-device") value="true" uncheckedValue="false"]
+            [/@helpers.input]
+
+            <div class="form-row">
+              [@helpers.button color="btn btn-primary w-full" text=theme.message('send')/]
+              <p class="mt-2">[@helpers.link url="/oauth2/authorize"]${theme.message('return-to-login')}[/@helpers.link]</p>
+            </div>
+          </form>
+        </main> 
+      </div>
     [/@helpers.main]
 
     [@helpers.footer]

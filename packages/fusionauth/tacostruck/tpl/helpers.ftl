@@ -400,36 +400,76 @@
 [/#macro]
 
 [#macro facebookButton identityProvider clientId]
- <button id="facebook-login-button" class="facebook login-button flex flex-1 shrink gap-2 items-center self-stretch p-2 my-auto rounded basis-0 bg-cyan-950 hover:bg-opacity-80" data-login-method="${identityProvider.lookupLoginMethod(clientId)!''}" data-permissions="${identityProvider.lookupPermissions(clientId)!''}" data-identity-provider-id="${identityProvider.id}">
-   <div>
-     <div class="icon object-contain shrink-0 self-stretch my-auto w-8 rounded-sm aspect-square">
-       <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 216 216">
-         <path class="cls-1" d="M204.1 0H11.9C5.3 0 0 5.3 0 11.9v192.2c0 6.6 5.3 11.9 11.9 11.9h103.5v-83.6H87.2V99.8h28.1v-24c0-27.9 17-43.1 41.9-43.1 11.9 0 22.2.9 25.2 1.3v29.2h-17.3c-13.5 0-16.2 6.4-16.2 15.9v20.8h32.3l-4.2 32.6h-28V216h55c6.6 0 11.9-5.3 11.9-11.9V11.9C216 5.3 210.7 0 204.1 0z"></path>
-       </svg>
-     </div>
-     <div class="text">${identityProvider.lookupButtonText(clientId)?trim}</div>
-   </div>
+ <button id="facebook-login-button" class="facebook login-button " data-login-method="${identityProvider.lookupLoginMethod(clientId)!''}" data-permissions="${identityProvider.lookupPermissions(clientId)!''}" data-identity-provider-id="${identityProvider.id}">
+        <svg width="40" height="41" viewBox="0 0 40 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g filter="url(#filter0_d_2362_159)">
+          <rect x="6" y="1.5946" width="32" height="32" rx="16" fill="url(#paint0_linear_2362_159)" shape-rendering="crispEdges"/>
+          <g clip-path="url(#clip0_2362_159)">
+          <path d="M22 7.99988C16.4772 7.99988 12 12.4771 12 17.9999C12 22.6895 15.2288 26.6247 19.5844 27.7055V21.0559H17.5224V17.9999H19.5844V16.6831C19.5844 13.2795 21.1248 11.7019 24.4664 11.7019C25.1 11.7019 26.1932 11.8263 26.6404 11.9503V14.7203C26.4044 14.6955 25.9944 14.6831 25.4852 14.6831C23.8456 14.6831 23.212 15.3043 23.212 16.9191V17.9999H26.4784L25.9172 21.0559H23.212V27.9267C28.1636 27.3287 32.0004 23.1127 32.0004 17.9999C32 12.4771 27.5228 7.99988 22 7.99988Z" fill="white"/>
+          </g>
+          </g>
+          <defs>
+          <filter id="filter0_d_2362_159" x="0" y="0.594604" width="40" height="40" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+          <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+          <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+          <feOffset dx="-2" dy="3"/>
+          <feGaussianBlur stdDeviation="2"/>
+          <feComposite in2="hardAlpha" operator="out"/>
+          <feColorMatrix type="matrix" values="0 0 0 0 0.92549 0 0 0 0 0.752941 0 0 0 0 0.635294 0 0 0 0.3 0"/>
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2362_159"/>
+          <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2362_159" result="shape"/>
+          </filter>
+          <linearGradient id="paint0_linear_2362_159" x1="22.0967" y1="34.8746" x2="22.0967" y2="2.2346" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#3E62BC"/>
+          <stop offset="0.23912" stop-color="#1D319A"/>
+          <stop offset="0.400158" stop-color="#3148A5"/>
+          <stop offset="0.630626" stop-color="#7F4ED0"/>
+          <stop offset="0.805943" stop-color="#D45ED1"/>
+          <stop offset="1" stop-color="#FF7729"/>
+          </linearGradient>
+          <clipPath id="clip0_2362_159">
+          <rect width="20" height="20" fill="white" transform="translate(12 7.5946)"/>
+          </clipPath>
+          </defs>
+        </svg>
  </button>
 [/#macro]
 
 [#macro googleButton identityProvider clientId idpRedirectState=""]
   [#-- When using this loginMethod - the Google JavaScript API is not used at all. --]
   [#if identityProvider.lookupLoginMethod(clientId) == "UseRedirect"]
-    <button id="google-login-button" class="google login-button flex flex-1 shrink gap-2 items-center self-stretch p-2 my-auto rounded basis-0 bg-cyan-950 hover:bg-opacity-80" data-login-method="UseRedirect" data-scope="${identityProvider.lookupScope(clientId)!''}" data-identity-provider-id="${identityProvider.id}">
-      <div>
-       <div class="icon object-contain shrink-0 self-stretch my-auto w-8 rounded-sm aspect-square">
-         <svg version="1.1" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-           <g>
-             <path class="cls-1" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path>
-             <path class="cls-2" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path>
-             <path class="cls-3" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path>
-             <path class="cls-4" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path>
-             <path class="cls-5" d="M0 0h48v48H0z"></path>
-           </g>
-         </svg>
-       </div>
-       <div class="text">${identityProvider.lookupButtonText(clientId)?trim}</div>
-      </div>
+    <button id="google-login-button" class="google login-button" data-login-method="UseRedirect" data-scope="${identityProvider.lookupScope(clientId)!''}" data-identity-provider-id="${identityProvider.id}">
+        <svg width="40" height="41" viewBox="0 0 40 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g filter="url(#filter0_d_2362_165)">
+          <rect x="6" y="1.5946" width="32" height="32" rx="16" fill="url(#paint0_linear_2362_165)" shape-rendering="crispEdges"/>
+          <g clip-path="url(#clip0_2362_165)">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M25.8287 13.4726C24.7832 12.4908 23.4742 11.9817 22.0014 11.9817C19.4014 11.9817 17.1923 13.7362 16.4014 16.0999L13.0742 13.5181C14.7197 10.2453 18.0924 7.99988 22.0014 7.99988C24.7015 7.99988 26.9559 8.99085 28.6923 10.609L25.8287 13.4726ZM13.0726 13.5184C12.3909 14.8638 12 16.382 12 18.0002C12 19.6183 12.3909 21.1366 13.0726 22.482C13.0726 22.4823 13.0768 22.4793 13.0849 22.4733L13.0742 22.4817C14.7197 25.7453 18.0921 27.9998 22.0012 27.9998C24.7011 27.9998 26.9647 27.1089 28.6193 25.5817L28.6187 25.5812C30.5092 23.8358 31.5999 21.2723 31.5999 18.2272C31.5999 17.5181 31.5363 16.8362 31.4181 16.1817L22 16.1816V20.0544H27.3818C27.1455 21.2998 26.4363 22.3544 25.3727 23.0635L25.3732 23.0639C24.4824 23.6637 23.3463 24.0272 22.0012 24.0272C19.4012 24.0272 17.1922 22.2726 16.4012 19.909L16.3971 19.9032L16.3319 19.9531L16.4 19.9001C16.2 19.3001 16.0818 18.6638 16.0818 18.0001C16.0818 17.3364 16.2 16.7 16.4 16.1L13.0726 13.5184Z" fill="white"/>
+          </g>
+          </g>
+          <defs>
+          <filter id="filter0_d_2362_165" x="0" y="0.594604" width="40" height="40" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+          <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+          <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+          <feOffset dx="-2" dy="3"/>
+          <feGaussianBlur stdDeviation="2"/>
+          <feComposite in2="hardAlpha" operator="out"/>
+          <feColorMatrix type="matrix" values="0 0 0 0 0.92549 0 0 0 0 0.752941 0 0 0 0 0.635294 0 0 0 0.3 0"/>
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2362_165"/>
+          <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2362_165" result="shape"/>
+          </filter>
+          <linearGradient id="paint0_linear_2362_165" x1="22.0967" y1="34.8746" x2="22.0967" y2="2.2346" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#3E62BC"/>
+          <stop offset="0.23912" stop-color="#1D319A"/>
+          <stop offset="0.400158" stop-color="#3148A5"/>
+          <stop offset="0.630626" stop-color="#7F4ED0"/>
+          <stop offset="0.805943" stop-color="#D45ED1"/>
+          <stop offset="1" stop-color="#FF7729"/>
+          </linearGradient>
+          <clipPath id="clip0_2362_165">
+          <rect width="20" height="20" fill="white" transform="translate(12 7.5946)"/>
+          </clipPath>
+          </defs>
+        </svg>
     </button>
   [#else] [#-- UsePopup or UseVendorJavaScript --]
     [#--
@@ -489,21 +529,33 @@
 [/#macro]
 
 [#macro twitterButton identityProvider clientId]
- <button id="twitter-login-button" class="twitter login-button flex flex-1 shrink gap-2 items-center self-stretch p-2 my-auto rounded basis-0 bg-cyan-950 hover:bg-opacity-80">
-   <div>
-     <div class="icon object-contain shrink-0 self-stretch my-auto w-8 rounded-sm aspect-square">
-       <svg version="1.1" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-         <g>
-           <rect class="cls-1" width="400" height="400"></rect>
-         </g>
-         <g>
-           <path class="cls-2" d="M153.62,301.59c94.34,0,145.94-78.16,145.94-145.94,0-2.22,0-4.43-.15-6.63A104.36,104.36,0,0,0,325,122.47a102.38,102.38,0,0,1-29.46,8.07,51.47,51.47,0,0,0,22.55-28.37,102.79,102.79,0,0,1-32.57,12.45,51.34,51.34,0,0,0-87.41,46.78A145.62,145.62,0,0,1,92.4,107.81a51.33,51.33,0,0,0,15.88,68.47A50.91,50.91,0,0,1,85,169.86c0,.21,0,.43,0,.65a51.31,51.31,0,0,0,41.15,50.28,51.21,51.21,0,0,1-23.16.88,51.35,51.35,0,0,0,47.92,35.62,102.92,102.92,0,0,1-63.7,22A104.41,104.41,0,0,1,75,278.55a145.21,145.21,0,0,0,78.62,23"></path>
-           <rect class="cls-3" width="400" height="400"></rect>
-         </g>
-       </svg>
-     </div>
-     <div class="text">${identityProvider.lookupButtonText(clientId)?trim}</div>
-   </div>
+ <button id="twitter-login-button" class="twitter login-button">
+      <svg width="40" height="41" viewBox="0 0 40 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g filter="url(#filter0_d_2362_162)">
+        <rect x="6" y="1.5946" width="32" height="32" rx="16" fill="url(#paint0_linear_2362_162)" shape-rendering="crispEdges"/>
+        <path d="M27.4386 8.99988H30.2498L24.1081 16.0195L31.3333 25.5715H25.676L21.245 19.7782L16.175 25.5715H13.362L19.9312 18.0633L13 8.99988H18.8009L22.8062 14.2952L27.4386 8.99988ZM26.4519 23.8889H28.0097L17.9545 10.5942H16.2829L26.4519 23.8889Z" fill="white"/>
+        </g>
+        <defs>
+        <filter id="filter0_d_2362_162" x="0" y="0.594604" width="40" height="40" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+        <feOffset dx="-2" dy="3"/>
+        <feGaussianBlur stdDeviation="2"/>
+        <feComposite in2="hardAlpha" operator="out"/>
+        <feColorMatrix type="matrix" values="0 0 0 0 0.92549 0 0 0 0 0.752941 0 0 0 0 0.635294 0 0 0 0.3 0"/>
+        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2362_162"/>
+        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2362_162" result="shape"/>
+        </filter>
+        <linearGradient id="paint0_linear_2362_162" x1="22.0967" y1="34.8746" x2="22.0967" y2="2.2346" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#3E62BC"/>
+        <stop offset="0.23912" stop-color="#1D319A"/>
+        <stop offset="0.400158" stop-color="#3148A5"/>
+        <stop offset="0.630626" stop-color="#7F4ED0"/>
+        <stop offset="0.805943" stop-color="#D45ED1"/>
+        <stop offset="1" stop-color="#FF7729"/>
+        </linearGradient>
+        </defs>
+      </svg>
  </button>
 [/#macro]
 
@@ -605,11 +657,8 @@
 
 [#macro alternativeLogins clientId identityProviders passwordlessEnabled bootstrapWebauthnEnabled=false idpRedirectState="" federatedCSRFToken=""]
   [#if identityProviders?has_content || passwordlessEnabled || bootstrapWebauthnEnabled]
-    <div class="flex flex-col mt-6 w-full text-white max-md:max-w-full">
-        <div class="self-start text-base tracking-wide text-center max-md:max-w-full text-center w-full">
-          <p>Or, log in with a game account</p>
-        </div>
-        <div class="grid grid-cols-2 gap-2 mt-6 w-full text-sm font-semibold leading-none max-md:px-5 max-md:max-w-full">
+      <section class="flex w-full text-white max-md:max-w-full gap-2">
+        <div class="flex gap-2 items-center">
           [#if identityProviders["Apple"]?has_content]
             [@appleButton identityProvider=identityProviders["Apple"][0] clientId=clientId/]
           [/#if]
@@ -666,49 +715,39 @@
               [@xboxButton identityProvider=identityProviders["Xbox"][0] clientId=clientId/]
           [/#if]
         </div>
-      </div>
 
-      [#if passwordlessEnabled]
-      <div class="form-row push-less-top">
-        [@link url = "/oauth2/passwordless"]
-          <div class="magic login-button">
-            <div>
-              <div class="icon object-contain shrink-0 self-stretch my-auto w-8 rounded-sm aspect-square">
-                <i class="fa fa-link"></i>
-              </div>
-              <div class="text">${theme.message('passwordless-button-text')}</div>
-            </div>
-          </div>
-        [/@link]
-      </div>
-      [/#if]
+        [#if passwordlessEnabled]
+          [@link url = "/oauth2/passwordless" class="w-full grow"]
+            <div class="btn btn-secondary w-full">${theme.message('passwordless-button-text')}</div>
+          [/@link]
+        [/#if]
 
-      [#if bootstrapWebauthnEnabled]
-      <div class="form-row push-less-top">
-        [@link url = "/oauth2/webauthn"]
-          <div class="magic login-button">
-            <div>
-              <div class="icon object-contain shrink-0 self-stretch my-auto w-8 rounded-sm aspect-square">
-                <svg xmlns="http://www.w3.org/2000/svg" width="512.000000pt" height="512.000000pt" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
-                  <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" fill="#FFF" stroke="none">
-                    <path d="M923 4595 c-187 -51 -349 -214 -398 -402 -12 -44 -15 -122 -15 -348 0 -261 2 -294 19 -331 51 -112 193 -135 276 -43 19 21 37 49 40 61 2 13 6 160 7 328 3 338 5 345 72 386 28 17 58 19 336 22 168 1 315 5 328 7 12 3 40 21 61 40 92 83 69 225 -43 276 -37 17 -70 19 -336 18 -221 0 -308 -4 -347 -14z"/>
-                    <path d="M3514 4591 c-112 -51 -135 -193 -43 -276 21 -19 49 -37 61 -40 13 -2 160 -6 328 -7 338 -3 345 -5 386 -72 17 -28 19 -58 22 -336 1 -168 5 -315 7 -328 3 -12 21 -40 40 -61 83 -92 225 -69 276 43 17 37 19 70 19 331 0 320 -5 355 -61 468 -42 82 -154 194 -236 236 -113 56 -148 61 -468 61 -261 0 -294 -2 -331 -19z"/>
-                    <path d="M1640 3229 c-14 -6 -36 -20 -48 -32 -49 -46 -52 -62 -52 -294 0 -193 2 -222 19 -253 48 -91 175 -117 252 -53 61 51 69 86 69 298 0 105 -4 206 -10 224 -11 39 -51 86 -92 107 -31 16 -101 17 -138 3z"/>
-                    <path d="M2500 3233 c-36 -15 -72 -48 -90 -83 -19 -37 -20 -60 -20 -398 l0 -359 -31 -7 c-79 -15 -139 -89 -139 -170 0 -48 31 -109 72 -138 47 -33 153 -33 220 0 70 35 140 103 179 174 l34 63 3 397 c3 382 2 399 -17 437 -30 57 -73 84 -140 88 -31 1 -63 0 -71 -4z"/>
-                    <path d="M3335 3222 c-44 -29 -74 -65 -85 -103 -6 -19 -10 -119 -10 -224 0 -212 8 -247 69 -298 77 -64 204 -38 252 53 17 31 19 60 19 256 0 213 -1 222 -22 254 -37 54 -71 73 -135 77 -45 3 -65 0 -88 -15z"/>
-                    <path d="M2006 1870 c-34 -11 -82 -54 -102 -92 -19 -37 -18 -106 4 -148 34 -69 212 -173 387 -226 84 -26 102 -28 265 -28 163 0 181 2 265 28 175 53 353 157 387 226 70 139 -75 297 -213 231 -24 -11 -72 -38 -107 -60 -99 -62 -169 -83 -302 -88 -165 -7 -265 22 -421 122 -60 39 -114 50 -163 35z"/>
-                    <path d="M627 1696 c-50 -18 -76 -42 -98 -91 -17 -36 -19 -70 -19 -330 0 -320 5 -355 61 -468 42 -82 154 -194 236 -236 113 -56 148 -61 468 -61 261 0 294 2 331 19 112 51 135 193 43 276 -21 19 -49 37 -61 40 -13 2 -160 6 -328 7 -435 4 -403 -29 -410 423 -3 217 -9 326 -17 340 -19 33 -66 72 -102 84 -43 14 -57 13 -104 -3z"/>
-                    <path d="M4385 1698 c-33 -11 -80 -51 -98 -83 -8 -14 -14 -123 -17 -340 -7 -452 25 -419 -410 -423 -168 -1 -315 -5 -328 -7 -12 -3 -40 -21 -61 -40 -92 -83 -69 -225 43 -276 37 -17 70 -19 331 -19 320 0 355 5 468 61 82 42 194 154 236 236 56 113 61 148 61 468 0 260 -2 294 -19 330 -22 49 -48 73 -98 91 -45 16 -67 16 -108 2z"/>
-                  </g>
-                </svg>
+        [#if bootstrapWebauthnEnabled]
+        <div class="form-row push-less-top">
+          [@link url = "/oauth2/webauthn"]
+            <div class="magic login-button">
+              <div>
+                <div class="icon object-contain shrink-0 self-stretch my-auto w-8 rounded-sm aspect-square">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="512.000000pt" height="512.000000pt" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
+                    <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" fill="#FFF" stroke="none">
+                      <path d="M923 4595 c-187 -51 -349 -214 -398 -402 -12 -44 -15 -122 -15 -348 0 -261 2 -294 19 -331 51 -112 193 -135 276 -43 19 21 37 49 40 61 2 13 6 160 7 328 3 338 5 345 72 386 28 17 58 19 336 22 168 1 315 5 328 7 12 3 40 21 61 40 92 83 69 225 -43 276 -37 17 -70 19 -336 18 -221 0 -308 -4 -347 -14z"/>
+                      <path d="M3514 4591 c-112 -51 -135 -193 -43 -276 21 -19 49 -37 61 -40 13 -2 160 -6 328 -7 338 -3 345 -5 386 -72 17 -28 19 -58 22 -336 1 -168 5 -315 7 -328 3 -12 21 -40 40 -61 83 -92 225 -69 276 43 17 37 19 70 19 331 0 320 -5 355 -61 468 -42 82 -154 194 -236 236 -113 56 -148 61 -468 61 -261 0 -294 -2 -331 -19z"/>
+                      <path d="M1640 3229 c-14 -6 -36 -20 -48 -32 -49 -46 -52 -62 -52 -294 0 -193 2 -222 19 -253 48 -91 175 -117 252 -53 61 51 69 86 69 298 0 105 -4 206 -10 224 -11 39 -51 86 -92 107 -31 16 -101 17 -138 3z"/>
+                      <path d="M2500 3233 c-36 -15 -72 -48 -90 -83 -19 -37 -20 -60 -20 -398 l0 -359 -31 -7 c-79 -15 -139 -89 -139 -170 0 -48 31 -109 72 -138 47 -33 153 -33 220 0 70 35 140 103 179 174 l34 63 3 397 c3 382 2 399 -17 437 -30 57 -73 84 -140 88 -31 1 -63 0 -71 -4z"/>
+                      <path d="M3335 3222 c-44 -29 -74 -65 -85 -103 -6 -19 -10 -119 -10 -224 0 -212 8 -247 69 -298 77 -64 204 -38 252 53 17 31 19 60 19 256 0 213 -1 222 -22 254 -37 54 -71 73 -135 77 -45 3 -65 0 -88 -15z"/>
+                      <path d="M2006 1870 c-34 -11 -82 -54 -102 -92 -19 -37 -18 -106 4 -148 34 -69 212 -173 387 -226 84 -26 102 -28 265 -28 163 0 181 2 265 28 175 53 353 157 387 226 70 139 -75 297 -213 231 -24 -11 -72 -38 -107 -60 -99 -62 -169 -83 -302 -88 -165 -7 -265 22 -421 122 -60 39 -114 50 -163 35z"/>
+                      <path d="M627 1696 c-50 -18 -76 -42 -98 -91 -17 -36 -19 -70 -19 -330 0 -320 5 -355 61 -468 42 -82 154 -194 236 -236 113 -56 148 -61 468 -61 261 0 294 2 331 19 112 51 135 193 43 276 -21 19 -49 37 -61 40 -13 2 -160 6 -328 7 -435 4 -403 -29 -410 423 -3 217 -9 326 -17 340 -19 33 -66 72 -102 84 -43 14 -57 13 -104 -3z"/>
+                      <path d="M4385 1698 c-33 -11 -80 -51 -98 -83 -8 -14 -14 -123 -17 -340 -7 -452 25 -419 -410 -423 -168 -1 -315 -5 -328 -7 -12 -3 -40 -21 -61 -40 -92 -83 -69 -225 43 -276 37 -17 70 -19 331 -19 320 0 355 5 468 61 82 42 194 154 236 236 56 113 61 148 61 468 0 260 -2 294 -19 330 -22 49 -48 73 -98 91 -45 16 -67 16 -108 2z"/>
+                    </g>
+                  </svg>
+                </div>
+                <div class="text">${theme.message('webauthn-button-text')}</div>
               </div>
-              <div class="text">${theme.message('webauthn-button-text')}</div>
             </div>
-          </div>
-        [/@link]
-      </div>
-      [/#if]
-    </div>
+          [/@link]
+        </div>
+        [/#if]
+      </section>
   [/#if]
 [/#macro]
 
@@ -999,8 +1038,8 @@
 <button class="${color} button${disabled?then(' disabled', '')}"[#if disabled] disabled="disabled"[/#if][#if name !=""]name="${name}"[/#if][#if value !=""]value="${value}"[/#if]>${text}</button>
 [/#macro]
 
-[#macro link url extraParameters=""]
-<a href="${url}?tenantId=${(tenantId)!''}&client_id=${(client_id)!''}&nonce=${(nonce?url)!''}&pendingIdPLinkId=${(pendingIdPLinkId)!''}&redirect_uri=${(redirect_uri?url)!''}&response_mode=${(response_mode?url)!''}&response_type=${(response_type?url)!''}&scope=${(scope?url)!''}&state=${(state?url)!''}&timezone=${(timezone?url)!''}&metaData.device.name=${(metaData.device.name?url)!''}&metaData.device.type=${(metaData.device.type?url)!''}${(extraParameters!'')?no_esc}&code_challenge=${(code_challenge?url)!''}&code_challenge_method=${(code_challenge_method?url)!''}&user_code=${(user_code?url)!''}" class="underline">
+[#macro link url extraParameters="" class="underline"]
+<a href="${url}?tenantId=${(tenantId)!''}&client_id=${(client_id)!''}&nonce=${(nonce?url)!''}&pendingIdPLinkId=${(pendingIdPLinkId)!''}&redirect_uri=${(redirect_uri?url)!''}&response_mode=${(response_mode?url)!''}&response_type=${(response_type?url)!''}&scope=${(scope?url)!''}&state=${(state?url)!''}&timezone=${(timezone?url)!''}&metaData.device.name=${(metaData.device.name?url)!''}&metaData.device.type=${(metaData.device.type?url)!''}${(extraParameters!'')?no_esc}&code_challenge=${(code_challenge?url)!''}&code_challenge_method=${(code_challenge_method?url)!''}&user_code=${(user_code?url)!''}" class="${class}">
 [#nested/]
 </a>
 [/#macro]

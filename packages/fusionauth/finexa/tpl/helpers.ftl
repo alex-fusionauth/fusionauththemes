@@ -839,6 +839,8 @@
         [/@link]
       </div>
       [/#if]
+              [#-- Updated div in alternativeLogins macro. Line breaks added for readability. --]
+          <div id="login-button-container" class="login-button-container" data-federated-csrf="$federatedCSRFToken}">
     </div>
   [/#if]
 [/#macro]

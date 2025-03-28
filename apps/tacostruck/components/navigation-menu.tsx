@@ -1,5 +1,5 @@
-import { CoinbaseLogo } from '@/components/coinbase-logo';
 import { NavigationSheet } from '@/components/navigation-sheet';
+import { TacosTruckLogo } from '@/components/tacostruck-logo';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
@@ -8,7 +8,7 @@ const navigationLinks = [
   { href: '/', label: 'Products' },
   { href: '/', label: 'Help' },
 ];
-import { CoinbaseTitle } from '@/components/coinbase-title';
+import { TacosTruckTitle } from '@/components/tacostruck-title';
 import { auth, signIn, signOut } from '../auth';
 
 export async function NavigationMenu() {
@@ -20,8 +20,8 @@ export async function NavigationMenu() {
         <div className="flex items-center gap-4 h-16 items-middle">
           <NavigationSheet />
           <Link href="/" className="flex items-center space-x-2">
-            <CoinbaseLogo className="h-8 w-auto" />
-            <CoinbaseTitle className="h-8 hidden md:block w-auto pt-1.5" />
+            <TacosTruckLogo className="h-8 w-auto" />
+            <TacosTruckTitle className="h-8 hidden md:block w-auto pt-1.5" />
           </Link>
         </div>
         <nav className="hidden items-center space-x-6 md:flex">

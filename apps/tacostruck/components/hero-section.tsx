@@ -6,14 +6,12 @@ export async function HeroSection() {
   const session = await auth();
 
   return (
-    <div className="flex-1 flex items-center justify-center items-middle">
-      <div className="container flex flex-col items-center justify-center space-y-8 py-24 text-center md:py-32">
+    <div className="flex-1 flex justify-center items-middle pt-8 md:pt-20">
+      <div className="container flex flex-col items-center justify-center text-center">
         <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
-          The future of money is here
+          Find Your Next Taco Truck
         </h1>
-        <p className="mx-auto max-w-[600px] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-          Where Making Change is Our Only Business!
-        </p>
+
         <div className="flex flex-col gap-4 sm:flex-row">
           {!session?.user && (
             <form
@@ -23,20 +21,23 @@ export async function HeroSection() {
                 await signIn('fusionauth');
               }}
             >
-              <Button size="lg" className="min-w-[200px]" type="submit">
+              <Button size="lg" type="submit">
                 Get started
               </Button>
             </form>
           )}
-          <Link href="/">
-            <Button
-              variant="outline"
-              size="lg"
-              className="min-w-[200px] bg-white/10 text-white hover:bg-white/20"
-            >
-              Learn more
-            </Button>
-          </Link>
+        </div>
+        <div className="w-full h-full min-h-[800px] mt-8">
+          <iframe
+            title="Taco Trucks Map"
+            src="https://www.google.com/maps/embed/v1/search?key=AIzaSyAyV0OsM6TfbYrdkP15QUlCGxT4tp6cUSM&q=taco+trucks"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            className="w-full h-full min-h-[800px]"
+          />
         </div>
       </div>
     </div>

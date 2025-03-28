@@ -223,12 +223,17 @@
   [#else]
     [#assign registerUnderline = "" /]
   [/#if]
-  [#assign protocol = redirect_uri?split("/")[0] /]
-  [#assign origin = redirect_uri?split("/")[2] /]
+  [#if redirect_uri??]
+    [#assign protocol = redirect_uri?split("/")[0] /]
+    [#assign origin = redirect_uri?split("/")[2]  /]
+  [#else]
+    [#assign protocol = request.scheme /]
+    [#assign origin = request.serverName /]
+  [/#if]
   <div class="flex overflow-hidden relative flex-col items-center w-full min-h-screen justify-center">
-    <a href="${protocol}//${origin}" class="z-10">
+      [#if redirect_uri??]<a href="${protocol}//${origin}" class="z-10">[/#if]
     <img src="https://res.cloudinary.com/djox1exln/image/upload/v1743120876/taco-logo-full_gma6ug.png" alt="Logo" class=" object-contain mb-4"/>
-    </a>
+      [#if redirect_uri??]</a>  [/#if]
     [#nested/]
     <div class="mt-2 md:mt-8"> 
       [@localSelector/]

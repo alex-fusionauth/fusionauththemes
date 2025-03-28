@@ -6,7 +6,8 @@ export function Footer() {
       <div className="container mx-auto px-4">
         <div className="border-t py-8 text-sm text-center">
           <p>
-            &copy; {new Date().getFullYear()} Change Bank. All rights reserved.
+            &copy; {new Date().getFullYear()} Taco's Taco Truck. All rights
+            reserved.
           </p>
         </div>
       </div>

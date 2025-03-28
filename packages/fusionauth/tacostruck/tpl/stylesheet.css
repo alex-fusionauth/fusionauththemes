@@ -2341,6 +2341,9 @@
   .flex-grow {
     flex-grow: 1;
   }
+  .grow {
+    flex-grow: 1;
+  }
   .basis-0 {
     flex-basis: calc(var(--spacing) * 0);
   }
@@ -2410,6 +2413,9 @@
   .items-center {
     align-items: center;
   }
+  .items-end {
+    align-items: flex-end;
+  }
   .items-start {
     align-items: flex-start;
   }
@@ -2419,8 +2425,14 @@
   .justify-center {
     justify-content: center;
   }
+  .justify-end {
+    justify-content: flex-end;
+  }
   .gap-2 {
     gap: calc(var(--spacing) * 2);
+  }
+  .gap-4 {
+    gap: calc(var(--spacing) * 4);
   }
   .gap-5 {
     gap: calc(var(--spacing) * 5);
@@ -2914,6 +2926,10 @@
     --btn-color: var(--color-primary);
     --btn-fg: var(--color-primary-content);
   }
+  .btn-secondary {
+    --btn-color: var(--color-secondary);
+    --btn-fg: var(--color-secondary-content);
+  }
   .outline-none {
     --tw-outline-style: none;
     outline-style: none;
@@ -3365,7 +3381,7 @@ form {
     --color-base-content: #6473b4;
     --color-primary: #b75cb5;
     --color-primary-content: #6473b4;
-    --color-secondary: oklch(65% 0.241 354.308);
+    --color-secondary: #b75cb5;
     --color-secondary-content: oklch(94% 0.028 342.258);
     --color-accent: oklch(77% 0.152 181.912);
     --color-accent-content: oklch(38% 0.063 188.416);

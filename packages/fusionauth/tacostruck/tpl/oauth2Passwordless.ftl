@@ -29,7 +29,7 @@
         <main class="mt-7 w-full max-md:max-w-full">   
           <form action="${request.contextPath}/oauth2/passwordless" method="POST">
             [@helpers.oauthHiddenFields/]
-            <div class="mt-6 w-full text-sm tracking-normal max-md:max-w-full flex flex-col gap-2">
+            <div class="mt-6 w-full text-sm tracking-normal max-md:max-w-full flex flex-col gap-4 md:gap-6">
               <div class="w-full leading-loose max-md:max-w-full">
                 <div class="flex flex-col justify-center w-full rounded max-md:max-w-full">
                   <label for="loginId" class="text-[#6473B4]"> Email Address </label>
@@ -42,11 +42,8 @@
 
             [@helpers.input id="rememberDevice" type="checkbox" name="rememberDevice" label=theme.message("remember-device") value="true" uncheckedValue="false"]
             [/@helpers.input]
-
-            <div class="form-row">
-              [@helpers.button color="btn btn-primary w-full" text=theme.message('send')/]
-              <p class="mt-2">[@helpers.link url="/oauth2/authorize"]${theme.message('return-to-login')}[/@helpers.link]</p>
-            </div>
+            [@helpers.button color="btn btn-primary w-full" text=theme.message('send')/]
+            <p class="flex justify-end">[@helpers.link url="/oauth2/authorize"]${theme.message('return-to-login')}[/@helpers.link]</p>
           </form>
         </main> 
       </div>

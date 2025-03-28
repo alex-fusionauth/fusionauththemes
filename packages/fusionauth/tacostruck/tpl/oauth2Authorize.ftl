@@ -101,8 +101,8 @@
               Log In
             </button>
             <div class="flex gap-2">
-              <span>${theme.message("dont-have-an-account")} </span>
-              <span>
+              <span class="w-full">${theme.message("dont-have-an-account")} </span>
+              <span class="flex w-full justify-end">
               [@helpers.link url="${request.contextPath}/oauth2/register"]${theme.message("create-an-account")}[/@helpers.link]
               </span>
             </div>

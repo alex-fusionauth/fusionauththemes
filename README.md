@@ -1,5 +1,14 @@
 # FusionAuth Themes
 
+## Helpful links
+
+- [📘 Documentation](https://fusionauth.io/docs)
+- [🚀 Demo](https://fusionauththemes.com)
+- [💬 Discord](https://fusionauth.io/community)
+
+## Purpose 
+FusionAuth is incredibly powerful, scalable, and customizable. We wanted to showcase customization and provide customers with copyright-free starting points to build their own gorgeous user experience. Our initial example sites are a gaming studio, a financial institution, a retail example, and a SaaS company.
+
 > Prerequisites: requires Node 22.6.0 or higher.
 
 ## Setup

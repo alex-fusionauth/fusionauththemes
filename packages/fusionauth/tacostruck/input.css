@@ -67,3 +67,7 @@ form {
   cursor: pointer;
   color: #8b8b8b;
 }
+
+.login-button {
+  cursor: pointer;
+}

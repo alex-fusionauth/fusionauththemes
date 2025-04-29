@@ -578,6 +578,7 @@
 
 [#macro alternativeLogins clientId identityProviders passwordlessEnabled bootstrapWebauthnEnabled=false idpRedirectState="" federatedCSRFToken=""]
   [#if identityProviders?has_content || passwordlessEnabled || bootstrapWebauthnEnabled]
+  <div id="login-button-container" class="login-button-container" data-federated-csrf="${federatedCSRFToken}">
     <div class="flex flex-col mt-6 w-full text-white max-md:max-w-full">
         <div class="self-start text-base tracking-wide text-center max-md:max-w-full text-center w-full">
           <p>Or, log in with a game account</p>
@@ -681,9 +682,8 @@
         [/@link]
       </div>
       [/#if]
-              [#-- Updated div in alternativeLogins macro. Line breaks added for readability. --]
-          <div id="login-button-container" class="login-button-container" data-federated-csrf="$federatedCSRFToken}">
     </div>
+  </div>
   [/#if]
 [/#macro]
 

@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Privacy() {
   return (
-    <section className="relative mt-80 text-primary-foreground flex flex-col items-center justify-center gap-4 p-4 text-center">
+    <section className="relative mt-80 text-primary flex flex-col items-center justify-center gap-4 p-4 text-center">
       This is an example application, please see{' '}
       <Link
         className="underline"

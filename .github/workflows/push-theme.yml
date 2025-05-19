@@ -1,0 +1,47 @@
+name: Push FusionAuth Themes
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  push-themes:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        theme:
+          - { directory: './packages/fusionauth/changebank/tpl', id: '${{ secrets.FA_THEME_ID_CHANGEBANK }}' }
+          - { directory: './packages/fusionauth/finexa/tpl', id: '${{ secrets.FA_THEME_ID_FINEXA }}' }
+          - { directory: './packages/fusionauth/iron-pixel/tpl', id: '${{ secrets.FA_THEME_ID_IRONPIXEL }}' }
+          - { directory: './packages/fusionauth/tacostruck/tpl', id: '${{ secrets.FA_THEME_ID_TACOSTRUCK }}' }
+    
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+
+    - name: Install dependencies
+      run: |
+        npm install -g @fusionauth/cli
+        npm install
+
+    - name: Run build commands
+      run: |
+        if [ -f "package.json" ] && grep -q "build" "package.json"; then
+          npm run build
+        fi
+
+    - name: Push theme
+      env:
+        FA_API_KEY: ${{ secrets.FA_API_KEY }}
+        FA_URL: ${{ secrets.FA_URL }}
+      run: |
+        fusionauth theme:push \
+          ${{ matrix.theme.id }} \
+          -k $FA_API_KEY \
+          -h $FA_URL \
+          -i ${{ matrix.theme.directory }}
